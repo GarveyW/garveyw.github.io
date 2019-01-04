@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>一桌二椅</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://blog.bookmarks.top/"/>
+  <updated>2019-01-04T18:24:45.541Z</updated>
+  <id>http://blog.bookmarks.top/</id>
+  
+  <author>
+    <name>Garvey</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>模板</title>
+    <link href="http://blog.bookmarks.top/2019/01/05/moban/"/>
+    <id>http://blog.bookmarks.top/2019/01/05/moban/</id>
+    <published>2019-01-04T18:21:32.000Z</published>
+    <updated>2019-01-04T18:24:45.541Z</updated>
+    
+    <content type="html"><![CDATA[<p> 摘要。</p><a id="more"></a> <p>正文。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt; 摘要。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="日记" scheme="http://blog.bookmarks.top/categories/%E6%97%A5%E8%AE%B0/"/>
+    
+    
+      <category term="Testing                   （这个就是文章的标签了）" scheme="http://blog.bookmarks.top/tags/Testing-%EF%BC%88%E8%BF%99%E4%B8%AA%E5%B0%B1%E6%98%AF%E6%96%87%E7%AB%A0%E7%9A%84%E6%A0%87%E7%AD%BE%E4%BA%86%EF%BC%89/"/>
+    
+      <category term="Another Tag               （这个就是文章的标签了）" scheme="http://blog.bookmarks.top/tags/Another-Tag-%EF%BC%88%E8%BF%99%E4%B8%AA%E5%B0%B1%E6%98%AF%E6%96%87%E7%AB%A0%E7%9A%84%E6%A0%87%E7%AD%BE%E4%BA%86%EF%BC%89/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>你好，2019</title>
+    <link href="http://blog.bookmarks.top/2019/01/01/e4-bd-a0-e5-a5-bd-ef-bc-8c2019/"/>
+    <id>http://blog.bookmarks.top/2019/01/01/e4-bd-a0-e5-a5-bd-ef-bc-8c2019/</id>
+    <published>2019-01-01T11:21:51.000Z</published>
+    <updated>2019-01-04T18:27:14.603Z</updated>
+    
+    <content type="html"><![CDATA[<p>2019年元月1日。 今天8点多才睡下，一觉醒来已经是下午5点多了。 不写什么了，发几张照片吧。</p> <a id="more"></a> <p>2019年元月1日。 今天8点多才睡下，一觉醒来已经是下午5点多了。 不写什么了，发几张照片吧。</p><p> <img src="https://wx2.sinaimg.cn/mw690/7c42c961ly1fyrae5higfj20l60m8myq.jpg" alt=""> <img src="https://wx2.sinaimg.cn/mw690/7c42c961ly1fyrae4osvdj20qo0zk0yd.jpg" alt=""></p><p><img src="https://wx2.sinaimg.cn/mw690/7c42c961ly1fyrae64xkgj20zk0qojy1.jpg" alt=""></p><p><img src="https://wx2.sinaimg.cn/mw690/7c42c961ly1fyrae7g13nj20zk0qo106.jpg" alt=""></p><p><img src="https://wx3.sinaimg.cn/mw690/7c42c961ly1fyrae8vybrj20qo0zkdnl.jpg" alt=""></p><p><img src="https://wx2.sinaimg.cn/mw690/7c42c961ly1fyrafpzqidj20qo0zk0xw.jpg" alt=""></p><p><img src="https://wx1.sinaimg.cn/mw690/7c42c961ly1fyrae6x3xbj20qo0zkahy.jpg" alt=""></p><p><img src="https://wx4.sinaimg.cn/mw690/7c42c961ly1fyrae8fazgj20qo0zkjve.jpg" alt=""></p><p><img src="https://wx2.sinaimg.cn/mw690/7c42c961ly1fyrae9gf3rj20zk0qodmb.jpg" alt=""></p><p>希望2019一切顺利。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;2019年元月1日。 今天8点多才睡下，一觉醒来已经是下午5点多了。 不写什么了，发几张照片吧。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="日记" scheme="http://blog.bookmarks.top/categories/%E6%97%A5%E8%AE%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>再见，2018</title>
+    <link href="http://blog.bookmarks.top/2018/12/31/e5-86-8d-e8-a7-812018/"/>
+    <id>http://blog.bookmarks.top/2018/12/31/e5-86-8d-e8-a7-812018/</id>
+    <published>2018-12-31T06:38:27.000Z</published>
+    <updated>2019-01-04T17:00:20.388Z</updated>
+    
+    <content type="html"><![CDATA[<p>[audio mp3=”<a href="http://www.wjw.me/wp-content/uploads/2018/12/渡口.mp3&quot;\]\[/audio\]" target="_blank" rel="noopener">http://www.wjw.me/wp-content/uploads/2018/12/渡口.mp3&quot;\]\[/audio\]</a> 2018年的最后一天了，我好像从来没想过2019年会来得这么快，15年刚上大学的时候觉得四年大学生活会很漫长，在一次次感受到学校的不靠谱之后，也天天想着赶紧毕业。现在真的到了马上毕业的时候，却很舍不得。 在这所环境还不错（至少合我心意）的大学里，虽然生活习惯很慢，甚至于懒散，但是我已经习惯了这样的生活，习惯了一觉睡到中午然后醒来纠结午饭吃什么，习惯了坐在琴房里练练琴玩玩手机，习惯了不想练琴就找人唠唠嗑…… 宿舍里的智障舍友们，会在睡不着的夜晚胡乱聊些什么，吃个烧烤什么的，三年多的相处，基本已经知道了每个人的习惯。且不说友情，就光是在同一间宿舍生活三年，突然要天南海北，就好像忽然失去了什么。说起来，宿舍里已经很久没有凑齐所有人了，班里有些人也好久没见了，大家都在忙自己的事情。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;[audio mp3=”&lt;a href=&quot;http://www.wjw.me/wp-content/uploads/2018/12/渡口.mp3&amp;quot;\]\[/audio\]&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://www.wjw
+      
+    
+    </summary>
+    
+      <category term="日记" scheme="http://blog.bookmarks.top/categories/%E6%97%A5%E8%AE%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>测试</title>
+    <link href="http://blog.bookmarks.top/2018/12/30/e6-b5-8b-e8-af-95-trashed/"/>
+    <id>http://blog.bookmarks.top/2018/12/30/e6-b5-8b-e8-af-95-trashed/</id>
+    <published>2018-12-29T19:07:28.000Z</published>
+    <updated>2019-01-04T17:00:20.388Z</updated>
+    
+    <content type="html"><![CDATA[<p>测试</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;测试&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="未分类" scheme="http://blog.bookmarks.top/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>熬夜是病</title>
+    <link href="http://blog.bookmarks.top/2018/12/29/e7-86-ac-e5-a4-9c-e6-98-af-e7-97-85/"/>
+    <id>http://blog.bookmarks.top/2018/12/29/e7-86-ac-e5-a4-9c-e6-98-af-e7-97-85/</id>
+    <published>2018-12-28T17:51:47.000Z</published>
+    <updated>2019-01-04T17:00:20.388Z</updated>
+    
+    <content type="html"><![CDATA[<p>熬夜是病，真的，最近熬起夜来简直上瘾。本来明明没什么事可以早些睡觉了，但是还是不想睡，哪怕困得打哈欠，看看时间，也还是找些什么事做，就不睡觉!熬夜就像不痛不痒的病一样，总是让我莫名其妙打起精神来。 最近论文弄得差不多了，考研也结束了，不管结果怎么样，总算是过去了。本该好好休息，我却得了熬夜“病”，真的不知道怎么办好唉。 考研的时候，视频课看到很晚；写论文的时候，熬夜改到很晚，都是有理由的熬夜，现在已经不那么忙了，我却不想睡觉了。每天也不知道都在干什么，什么也记不住。作息时间一团糟，宿舍床边也一团糟，真的是懒烂人一个了。 2018年马上就要过完了，感觉这一年也没多少收获，希望最后的几天里，再做些有意义的事，让2018结束的不那么匆忙。不能再那么懒，不能熬夜，应该可以的吧。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;熬夜是病，真的，最近熬起夜来简直上瘾。本来明明没什么事可以早些睡觉了，但是还是不想睡，哪怕困得打哈欠，看看时间，也还是找些什么事做，就不睡觉!熬夜就像不痛不痒的病一样，总是让我莫名其妙打起精神来。 最近论文弄得差不多了，考研也结束了，不管结果怎么样，总算是过去了。本该好好休
+      
+    
+    </summary>
+    
+      <category term="日记" scheme="http://blog.bookmarks.top/categories/%E6%97%A5%E8%AE%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>晚安吧，或者早安</title>
+    <link href="http://blog.bookmarks.top/2018/12/17/e6-99-9a-e5-ae-89-e5-90-a7-ef-bc-8c-e6-88-96-e8-80-85-e6-97-a9-e5-ae-89/"/>
+    <id>http://blog.bookmarks.top/2018/12/17/e6-99-9a-e5-ae-89-e5-90-a7-ef-bc-8c-e6-88-96-e8-80-85-e6-97-a9-e5-ae-89/</id>
+    <published>2018-12-16T21:16:38.000Z</published>
+    <updated>2019-01-04T17:00:20.388Z</updated>
+    
+    <content type="html"><![CDATA[<p>从12月16号早上，到现在（12月17日05：00），我终于用一天多时间把论文字数从0怼到了8540，我不知道现在在想什么了，满脑子都是《春江花月夜》的旋律，满脑子都是，已经听到想吐了！希望几个小时之后交上去老师能对我温柔点，改改什么的，千万不要重写！我不想再听这首曲子了，不想！ 算了，睡觉去，三四个小时之后就该起床了。 <img src="http://wjw.me/wp-content/uploads/2018/12/70E51818-43CA-4508-AD14-CED3A869B726.png" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;从12月16号早上，到现在（12月17日05：00），我终于用一天多时间把论文字数从0怼到了8540，我不知道现在在想什么了，满脑子都是《春江花月夜》的旋律，满脑子都是，已经听到想吐了！希望几个小时之后交上去老师能对我温柔点，改改什么的，千万不要重写！我不想再听这首曲子了，
+      
+    
+    </summary>
+    
+      <category term="日记" scheme="http://blog.bookmarks.top/categories/%E6%97%A5%E8%AE%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>好冷啊，我在福建冻成狗。</title>
+    <link href="http://blog.bookmarks.top/2018/12/13/e5-a5-bd-e5-86-b7-e5-95-8a-ef-bc-8c-e6-88-91-e5-9c-a8-e7-a6-8f-e5-bb-ba-e5-86-bb-e6-88-90-e7-8b-97-e3-80-82/"/>
+    <id>http://blog.bookmarks.top/2018/12/13/e5-a5-bd-e5-86-b7-e5-95-8a-ef-bc-8c-e6-88-91-e5-9c-a8-e7-a6-8f-e5-bb-ba-e5-86-bb-e6-88-90-e7-8b-97-e3-80-82/</id>
+    <published>2018-12-13T10:58:02.000Z</published>
+    <updated>2019-01-04T17:00:20.388Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天真的冷。这两天稍微有点感冒，切实感受到了南方的冬天。 <img src="http://wjw.me/wp-content/uploads/2018/12/005BYqpggy1fy5bax9cpxj30ix0gimy8-300x262.jpg" alt=""> 光看天气预报没什么感觉，上午的时候，把珍藏许久的棉裤，毛衣外套拿出来穿上了，要知道前一天还只是单衣觉得稍微有点儿冷。而且而且，穿着棉裤裹在被子里，过了半个来小时还是凉的，我竟然，连被子都没捂热！！！ 该写的论文还是没是么动静，考研也没什么动力继续复习了，明知道没戏，真的打不起精神来了。所有的一切，都是自己造成的，希望，以后做事不要再像现在这样了吧。昨天晚上反思了很多，但是没能写下来。天冷了，马上要过年了，很多事情，都该结束了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;今天真的冷。这两天稍微有点感冒，切实感受到了南方的冬天。 &lt;img src=&quot;http://wjw.me/wp-content/uploads/2018/12/005BYqpggy1fy5bax9cpxj30ix0gimy8-300x262.jpg&quot; alt=&quot;&quot;&gt; 光看天
+      
+    
+    </summary>
+    
+      <category term="日记" scheme="http://blog.bookmarks.top/categories/%E6%97%A5%E8%AE%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>音乐会结束，毕业啦！！！</title>
+    <link href="http://blog.bookmarks.top/2018/12/04/e9-9f-b3-e4-b9-90-e4-bc-9a-e7-bb-93-e6-9d-9f-ef-bc-8c-e6-af-95-e4-b8-9a-e5-95-a6-ef-bc-81-ef-bc-81-ef-bc-81/"/>
+    <id>http://blog.bookmarks.top/2018/12/04/e9-9f-b3-e4-b9-90-e4-bc-9a-e7-bb-93-e6-9d-9f-ef-bc-8c-e6-af-95-e4-b8-9a-e5-95-a6-ef-bc-81-ef-bc-81-ef-bc-81/</id>
+    <published>2018-12-03T17:26:58.000Z</published>
+    <updated>2019-01-04T17:00:20.388Z</updated>
+    
+    <content type="html"><![CDATA[<p>2018/12/03，我跟搭档的毕业音乐会终于结束啦！ 以后不用天天唢呐炸楼了，也不用拉着伴奏（被伴奏拉着）和伴奏了，可以安心做点儿其他事情，写论文。 很感谢老师，感谢来帮忙的学弟学妹同学们，这么长一点时间一直帮我。化妆，场务都很忙，自己情绪有时候也不太好，他们都没什么怨言。这场音乐会下来，真的很辛苦。自己的准备，伴奏的准备。 最近一段时间，大家都很忙，今天还有那么多人能来我的音乐会，真的很荣幸。 更开心今天在自己的音乐会结束能跟老师和女神们，还有我的兄弟们合影！！！</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;2018/12/03，我跟搭档的毕业音乐会终于结束啦！ 以后不用天天唢呐炸楼了，也不用拉着伴奏（被伴奏拉着）和伴奏了，可以安心做点儿其他事情，写论文。 很感谢老师，感谢来帮忙的学弟学妹同学们，这么长一点时间一直帮我。化妆，场务都很忙，自己情绪有时候也不太好，他们都没什么怨言
+      
+    
+    </summary>
+    
+      <category term="日记" scheme="http://blog.bookmarks.top/categories/%E6%97%A5%E8%AE%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>有点儿小地震</title>
+    <link href="http://blog.bookmarks.top/2018/11/27/e6-9c-89-e7-82-b9-e5-84-bf-e5-b0-8f-e5-9c-b0-e9-9c-87/"/>
+    <id>http://blog.bookmarks.top/2018/11/27/e6-9c-89-e7-82-b9-e5-84-bf-e5-b0-8f-e5-9c-b0-e9-9c-87/</id>
+    <published>2018-11-26T17:03:58.000Z</published>
+    <updated>2019-01-04T17:00:20.388Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天（现在看应该是昨天了）早起被地震摇醒了。还没等我想要跑，数个1、2，就停了，翻身打算继续睡。 <img src="http://wjw.me/wp-content/uploads/2018/12/005BYqpggy1fxlye65lrpj30g70ej45n.jpg" alt=""> 然后翻了下朋友圈，全是地震的消息哈哈，反应贼鸡儿快，就好像福建人地震第一想到的不是要跑而是发朋友圈。 晚上据说还有几次小震，但是真的一点都没有感觉到。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;今天（现在看应该是昨天了）早起被地震摇醒了。还没等我想要跑，数个1、2，就停了，翻身打算继续睡。 &lt;img src=&quot;http://wjw.me/wp-content/uploads/2018/12/005BYqpggy1fxlye65lrpj30g70ej45n.jpg&quot;
+      
+    
+    </summary>
+    
+      <category term="日记" scheme="http://blog.bookmarks.top/categories/%E6%97%A5%E8%AE%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>小记</title>
+    <link href="http://blog.bookmarks.top/2018/11/23/e4-ba-ba-e6-80-bb-e6-98-af-e8-b6-8a-e6-9d-a5-e8-b6-8a-e6-87-92/"/>
+    <id>http://blog.bookmarks.top/2018/11/23/e4-ba-ba-e6-80-bb-e6-98-af-e8-b6-8a-e6-9d-a5-e8-b6-8a-e6-87-92/</id>
+    <published>2018-11-23T07:57:13.000Z</published>
+    <updated>2019-01-04T17:00:20.387Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近一段时间整个人都是一种迷迷糊糊的状态。很多乱七八糟的事情，看起来很忙，但是根本都不知道自己在干什么。 没怎好好看书，也没好好练琴，马上就要开音乐会了，这个状态真的感觉很慌。最近又是校庆，又是比赛的排练，昨天从下午一直到晚上快十一点都还在排练。比赛和校庆的时间都有冲突，等到演出的时候也去不了，每天排练就觉得在浪费时间。 昨天买了景安的终身香港空间，速度挺快，价格也不贵，就把博客和书签站搬过来了，比之前的免费空间快了不少。景安的免费空间用起来还算方便，不过白名单之类的比较严格，稍微麻烦一些。多站点要修改.htaccess文件，找了很多教程，成功把几个站都放到一台主机上。 最近一段时间状态就是懒得读书，懒得练琴，什么都懒得干。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;最近一段时间整个人都是一种迷迷糊糊的状态。很多乱七八糟的事情，看起来很忙，但是根本都不知道自己在干什么。 没怎好好看书，也没好好练琴，马上就要开音乐会了，这个状态真的感觉很慌。最近又是校庆，又是比赛的排练，昨天从下午一直到晚上快十一点都还在排练。比赛和校庆的时间都有冲突，等
+      
+    
+    </summary>
+    
+      <category term="日记" scheme="http://blog.bookmarks.top/categories/%E6%97%A5%E8%AE%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>2018第一场毕业音乐会</title>
+    <link href="http://blog.bookmarks.top/2018/11/15/2018-e7-ac-ac-e4-b8-80-e5-9c-ba-e6-af-95-e4-b8-9a-e9-9f-b3-e4-b9-90-e4-bc-9a/"/>
+    <id>http://blog.bookmarks.top/2018/11/15/2018-e7-ac-ac-e4-b8-80-e5-9c-ba-e6-af-95-e4-b8-9a-e9-9f-b3-e4-b9-90-e4-bc-9a/</id>
+    <published>2018-11-15T04:05:51.000Z</published>
+    <updated>2019-01-04T17:00:20.387Z</updated>
+    
+    <content type="html"><![CDATA[<p>昨天班里的第一场毕业音乐会结束了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;昨天班里的第一场毕业音乐会结束了。&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="日记" scheme="http://blog.bookmarks.top/categories/%E6%97%A5%E8%AE%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>为什么学琴</title>
+    <link href="http://blog.bookmarks.top/2018/10/30/e4-b8-ba-e4-bb-80-e4-b9-88-e5-ad-a6-e7-90-b4/"/>
+    <id>http://blog.bookmarks.top/2018/10/30/e4-b8-ba-e4-bb-80-e4-b9-88-e5-ad-a6-e7-90-b4/</id>
+    <published>2018-10-29T18:35:56.000Z</published>
+    <updated>2019-01-04T17:00:20.387Z</updated>
+    
+    <content type="html"><![CDATA[<p>上周五，老师带我们去采风，去听《状元认母》。是漳州市道清歌仔戏团的演出。 到场的绝大多数都是老年人，有一些凑热闹的小孩子。戏曲，尤其是这些偏地方的戏种已经很少有年轻人愿意听了。现在的民乐稍好一些，但是我感觉也很少有人真心喜欢民乐了。后来了解到，这个歌仔戏团里大部分人都是爱好者，多是有兴趣才学戏，顺便说，团里的大提跟唢呐是同一个人，平常拉大提，遇到唢呐的部分就放下大提吹两句唢呐。唱的水平怎么样我也不太懂，但是看他们台前幕后都是很敬业的，传统戏种，台子还是竹木搭的，加上现代舞台效果。 戏台像京剧的戏台一样，台上一桌二椅，就是所有的道具了，其他的情景全靠演员的表现，之前有看到说，听戏能看到三个人，台上的演员，演员的角色和一个正在表演的人，这很考验演员的功力。作为一个很少有机会现场看戏的人，我很难区分出他们跟科班出身的有什么差别。 今天在琴房的时候，听到老师在骂他的孩子不练琴，小孩子哭得很厉害，我就在想，学琴到底是为了什么，是家长让学，是为了考学还是自己真的喜欢。很多学琴的人不知道自己到底喜不喜欢，不知道自己到底为什么要学琴，练琴就没什么动力，很痛苦。我学琴的时候，因为刚好高中考学，碰到师哥吹唢呐，一个农村长大的孩子，对唢呐还是很喜欢的，就尝试着去找老师学。刚开始吹得不好，很吵很累，一直坚持下来之后，慢慢发现离不开唢呐了，甚至于听到唢呐声就想吹一吹，活动一下。 可以说，我学唢呐是有一部分利用它考学的想法的，但是，现在吹唢呐完全是因为喜欢唢呐。上了大学，学了点单簧管才慢慢发现，唢呐才是真爱。我也很喜欢单簧管，很喜欢它的音色。学了也不少曲子，在乐队也有演出过，但是总觉得，如果换成唢呐，会有更多有意思的东西可以尝试。中国人讲大道至简，唢呐就是一种不能再减的乐器，小身板只有一根杆子，一个碗，加上必要的芯子哨片就完全可以演奏，甚至于有些曲子只需要哨片跟芯子唢呐碗，靠手来掌握音高。单簧管则受限于键子，很多技巧不能发挥。跑题了，也就是说，学琴多多少少应该也是要有一点兴趣的成分的，不然学琴简直就是一种摧残，学不好，浪费了时间，还打消了对乐器的兴趣。 那个孩子是不是真的想学琴我不知道，只是因为这件事，想起了很多家长强迫孩子学琴，考级，初衷是好的，但是要是没有兴趣，对孩子来说可能就是一种煎熬。很多家长对考级的信仰，也完全超出了考级的本质，考级只能粗略判断一个人的水平，并不能说考级多高，就能有多高的水平。如果我的孩子愿意学琴，我不愿意强迫他去考级，更希望他是真的对音乐感兴趣，真的愿意去练，去吃苦，不然的话，学琴只是浪费了大量的时间，金钱去学习一门无用的技能。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;上周五，老师带我们去采风，去听《状元认母》。是漳州市道清歌仔戏团的演出。 到场的绝大多数都是老年人，有一些凑热闹的小孩子。戏曲，尤其是这些偏地方的戏种已经很少有年轻人愿意听了。现在的民乐稍好一些，但是我感觉也很少有人真心喜欢民乐了。后来了解到，这个歌仔戏团里大部分人都是爱好
+      
+    
+    </summary>
+    
+      <category term="文章" scheme="http://blog.bookmarks.top/categories/%E6%96%87%E7%AB%A0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>体测</title>
+    <link href="http://blog.bookmarks.top/2018/10/28/e4-bd-93-e6-b5-8b/"/>
+    <id>http://blog.bookmarks.top/2018/10/28/e4-bd-93-e6-b5-8b/</id>
+    <published>2018-10-28T15:15:44.000Z</published>
+    <updated>2019-01-04T17:00:20.387Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天，2018/10/28，大学的最后一次体测，下午五点的时候在田径场集合。 这差不多是这一学期班里人最多的一次了，虽然还是有些人没有来，因为休学或者其他什么事情。转眼大学四年马上就结束了，毕了业，很多人怕是都再难相见。 顺便说，平时多锻炼身体还是很有必要的，不然跑个五十米跑得腿疼。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;今天，2018/10/28，大学的最后一次体测，下午五点的时候在田径场集合。 这差不多是这一学期班里人最多的一次了，虽然还是有些人没有来，因为休学或者其他什么事情。转眼大学四年马上就结束了，毕了业，很多人怕是都再难相见。 顺便说，平时多锻炼身体还是很有必要的，不然跑个五十米
+      
+    
+    </summary>
+    
+      <category term="日记" scheme="http://blog.bookmarks.top/categories/%E6%97%A5%E8%AE%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>415</title>
+    <link href="http://blog.bookmarks.top/2018/10/26/415/"/>
+    <id>http://blog.bookmarks.top/2018/10/26/415/</id>
+    <published>2018-10-25T19:30:28.000Z</published>
+    <updated>2019-01-04T17:00:20.387Z</updated>
+    
+    <content type="html"><![CDATA[<p>2018年10月26日凌晨1：39分，刚刚写完开题报告，还有一篇三千来字的文献综述没有写，白天拍照排练一直到十一点多，又在楼下和学弟聊了一会，就回来写开题报告，很仓促，资料都还没有看完，也没有想好具体的选题，只能硬着头皮先写着。现在去洗个澡，回来再继续。 现在是2：20，洗澡回来，要开始写文献综述。 3：30，不写了，睡觉，明天再说！ 哦不对，不应该是明天，是今天，现在是下午1：30，不知道为什么还在写这个。 我现在在看《29+1》，是一个台湾女孩子推荐给我的，还没有写文献综述。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;2018年10月26日凌晨1：39分，刚刚写完开题报告，还有一篇三千来字的文献综述没有写，白天拍照排练一直到十一点多，又在楼下和学弟聊了一会，就回来写开题报告，很仓促，资料都还没有看完，也没有想好具体的选题，只能硬着头皮先写着。现在去洗个澡，回来再继续。 现在是2：20，洗
+      
+    
+    </summary>
+    
+      <category term="日记" scheme="http://blog.bookmarks.top/categories/%E6%97%A5%E8%AE%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>我又在熬夜了</title>
+    <link href="http://blog.bookmarks.top/2018/10/24/e6-88-91-e5-8f-88-e5-9c-a8-e7-86-ac-e5-a4-9c-e4-ba-86/"/>
+    <id>http://blog.bookmarks.top/2018/10/24/e6-88-91-e5-8f-88-e5-9c-a8-e7-86-ac-e5-a4-9c-e4-ba-86/</id>
+    <published>2018-10-23T20:00:55.000Z</published>
+    <updated>2019-01-04T17:00:20.387Z</updated>
+    
+    <content type="html"><![CDATA[<hr><p>我又在熬夜了，现在是凌晨三点五十，一直想要早睡，总是各种不想睡，睡不着。 大半夜用Typecho做了个导航站替代了原来的HTML页，我这个神经病也没谁了。 本来一个导航页用个HTML就已经够了，速度还快，就是没事儿爱瞎折腾。。。明天还要起来写论文，还要排练，合伴奏，我的个乖乖，唉，写完就睡吧，不然明早起来又中午了。 不过说实话，熬夜做的这个导航页还是挺满意的，虽然都是用的现成的程序，模板，但是是亲手搭起来的，如果有时间要学着自己做些模板玩玩，想想就刺激！从小就很佩服那些程序员，我这个兴趣现在都只能划拉划拉现成的工具什么的，要是能自己做，那超刺激。毕业了有时间要再看看HTML，PHP什么的菜鸟教程，学不会慢慢玩哈哈！</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;hr&gt;
+&lt;p&gt;我又在熬夜了，现在是凌晨三点五十，一直想要早睡，总是各种不想睡，睡不着。 大半夜用Typecho做了个导航站替代了原来的HTML页，我这个神经病也没谁了。 本来一个导航页用个HTML就已经够了，速度还快，就是没事儿爱瞎折腾。。。明天还要起来写论文，还要排练，合伴奏
+      
+    
+    </summary>
+    
+      <category term="日记" scheme="http://blog.bookmarks.top/categories/%E6%97%A5%E8%AE%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>音乐会第四首曲子初具雏形</title>
+    <link href="http://blog.bookmarks.top/2018/10/20/e9-9f-b3-e4-b9-90-e4-bc-9a-e7-ac-ac-e5-9b-9b-e9-a6-96-e6-9b-b2-e5-ad-90-e5-88-9d-e5-85-b7-e9-9b-8f-e5-bd-a2/"/>
+    <id>http://blog.bookmarks.top/2018/10/20/e9-9f-b3-e4-b9-90-e4-bc-9a-e7-ac-ac-e5-9b-9b-e9-a6-96-e6-9b-b2-e5-ad-90-e5-88-9d-e5-85-b7-e9-9b-8f-e5-bd-a2/</id>
+    <published>2018-10-20T14:57:31.000Z</published>
+    <updated>2019-01-04T17:00:20.382Z</updated>
+    
+    <content type="html"><![CDATA[<p>12月3日的音乐会跟搭档准备每人六首曲子，声乐的六首已经基本完成了，我的还不知道曲目都是很什么。 音乐会已经定了三首曲子，《斯塔米茨第三协奏曲 第三乐章》、《苏北点变奏曲》、《罗琳桑 幻想曲》，还有一首《驴车》今天刚试过。 《驴车》是一首很好玩的曲子，四声驴叫开始，诙谐幽默。emmmm，反正我们的音乐会也是诙谐幽默的，民歌+黑管，很奇怪的组合，再加上一首唢呐助助兴，不敢想像了。 今天跟钢琴合得与还算愉快，虽然都还没怎么练，大体上有个样子就很有趣了。还准备凑一首唢呐串烧，用点儿《猪八戒背媳妇》这种风格的曲子。这样半场音乐会的曲子也不是很难凑，一直还没怎么专心想过这场音乐会的具体细节，现在看来已经大体有个雏形了。 跟吉他学弟准备的曲子可以算作第五首，虽然还没确定最后到底吹什么，不过试下来倒也没有那么难。准备一首《教父》的主题曲。大概试了一下，还不错，明天找份谱子要认真练一下合一下。 准备时间不多咯，差不多下周四就要去拍海报，然后可能还要订一身礼服，买花，印海报，横幅，邀请函，节目单一大堆东西。   附：《驴车》曲谱 <img src="http://wjw.me/wp-content/uploads/2018/12/1.jpg" alt=""> <img src="http://wjw.me/wp-content/uploads/2018/12/2.jpg" alt=""> <img src="http://wjw.me/wp-content/uploads/2018/12/3.jpg" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;12月3日的音乐会跟搭档准备每人六首曲子，声乐的六首已经基本完成了，我的还不知道曲目都是很什么。 音乐会已经定了三首曲子，《斯塔米茨第三协奏曲 第三乐章》、《苏北点变奏曲》、《罗琳桑 幻想曲》，还有一首《驴车》今天刚试过。 《驴车》是一首很好玩的曲子，四声驴叫开始，诙谐幽默
+      
+    
+    </summary>
+    
+      <category term="日记" scheme="http://blog.bookmarks.top/categories/%E6%97%A5%E8%AE%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Kedi（2017）又名《爱猫之城》，《伊斯坦布尔的猫》</title>
+    <link href="http://blog.bookmarks.top/2018/10/17/kedi-ef-bc-882017-ef-bc-89-e5-8f-88-e5-90-8d-e3-80-8a-e7-88-b1-e7-8c-ab-e4-b9-8b-e5-9f-8e-e3-80-8b-ef-bc-8c-e3-80-8a-e4-bc-8a-e6-96-af-e5-9d-a6-e5-b8-83-e5-b0-94-e7-9a-84-e7-8c-ab-e3-80-8b/"/>
+    <id>http://blog.bookmarks.top/2018/10/17/kedi-ef-bc-882017-ef-bc-89-e5-8f-88-e5-90-8d-e3-80-8a-e7-88-b1-e7-8c-ab-e4-b9-8b-e5-9f-8e-e3-80-8b-ef-bc-8c-e3-80-8a-e4-bc-8a-e6-96-af-e5-9d-a6-e5-b8-83-e5-b0-94-e7-9a-84-e7-8c-ab-e3-80-8b/</id>
+    <published>2018-10-17T14:36:25.000Z</published>
+    <updated>2019-01-04T17:00:20.381Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://wjw.me/wp-content/uploads/2018/12/006HJ39wgy1fg8dg3rbqij30bd0gojtf.jpg" alt=""></p><p><img src="https://img03.sogoucdn.com/v2/thumb/resize/w/258/h/360/t/0/retype/ext/auto/q/75?appid=200835&amp;url=http%3A%2F%2Fimg04.sogoucdn.com%2Fapp%2Fa%2F200803%2F180239630eeba68afa73f0a140c6f1b4" alt="">   <img src="http://wjw.me/wp-content/uploads/2018/12/20180430164049_d1ba3eb48790acd2ca00797f3f7add12_5.jpeg" alt=""> <img src="http://wjw.me/wp-content/uploads/2018/12/huv_3064789226_m_601_m1_480_360.jpg" alt=""></p><p><img src="http://i2.hdslb.com/bfs/archive/60f230eb3ffbbeade6d9a004050b45703a3ed093.jpg" alt=""></p><p><a href="https://garvey.000webhostapp.com/?/%E4%BC%8A%E6%96%AF%E5%9D%A6%E5%B8%83%E5%B0%94%E7%9A%84%E7%8C%ABKedi%20%282017%29%201080p%20x264/" target="_blank" rel="noopener">在线观看</a></p><p><a href="https://garvey.000webhostapp.com/?/%E4%BC%8A%E6%96%AF%E5%9D%A6%E5%B8%83%E5%B0%94%E7%9A%84%E7%8C%ABKedi%20%282017%29%201080p%20x264/Kedi%20%282017%29%201080p.mp4" target="_blank" rel="noopener">下载地址</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;http://wjw.me/wp-content/uploads/2018/12/006HJ39wgy1fg8dg3rbqij30bd0gojtf.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://img03.sogoucdn.
+      
+    
+    </summary>
+    
+      <category term="分享-其他" scheme="http://blog.bookmarks.top/categories/%E5%88%86%E4%BA%AB-%E5%85%B6%E4%BB%96/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Lambada钢琴谱</title>
+    <link href="http://blog.bookmarks.top/2018/10/17/lambada-e9-92-a2-e7-90-b4-e8-b0-b1/"/>
+    <id>http://blog.bookmarks.top/2018/10/17/lambada-e9-92-a2-e7-90-b4-e8-b0-b1/</id>
+    <published>2018-10-17T13:09:51.000Z</published>
+    <updated>2019-01-04T17:00:20.362Z</updated>
+    
+    <content type="html"><![CDATA[<p>lambada，又名朗巴得、兰巴达、粘巴达，是发源于巴西东北部巴依亚省的一种拉丁舞，是一种迪斯科色情舞。Lambada舞蹈音乐欢快强烈，场面热情奔放。现场的音乐和情感，直接而粗犷，肢体语言丰富。进行Lambada舞蹈时，女舞者只穿短截比基尼式迷你裙，男舞者或穿背心或穿花衬衫，一般是热带海滩常见的装扮，使Lambada舞显得比较热辣性感。因此巴西曾经一度禁止在公众场合表演Lambada舞。进入90年代，Lambada舞在国际间极为流行，迅速席卷全球。2003年巴西国家综艺歌舞团到中国巡演，也表演了Lambada舞。 <img src="http://wjw.me/wp-content/uploads/2018/12/01.jpg" alt=""> <img src="http://wjw.me/wp-content/uploads/2018/12/02.jpg" alt=""> <img src="http://wjw.me/wp-content/uploads/2018/12/03.jpg" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;lambada，又名朗巴得、兰巴达、粘巴达，是发源于巴西东北部巴依亚省的一种拉丁舞，是一种迪斯科色情舞。Lambada舞蹈音乐欢快强烈，场面热情奔放。现场的音乐和情感，直接而粗犷，肢体语言丰富。进行Lambada舞蹈时，女舞者只穿短截比基尼式迷你裙，男舞者或穿背心或穿花衬衫
+      
+    
+    </summary>
+    
+      <category term="分享" scheme="http://blog.bookmarks.top/categories/%E5%88%86%E4%BA%AB/"/>
+    
+      <category term="分享-其他" scheme="http://blog.bookmarks.top/categories/%E5%88%86%E4%BA%AB/%E5%88%86%E4%BA%AB-%E5%85%B6%E4%BB%96/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>使用 OneDrive 提供的 5T 存储自建 OneIndex 网盘（附免费 Office 365 教育版注册方法）</title>
+    <link href="http://blog.bookmarks.top/2018/10/16/onedrive-oneindex-wangpan/"/>
+    <id>http://blog.bookmarks.top/2018/10/16/onedrive-oneindex-wangpan/</id>
+    <published>2018-10-16T04:15:21.000Z</published>
+    <updated>2019-01-04T17:00:20.326Z</updated>
+    
+    <content type="html"><![CDATA[<p>题目有点拗口，但是意思就是，先去申请一个 OneDrive 的网盘，正常途径申请只是 5G 容量的普通版，但微软面向学生推出了一个免费的 Office 365 教育版，包含 OneDrive 5T 容量，很关键而且还是免费的，但必须要微软认证的教育网邮箱才可以注册，这类邮箱网上也有很多人分享出来（<a href="https://51.ruyo.net/8263.html" target="_blank" rel="noopener">网址</a>），但均为阅后即焚的临时邮箱。申请成功后，通过 OneIndex 这个 PHP 程序生成网盘页面。</p><h4 id="申请方法"><a href="#申请方法" class="headerlink" title="申请方法"></a>申请方法</h4><ol><li>去 <a href="http://free365.tw/" target="_blank" rel="noopener">free365.tw</a> 上获取一个临时邮箱，右上角有邮箱地址，用这个地址去注册账号，注意先别关闭这个页面，直到注册过程中收到验证码为止，到这个时候这个邮箱的使命也就完成了，不过邮箱地址要记牢，以后就是用这个邮箱地址登录。</li><li>打开 <a href="https://signup.microsoft.com/signup?sku=student" target="_blank" rel="noopener">Office 365 教育版</a>注册地址，输入上面步骤获取到得临时邮箱，注册之后会让你填写安全邮箱（需要完成邮箱验证）和安全问题，这个安全邮箱最好填一个自己的真实邮箱，方便找回密码，安全问题最好截图保存，以免以后忘记答案。</li></ol><h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><ul><li>此种方式获得的云盘都是域管理员分配的子账号，管理员可以管理你网盘的数据，里面不要存放违法、敏感、重要、私人等的文件，有一天无法访问，或者数据消失也是正常的事。</li><li>通过 <a href="http://portal.office.com/Home" target="_blank" rel="noopener">http://portal.office.com/Home</a> 这个网址登陆吧，原因都懂得。</li></ul><h4 id="查看容量"><a href="#查看容量" class="headerlink" title="查看容量"></a>查看容量</h4><p>此种方式获得的 OneDrive 界面是没有显示容量的，但可以通过【设置】-【网站】-【存储标准】里查看。 <img src="http://wjw.me/wp-content/uploads/2018/12/11.jpg" alt=""> <img src="http://wjw.me/wp-content/uploads/2018/12/12.jpg" alt=""></p><h4 id="搭建-OneIndex-网盘"><a href="#搭建-OneIndex-网盘" class="headerlink" title="搭建 OneIndex 网盘"></a>搭建 OneIndex 网盘</h4><p>OneIndex 的程序，可以对接 OneDrive 网盘，将网盘里的内容直接显示成目录，文件可以直链下载，视频可以在线播放，图片可做图床，感觉很好用，主要是不用服务器空间，也不走服务器流量。 需求：</p><ol><li>PHP 空间，PHP 5.6+ 打开 curl 支持</li><li>OneDrive 账号 (个人、企业版或教育版 / 工作或学校帐户)</li><li>OneIndex 程序 下载地址：<a href="https://github.com/donwa/oneindex" target="_blank" rel="noopener">https://github.com/donwa/oneindex</a></li></ol><p>安装： <img src="http://wjw.me/wp-content/uploads/2018/12/13.gif" alt=""></p><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>OneIndex 这种方式的目录索引列表很特别，不同于 h5ai、Directory Lister、Encode Explorer 这类直接读取服务器文件，也不再受限于服务器的硬盘大小，多大的文件都不怕。 OneDrive 的上传速度也挺快的，正常使用应该不会被删号的，我刚用了几天，似乎没什么问题。目前我还有一个 5G 的 OneDrive 的网盘，存点私人的东西，平时还是用百度云为主，3T 的容量主要是同步手机的相片，但无法同步 Live 照片和视频，嗯又有一个开会员的理由了! 天下没有免费的午餐，免费的才是最贵的，上面都是个玩！ 原文地址：<a href="https://xsinger.me/diy/688.html" target="_blank" rel="noopener">https://xsinger.me/diy/688.html</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;题目有点拗口，但是意思就是，先去申请一个 OneDrive 的网盘，正常途径申请只是 5G 容量的普通版，但微软面向学生推出了一个免费的 Office 365 教育版，包含 OneDrive 5T 容量，很关键而且还是免费的，但必须要微软认证的教育网邮箱才可以注册，这类邮箱
+      
+    
+    </summary>
+    
+      <category term="分享" scheme="http://blog.bookmarks.top/categories/%E5%88%86%E4%BA%AB/"/>
+    
+      <category term="分享-文章" scheme="http://blog.bookmarks.top/categories/%E5%88%86%E4%BA%AB/%E5%88%86%E4%BA%AB-%E6%96%87%E7%AB%A0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>腾讯企业邮箱如何使用域名在客户端设置IMAP、POP3/SMTP？</title>
+    <link href="http://blog.bookmarks.top/2018/10/14/e8-85-be-e8-ae-af-e4-bc-81-e4-b8-9a-e9-82-ae-e7-ae-b1-e5-a6-82-e4-bd-95-e4-bd-bf-e7-94-a8-e5-9f-9f-e5-90-8d-e5-9c-a8-e5-ae-a2-e6-88-b7-e7-ab-af-e8-ae-be-e7-bd-aeimap-e3-80-81pop3-smtp-ef-bc-9f/"/>
+    <id>http://blog.bookmarks.top/2018/10/14/e8-85-be-e8-ae-af-e4-bc-81-e4-b8-9a-e9-82-ae-e7-ae-b1-e5-a6-82-e4-bd-95-e4-bd-bf-e7-94-a8-e5-9f-9f-e5-90-8d-e5-9c-a8-e5-ae-a2-e6-88-b7-e7-ab-af-e8-ae-be-e7-bd-aeimap-e3-80-81pop3-smtp-ef-bc-9f/</id>
+    <published>2018-10-14T05:33:20.000Z</published>
+    <updated>2019-01-04T17:00:20.324Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>第一步：设置cname</strong> 1、进入域名管理页面：域名管理页面是由购买域名时，域名提供商所提供的。如不清楚域名提供商，可先查询域名提供商。 2、找到cname记录设置的位置： 3、添加cname记录： <strong>（1）、如果选择POP类型，请设置：</strong> Cname：pop.域名          别名主机：pop.exmail.qq.com（海外用户别名主机请设置为：hwpop.exmail.qq.com ） Cname值： smtp.域名    别名主机：smtp.exmail.qq.com（海外用户别名主机请设置为：hwsmtp.exmail.qq.com ） 示例：</p><p><img src="http://wjw.me/wp-content/uploads/2018/12/21.jpg" alt=""></p><p><strong>**（2）、</strong> 如果选择IMAP类型，则设置：** Cname值：imap.域名   指向：imap.exmail.qq.com（海外用户别名主机请设置为：hwimap.exmail.qq.com ） Cname值： SMTP.域名  指向：smtp.exmail.qq.com（海外用户别名主机请设置为：hwsmtp.exmail.qq.com ） 示例：</p><p><img src="http://wjw.me/wp-content/uploads/2018/12/22.jpg" alt=""></p><p><strong>第二步：客户端设置</strong> <strong>POP3/SMTP协议</strong> 接收邮件服务器：pop.域名，使用SSL，端口号995 发送邮件服务器：smtp.域名 ，使用SSL，端口号465</p><p><img src="http://wjw.me/wp-content/uploads/2018/12/23.jpg" alt=""></p><p><strong>IMAP协议</strong> 接收邮件服务器：imap.域名 ，使用SSL，端口号993 发送邮件服务器：smtp.域名 ，使用SSL，端口号465</p><p><img src="http://wjw.me/wp-content/uploads/2018/12/24.jpg" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;第一步：设置cname&lt;/strong&gt; 1、进入域名管理页面：域名管理页面是由购买域名时，域名提供商所提供的。如不清楚域名提供商，可先查询域名提供商。 2、找到cname记录设置的位置： 3、添加cname记录： &lt;strong&gt;（1）、如果选择POP类型
+      
+    
+    </summary>
+    
+      <category term="分享" scheme="http://blog.bookmarks.top/categories/%E5%88%86%E4%BA%AB/"/>
+    
+      <category term="分享-文章" scheme="http://blog.bookmarks.top/categories/%E5%88%86%E4%BA%AB/%E5%88%86%E4%BA%AB-%E6%96%87%E7%AB%A0/"/>
+    
+    
+  </entry>
+  
+</feed>
