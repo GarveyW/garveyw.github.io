@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://garveyw.github.io/"/>
-  <updated>2019-01-04T18:24:45.541Z</updated>
+  <updated>2019-01-05T07:10:43.411Z</updated>
   <id>https://garveyw.github.io/</id>
   
   <author>
@@ -15,6 +15,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>20190105</title>
+    <link href="https://garveyw.github.io/2019/01/05/20190105/"/>
+    <id>https://garveyw.github.io/2019/01/05/20190105/</id>
+    <published>2019-01-05T07:10:43.000Z</published>
+    <updated>2019-01-05T07:10:43.411Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>模板</title>
@@ -42,8 +56,8 @@
   
   <entry>
     <title>你好，2019</title>
-    <link href="https://garveyw.github.io/2019/01/01/e4-bd-a0-e5-a5-bd-ef-bc-8c2019/"/>
-    <id>https://garveyw.github.io/2019/01/01/e4-bd-a0-e5-a5-bd-ef-bc-8c2019/</id>
+    <link href="https://garveyw.github.io/2019/01/01/hello2019/"/>
+    <id>https://garveyw.github.io/2019/01/01/hello2019/</id>
     <published>2019-01-01T11:21:51.000Z</published>
     <updated>2019-01-04T18:27:14.603Z</updated>
     
@@ -62,8 +76,8 @@
   
   <entry>
     <title>再见，2018</title>
-    <link href="https://garveyw.github.io/2018/12/31/e5-86-8d-e8-a7-812018/"/>
-    <id>https://garveyw.github.io/2018/12/31/e5-86-8d-e8-a7-812018/</id>
+    <link href="https://garveyw.github.io/2018/12/31/bye2018/"/>
+    <id>https://garveyw.github.io/2018/12/31/bye2018/</id>
     <published>2018-12-31T06:38:27.000Z</published>
     <updated>2019-01-04T17:00:20.388Z</updated>
     
@@ -79,30 +93,6 @@
     </summary>
     
       <category term="日记" scheme="https://garveyw.github.io/categories/%E6%97%A5%E8%AE%B0/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>测试</title>
-    <link href="https://garveyw.github.io/2018/12/30/e6-b5-8b-e8-af-95-trashed/"/>
-    <id>https://garveyw.github.io/2018/12/30/e6-b5-8b-e8-af-95-trashed/</id>
-    <published>2018-12-29T19:07:28.000Z</published>
-    <updated>2019-01-04T17:00:20.388Z</updated>
-    
-    <content type="html"><![CDATA[<p>测试</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;测试&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-      <category term="未分类" scheme="https://garveyw.github.io/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/"/>
     
     
   </entry>
@@ -224,8 +214,8 @@
   
   <entry>
     <title>小记</title>
-    <link href="https://garveyw.github.io/2018/11/23/e4-ba-ba-e6-80-bb-e6-98-af-e8-b6-8a-e6-9d-a5-e8-b6-8a-e6-87-92/"/>
-    <id>https://garveyw.github.io/2018/11/23/e4-ba-ba-e6-80-bb-e6-98-af-e8-b6-8a-e6-9d-a5-e8-b6-8a-e6-87-92/</id>
+    <link href="https://garveyw.github.io/2018/11/23/xiaoji/"/>
+    <id>https://garveyw.github.io/2018/11/23/xiaoji/</id>
     <published>2018-11-23T07:57:13.000Z</published>
     <updated>2019-01-04T17:00:20.387Z</updated>
     
@@ -247,8 +237,8 @@
   
   <entry>
     <title>2018第一场毕业音乐会</title>
-    <link href="https://garveyw.github.io/2018/11/15/2018-e7-ac-ac-e4-b8-80-e5-9c-ba-e6-af-95-e4-b8-9a-e9-9f-b3-e4-b9-90-e4-bc-9a/"/>
-    <id>https://garveyw.github.io/2018/11/15/2018-e7-ac-ac-e4-b8-80-e5-9c-ba-e6-af-95-e4-b8-9a-e9-9f-b3-e4-b9-90-e4-bc-9a/</id>
+    <link href="https://garveyw.github.io/2018/11/15/2018diyichangbiyeyinyuehui/"/>
+    <id>https://garveyw.github.io/2018/11/15/2018diyichangbiyeyinyuehui/</id>
     <published>2018-11-15T04:05:51.000Z</published>
     <updated>2019-01-04T17:00:20.387Z</updated>
     
@@ -271,8 +261,8 @@
   
   <entry>
     <title>为什么学琴</title>
-    <link href="https://garveyw.github.io/2018/10/30/e4-b8-ba-e4-bb-80-e4-b9-88-e5-ad-a6-e7-90-b4/"/>
-    <id>https://garveyw.github.io/2018/10/30/e4-b8-ba-e4-bb-80-e4-b9-88-e5-ad-a6-e7-90-b4/</id>
+    <link href="https://garveyw.github.io/2018/10/30/weishenmexueqin/"/>
+    <id>https://garveyw.github.io/2018/10/30/weishenmexueqin/</id>
     <published>2018-10-29T18:35:56.000Z</published>
     <updated>2019-01-04T17:00:20.387Z</updated>
     
@@ -294,8 +284,8 @@
   
   <entry>
     <title>体测</title>
-    <link href="https://garveyw.github.io/2018/10/28/e4-bd-93-e6-b5-8b/"/>
-    <id>https://garveyw.github.io/2018/10/28/e4-bd-93-e6-b5-8b/</id>
+    <link href="https://garveyw.github.io/2018/10/28/tice/"/>
+    <id>https://garveyw.github.io/2018/10/28/tice/</id>
     <published>2018-10-28T15:15:44.000Z</published>
     <updated>2019-01-04T17:00:20.387Z</updated>
     
@@ -317,8 +307,8 @@
   
   <entry>
     <title>415</title>
-    <link href="https://garveyw.github.io/2018/10/26/415/"/>
-    <id>https://garveyw.github.io/2018/10/26/415/</id>
+    <link href="https://garveyw.github.io/2018/10/26/2018-10-26/"/>
+    <id>https://garveyw.github.io/2018/10/26/2018-10-26/</id>
     <published>2018-10-25T19:30:28.000Z</published>
     <updated>2019-01-04T17:00:20.387Z</updated>
     
@@ -387,8 +377,8 @@
   
   <entry>
     <title>Kedi（2017）又名《爱猫之城》，《伊斯坦布尔的猫》</title>
-    <link href="https://garveyw.github.io/2018/10/17/kedi-ef-bc-882017-ef-bc-89-e5-8f-88-e5-90-8d-e3-80-8a-e7-88-b1-e7-8c-ab-e4-b9-8b-e5-9f-8e-e3-80-8b-ef-bc-8c-e3-80-8a-e4-bc-8a-e6-96-af-e5-9d-a6-e5-b8-83-e5-b0-94-e7-9a-84-e7-8c-ab-e3-80-8b/"/>
-    <id>https://garveyw.github.io/2018/10/17/kedi-ef-bc-882017-ef-bc-89-e5-8f-88-e5-90-8d-e3-80-8a-e7-88-b1-e7-8c-ab-e4-b9-8b-e5-9f-8e-e3-80-8b-ef-bc-8c-e3-80-8a-e4-bc-8a-e6-96-af-e5-9d-a6-e5-b8-83-e5-b0-94-e7-9a-84-e7-8c-ab-e3-80-8b/</id>
+    <link href="https://garveyw.github.io/2018/10/17/kedi/"/>
+    <id>https://garveyw.github.io/2018/10/17/kedi/</id>
     <published>2018-10-17T14:36:25.000Z</published>
     <updated>2019-01-04T17:00:20.381Z</updated>
     
@@ -411,8 +401,8 @@
   
   <entry>
     <title>Lambada钢琴谱</title>
-    <link href="https://garveyw.github.io/2018/10/17/lambada-e9-92-a2-e7-90-b4-e8-b0-b1/"/>
-    <id>https://garveyw.github.io/2018/10/17/lambada-e9-92-a2-e7-90-b4-e8-b0-b1/</id>
+    <link href="https://garveyw.github.io/2018/10/17/lambada/"/>
+    <id>https://garveyw.github.io/2018/10/17/lambada/</id>
     <published>2018-10-17T13:09:51.000Z</published>
     <updated>2019-01-04T17:00:20.362Z</updated>
     
