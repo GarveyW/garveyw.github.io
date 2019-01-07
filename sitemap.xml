@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://garveyw.com/2018/08/12/hello-world/</loc>
+    
+    <lastmod>2019-01-07T17:10:05.732Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://garveyw.com/2019/01/05/moban/</loc>
     
     <lastmod>2019-01-07T16:53:45.076Z</lastmod>
@@ -54,13 +61,6 @@
     <loc>https://garveyw.com/about/index.html</loc>
     
     <lastmod>2019-01-04T20:19:13.563Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://garveyw.com/2018/08/12/hello-world/</loc>
-    
-    <lastmod>2019-01-04T17:56:45.644Z</lastmod>
     
   </url>
   
