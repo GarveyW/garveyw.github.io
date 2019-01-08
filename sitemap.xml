@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://garveyw.com/2019/01/09/wordpress-to-hexo/</loc>
+    
+    <lastmod>2019-01-08T17:59:08.184Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://garveyw.com/2019/01/09/%E6%95%99%E7%A8%8B/wordpress-to-hexo/</loc>
+    
+    <lastmod>2019-01-08T17:56:26.287Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://garveyw.com/2018/08/12/hello-world/</loc>
+    
+    <lastmod>2019-01-08T17:52:54.107Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://garveyw.com/2019/01/09/%E6%95%99%E7%A8%8B/linux-mingling/</loc>
+    
+    <lastmod>2019-01-08T17:50:56.553Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://garveyw.com/2019/01/09/%E6%95%99%E7%A8%8B/hexogithub/</loc>
     
     <lastmod>2019-01-08T17:47:52.309Z</lastmod>
@@ -9,23 +37,9 @@
   </url>
   
   <url>
-    <loc>https://garveyw.com/2019/01/09/%E6%95%99%E7%A8%8B/linux-mingling/</loc>
-    
-    <lastmod>2019-01-08T17:45:38.732Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://garveyw.com/about/index.html</loc>
     
     <lastmod>2019-01-08T17:37:03.497Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://garveyw.com/2018/08/12/hello-world/</loc>
-    
-    <lastmod>2019-01-08T17:18:10.524Z</lastmod>
     
   </url>
   
