@@ -18,8 +18,8 @@
   
   <entry>
     <title>Github+hexo绑定域名</title>
-    <link href="https://garveyw.com/2019/01/09/hexo-bangdingyuming/"/>
-    <id>https://garveyw.com/2019/01/09/hexo-bangdingyuming/</id>
+    <link href="https://garveyw.com/2019/01/09/%E6%95%99%E7%A8%8B/hexo-bangdingyuming/"/>
+    <id>https://garveyw.com/2019/01/09/教程/hexo-bangdingyuming/</id>
     <published>2019-01-09T14:33:23.000Z</published>
     <updated>2019-01-09T14:36:18.913Z</updated>
     
@@ -33,6 +33,8 @@
       
     
     </summary>
+    
+      <category term="教程" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/"/>
     
     
   </entry>
