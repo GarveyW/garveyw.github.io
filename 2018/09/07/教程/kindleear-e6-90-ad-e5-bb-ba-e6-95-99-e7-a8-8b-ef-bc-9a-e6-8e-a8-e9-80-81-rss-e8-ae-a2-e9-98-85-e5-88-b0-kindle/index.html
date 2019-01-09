@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>KindleEar 搭建教程：推送 RSS 订阅到 Kindle | Garvey&#39;s Wiki</title>
+    
+    
+        <meta name="keywords" content="blog">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="KindleEar 是一个开源的 Python 程序，由网友 cdhigh 发起，目前托管于 Github。Kindleear 一个可以运行在 Google Developer Console 上的 Kindle 个人 RSS 推送服务器，能够生成排版精美的杂志模式的 MOBI 文件，并按照设置定时自动推送至你的 kindle。">
+<meta name="keywords" content="blog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="KindleEar 搭建教程：推送 RSS 订阅到 Kindle">
+<meta property="og:url" content="https://garveyw.com/2018/09/07/教程/kindleear-e6-90-ad-e5-bb-ba-e6-95-99-e7-a8-8b-ef-bc-9a-e6-8e-a8-e9-80-81-rss-e8-ae-a2-e9-98-85-e5-88-b0-kindle/index.html">
+<meta property="og:site_name" content="Garvey&#39;s Wiki">
+<meta property="og:description" content="KindleEar 是一个开源的 Python 程序，由网友 cdhigh 发起，目前托管于 Github。Kindleear 一个可以运行在 Google Developer Console 上的 Kindle 个人 RSS 推送服务器，能够生成排版精美的杂志模式的 MOBI 文件，并按照设置定时自动推送至你的 kindle。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://wjw.me/wp-content/uploads/2018/12/41.png">
+<meta property="og:image" content="http://wjw.me/wp-content/uploads/2018/12/42.png">
+<meta property="og:image" content="http://wjw.me/wp-content/uploads/2018/12/43.png">
+<meta property="og:image" content="http://wjw.me/wp-content/uploads/2018/12/44.png">
+<meta property="og:updated_time" content="2019-01-08T16:56:45.704Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="KindleEar 搭建教程：推送 RSS 订阅到 Kindle">
+<meta name="twitter:description" content="KindleEar 是一个开源的 Python 程序，由网友 cdhigh 发起，目前托管于 Github。Kindleear 一个可以运行在 Google Developer Console 上的 Kindle 个人 RSS 推送服务器，能够生成排版精美的杂志模式的 MOBI 文件，并按照设置定时自动推送至你的 kindle。">
+<meta name="twitter:image" content="http://wjw.me/wp-content/uploads/2018/12/41.png">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Garvey&#39;s Wiki" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Garvey&#39;s Wiki</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id="categories">
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id="allExpand" href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            分享
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            视频
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/10/17/分享/视频/kedi-ef-bc-882017-ef-bc-89-e5-8f-88-e5-90-8d-e3-80-8a-e7-88-b1-e7-8c-ab-e4-b9-8b-e5-9f-8e-e3-80-8b-ef-bc-8c-e3-80-8a-e4-bc-8a-e6-96-af-e5-9d-a6-e5-b8-83-e5-b0-94-e7-9a-84-e7-8c-ab-e3-80-8b/">Kedi（2017）又名《爱猫之城》，《伊斯坦布尔的猫》</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            音乐
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/12/分享/音乐/carmen-e5-8d-a1-e9-97-a8-e9-80-89-e6-9b-b2-e5-88-86-e4-ba-ab/">Carmen 卡门选曲 分享</a></li>  <li class="file"><a href="/2018/08/13/分享/音乐/decca-ultimate-decca-e6-9e-81-e8-87-b4-e7-b3-bb-e5-88-97-34cd-e4-b8-8b-e8-bd-bd-e5-9c-b0-e5-9d-80/">Decca Ultimate / DECCA极致系列  34CD下载地址</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            教程
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/01/09/教程/hexo-bangdingyuming/">Github+hexo绑定域名</a></li>  <li class="file"><a href="/2019/01/09/教程/Tiny-File-Manager/">Tiny File Manager</a></li>  <li class="file"><a href="/2019/01/09/教程/hexo-sitemap-rss-deploy/">Hexo 入门指南 - sitemap、rss 和部署</a></li>  <li class="file"><a href="/2019/01/09/教程/hexo-theme-Wikitten/">hexo-theme-Wikitten</a></li>  <li class="file"><a href="/2019/01/05/教程/moban/">模板</a></li>  <li class="file"><a href="/2018/10/16/教程/onedrive-oneindex-wangpan/">使用 OneDrive 提供的 5T 存储自建 OneIndex 网盘（附免费 Office 365 教育版注册方法）</a></li>  <li class="file"><a href="/2018/10/12/教程/yourls/">YOURLS - 建立属于你自己的短网址生成系统</a></li>  <li class="file active"><a href="/2018/09/07/教程/kindleear-e6-90-ad-e5-bb-ba-e6-95-99-e7-a8-8b-ef-bc-9a-e6-8e-a8-e9-80-81-rss-e8-ae-a2-e9-98-85-e5-88-b0-kindle/">KindleEar 搭建教程：推送 RSS 订阅到 Kindle</a></li>  <li class="file"><a href="/2019/01/09/教程/wordpress-to-hexo/">wordpress to hexo</a></li>  <li class="file"><a href="/2019/01/09/教程/linux-mingling/">Linux常用命令大全</a></li>  <li class="file"><a href="/2019/01/09/教程/hexogithub/">用 Hexo 搭建博客</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2018/08/12/hello-world/">Welcome Garvey's Wiki Site</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-教程/kindleear-e6-90-ad-e5-bb-ba-e6-95-99-e7-a8-8b-ef-bc-9a-e6-8e-a8-e9-80-81-rss-e8-ae-a2-e9-98-85-e5-88-b0-kindle" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/教程/">教程</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/09/07/教程/kindleear-e6-90-ad-e5-bb-ba-e6-95-99-e7-a8-8b-ef-bc-9a-e6-8e-a8-e9-80-81-rss-e8-ae-a2-e9-98-85-e5-88-b0-kindle/">
+            <time datetime="2018-09-07T10:25:42.000Z" itemprop="datePublished">2018-09-07</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            KindleEar 搭建教程：推送 RSS 订阅到 Kindle
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <p>KindleEar 是一个开源的 Python 程序，由网友 <a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly9naXRodWIuY29tL2NkaGlnaA==" rel="external nofollow noopener noreferrer" target="_blank">cdhigh</a> 发起，目前托管于<a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly9naXRodWIuY29tL2NkaGlnaC9LaW5kbGVFYXI=" rel="external nofollow noopener noreferrer" target="_blank"> Github</a>。Kindleear 一个可以运行在 Google Developer Console 上的 Kindle 个人 RSS 推送服务器，能够生成排版精美的杂志模式的 MOBI 文件，并按照设置定时自动推送至你的 kindle。</p>
+<a id="more"></a>
+<p>在没有买Kindle之前，听同事说想要买个Kindle看书的时候，觉得好奇怪，为什么不买iPad呢。Kindle仅仅能看书，而iPad不仅可以装个Kindle看书，还可以娱乐等，而且Kindle的价格并不便宜，最便宜的Kindle 8现在也已经是500多了。相信有这样想法的人，不在少数。但是，后来我还是买了Kindle 7。我忘了看什么文章被安利到了，但是真正打动我的原因，还是因为可以静心阅读，电子墨屏，待机长。如果你不知道为什么要买Kindle，那么就安利你看一篇好文章《<a href="https://www.imahui.com/go.php?url=aHR0cDovL3d3dy5pbWFodWkuY29tL25vdGVzLzIyNi5odG1s" rel="external nofollow noopener noreferrer" target="_blank">你也许并不太懂Kindle 2.0</a>》。</p>
+<p><a href="https://www.imahui.com/go.php?url=aHR0cDovL3d3dy5pbWFodWkuY29tL2dvLnBocD91cmw9YUhSMGNEb3ZMM2QzZHk1aGJXRjZiMjR1WTI0dlozQXZjMlZoY21Ob1AybGxQVlZVUmpnbVkyRnRjRDAxTXpZbVkzSmxZWFJwZG1VOU16SXdNQ1pwYm1SbGVEMWthV2RwZEdGc0xYUmxlSFFtYTJWNWQyOXlaSE05YTJsdVpHeGxKbXhwYm10RGIyUmxQWFZ5TWlaMFlXYzlPVFEzT1RVMU5Ea3RNak09" rel="external nofollow noopener noreferrer" target="_blank">亚马逊 Kindle 电子书阅读器官方购买地址： https://www.amazon.cn/dp/B00QJDOLIO/ 点击此处即可</a></p>
+<p>拥有Kindle，肯定想要享受好Kindle带来的便利阅读及体验。今天给大家分享此篇，让你的Kindle发挥得更好。 KindleEar 是一个开源的 Python 程序，由网友 <a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly9naXRodWIuY29tL2NkaGlnaA==" rel="external nofollow noopener noreferrer" target="_blank">cdhigh</a> 发起，目前托管于<a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly9naXRodWIuY29tL2NkaGlnaC9LaW5kbGVFYXI=" rel="external nofollow noopener noreferrer" target="_blank"> Github</a>。Kindleear 一个可以运行在 Google Developer Console 上的 Kindle 个人 RSS 推送服务器，能够生成排版精美的杂志模式的 MOBI 文件，并按照设置定时自动推送至你的 kindle。如果你有一定的 Python 和前端基础，还可以自定义排版，生成你需要的最完美的 MOBI 文件。 应用目前的主要功能有：</p>
+<ul>
+<li>支持类似Calibre的recipe格式的不限量RSS/ATOM或网页内容收集</li>
+<li>不限量自定义RSS，直接输入RSS/ATOM链接和标题即可自动推送</li>
+<li>多账号管理，支持多用户和多Kindle</li>
+<li>生成带图的杂志格式mobi或带图的有目录epub</li>
+<li>自动每天定时推送</li>
+<li>强大而且方便的邮件中转服务</li>
+<li>和Evernote/Pocket/Instapaper等系统的集成</li>
+</ul>
+<blockquote>
+<p>注：如果您要求不高，自定义RSS推送功能足以应付一般应用，如果要求排版和完美，可以参照books目录下的文件范本自己添加一个文件再重新上传即可，books目录下的书籍文件都不是随意预置的，每个文件都至少演示一个适用的books编写技巧。 在您懂python的前提下，您可以完全的操控网页，可以生成您需要的最完美的MOBI/EPUB文件。</p>
+</blockquote>
+<p>KindleEar后台界面 <img src="http://wjw.me/wp-content/uploads/2018/12/41.png" alt=""> KindleEar后台设置 <img src="http://wjw.me/wp-content/uploads/2018/12/42.png" alt=""></p>
+<blockquote>
+<p>目录 一、准备工作 二、上传程序 三、设置推送 四、常见问答 五、付费安装</p>
+</blockquote>
+<p>本教程适用于 Windows 系统和 Mac OS X 系统，所以请注意下载适合你操作系统的软件，以及选择适合你操作系统的步骤。本文步骤没有多余的废话，请严格按照下面的步骤进行操作。遇到意外情况请留言提问，如果提出的问题文中已有说明将不再重复回答。 免费的程序和免费的服务器，让搭建 KindleEar 成为一件一劳永逸的事儿，虽然对于新手来说步骤可能有些许烦琐，但你的付出是值得的。</p>
+<h2 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h2><p>KindleEar 依赖 Google APP Engine，所以你需要有一枚 Google 账号（注册完记得安步骤说明设置一下安全选项），然后创建一个 GAE 应用。以下步骤中，如果某个条件已具备，请忽略相应步骤继续。 1、下载科学上网(fan qiang)软件 因为在国内无法访问 Google App Engine，所以需要先下载科学上网软件。在本教程中，你可以下载使用下面任意一款。为保证正常下载，请复制链接使用迅雷下载。</p>
+<ul>
+<li>Lantern：<a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly9zMy5hbWF6b25hd3MuY29tL2xhbnRlcm4vbGFudGVybi1pbnN0YWxsZXItYmV0YS5leGU=" rel="external nofollow noopener noreferrer" target="_blank">Windows</a> ｜<a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly9zMy5hbWF6b25hd3MuY29tL2xhbnRlcm4vbGFudGVybi1pbnN0YWxsZXItYmV0YS5kbWc=" rel="external nofollow noopener noreferrer" target="_blank">Mac OS X</a> *傻瓜化，无需配置，安装即可使用。</li>
+<li>ShadowSocks：<a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly9naXRodWIuY29tL3NoYWRvd3NvY2tzL3NoYWRvd3NvY2tzLWNzaGFycC9yZWxlYXNlcy9kb3dubG9hZC8yLjUuNi9TaGFkb3dzb2Nrcy13aW4tMi41LjYuemlw" rel="external nofollow noopener noreferrer" target="_blank">Windows</a> ｜<a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly9naXRodWIuY29tL3NoYWRvd3NvY2tzL3NoYWRvd3NvY2tzLWlPUy9yZWxlYXNlcy9kb3dubG9hZC8yLjYuMy9TaGFkb3dzb2Nrc1gtMi42LjMuZG1n" rel="external nofollow noopener noreferrer" target="_blank">Mac OS X</a> *需要配置账号，免费账号<a href="https://www.imahui.com/go.php?url=aHR0cDovL3N0YXRpYy53ZWl0aW1lcy5jb20v" rel="external nofollow noopener noreferrer" target="_blank">点击这里</a>。</li>
+</ul>
+<p>推荐稳定快速的ShadowSocks服务，<a href="https://www.imahui.com/go.php?url=aHR0cDovL3Nlb2ZhbmdmYS5jb20vaG9uZ2ppYW4=" rel="external nofollow noopener noreferrer" target="_blank">点击这里</a>,使用推荐码：hongjian 可获得八折优惠。 2、注册 Google 账号 点击下面的链接，注册一枚带 @gmail.com 后缀的 Google 账号。 Google 账号注册地址：<a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly9hY2NvdW50cy5nb29nbGUuY29tL1NpZ25VcA==" rel="external nofollow noopener noreferrer" target="_blank">https://accounts.google.com/SignUp</a> 3、Google 账号安全设置 Google 账号在默认状态下会拒绝 KindleEar 上传到 GAE，所以需要在 Google 账号中设置一下。点击下面的链接进入你的 Google 账号“登录与安全”设置页面，找到“允许不够安全的应用”这一项，点击右边的按钮，将其状态切换为“已启用”。 Google 账号：<a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly9teWFjY291bnQuZ29vZ2xlLmNvbS9zZWN1cml0eSNjb25uZWN0ZWRhcHBz" rel="external nofollow noopener noreferrer" target="_blank">https://myaccount.google.com/security#connectedapps</a> 4、创建 Google App Engine 应用 KindleEar 就是免费托管到 Google App Engine 中的，所以需要创建一个 GAE 应用，然后获取该应用的 APPID。首先点击下面的链接，使用你的 Google 账号登录。 GAE 项目地址：<a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly9jb25zb2xlLmRldmVsb3BlcnMuZ29vZ2xlLmNvbS9wcm9qZWN0P2hsPXpoLWNu" rel="external nofollow noopener noreferrer" target="_blank">https://console.developers.google.com/project?hl=zh-cn</a> 点击页面左上角的“<strong>Project</strong>”，在弹出菜单中点击“<strong>创建项目</strong>（Create a project…）”，会弹出一个名为“<strong>新增项目</strong>（New Project）”的对话框。在“<strong>项目名称</strong>（Project name）”中输入你喜欢的名称（注意，这里只能输入 4~30 个字符，接受字母、数字、半角引号、连字符、空格、感叹号）。 默认状态下，系统会根据你输入的项目名称自动生成“<strong>项目 ID</strong>（Project ID）”（即 APPID），但是自动生成的没有意义字符很糟糕，你可以点击“<strong>编辑</strong>（Edit）”链接将其修改成你喜欢的形式，这样等 KindleEar 部署成功后，你就可以通过 http://你的APPID.appspot.com 访问了。 记下你的 APPID。</p>
+<h2 id="二、上传程序"><a href="#二、上传程序" class="headerlink" title="二、上传程序"></a>二、上传程序</h2><p>下面提供了两种上传 KindleEar 程序到 GAE 的方法。方法一是通过 Google 云端 Shell 的方式，使用 Kindle 伴侣提供的 Shell 脚本，一条命令搞定，推荐使用。方法二是手动配置上网环境，手动输入命令上传，步骤较为繁琐。请根据自己的实际情况择优选用。 <strong>方法一：自动上传（强烈推荐！）</strong> 1、进入 Google 云端控制台：<a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly9jb25zb2xlLmNsb3VkLmdvb2dsZS5jb20vaG9tZS9kYXNoYm9hcmQ=" rel="external nofollow noopener noreferrer" target="_blank">https://console.cloud.google.com/home/dashboard</a>2、点击右上角的 Shell 图标（如下图所示）激活 Google 云端 Shell。 <img src="http://wjw.me/wp-content/uploads/2018/12/43.png" alt=""> 3、复制下面的代码，粘贴到 Google 云端 Shell（如下图所示），回车执行。</p>
+<pre><code>wget https://raw.githubusercontent.com/kindlefere/KindleEar-Uploader/master/uploader.sh &amp;&amp; \
+chmod +x uploader.sh &amp;&amp; \
+./uploader.sh
+</code></pre><p><img src="http://wjw.me/wp-content/uploads/2018/12/44.png" alt=""> 4、按照脚本的提示，输入你的 Gmail 地址和准备好的 APPID，回车，等待上传成功即可。 * 提示：KindleEar 安装脚本托管在 GitHub：<a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly9naXRodWIuY29tL2tpbmRsZWZlcmUvS2luZGxlRWFyLVVwbG9hZGVy" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/kindlefere/KindleEar-Uploader</a> <strong>方法二、标准部署</strong> 1、<a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly9hY2NvdW50cy5nb29nbGUuY29tL1NpZ25VcA==" rel="external nofollow noopener noreferrer" target="_blank">申请google账号</a> 并暂时 <a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS9zZXR0aW5ncy9zZWN1cml0eS9sZXNzc2VjdXJlYXBwcw==" rel="external nofollow noopener noreferrer" target="_blank">启用不够安全的应用的访问权限</a> 以便上传程序。 2、<a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly9jb25zb2xlLmRldmVsb3BlcnMuZ29vZ2xlLmNvbS9wcm9qZWN0" rel="external nofollow noopener noreferrer" target="_blank">创建一个Application</a>，注意不用申请GCE，那个是60天试用的，而GAE是限额范围内永久免费的。 3、安装 <a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly93d3cucHl0aG9uLm9yZy9kb3dubG9hZHMv" rel="external nofollow noopener noreferrer" target="_blank">Python 2.7.x</a>。 4、安装 <a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly9jbG91ZC5nb29nbGUuY29tL2FwcGVuZ2luZS9kb3dubG9hZHM=" rel="external nofollow noopener noreferrer" target="_blank">GAE SDK</a>。 5、下载 <a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly9naXRodWIuY29tL2NkaGlnaC9LaW5kbGVFYXIvYXJjaGl2ZS9tYXN0ZXIuemlw" rel="external nofollow noopener noreferrer" target="_blank">KindleEar</a> ，解压到一个特定的目录。 6、在以下三个文件中修改一些参数：</p>
+<p>文件</p>
+<p>待修改内容</p>
+<p>说明</p>
+<p>app.yaml</p>
+<p>application</p>
+<p>你的ApplicationId</p>
+<p>module-worker.yaml</p>
+<p>application</p>
+<p>你的ApplicationId</p>
+<p>config.py</p>
+<p>SRC_EMAIL</p>
+<p>创建GAE工程的GMAIL邮箱</p>
+<p>config.py</p>
+<p>DOMAIN</p>
+<p>你申请的应用的域名</p>
+<p>7、转到GAE SDK安装目录(默认为：C:\Program Files\Google\google_appengine) 8、执行两条Cmd命令：</p>
+<ul>
+<li>c:\python27\python.exe appcfg.py update kindleear目录\app.yaml kindleear目录\module-worker.yaml</li>
+<li>c:\python27\python.exe appcfg.py update kindleear目录</li>
+</ul>
+<p>9、全部完成后就可以尝试打开域名：<a href="http://appid.appspot.com" rel="external nofollow noopener noreferrer" target="_blank">http://appid.appspot.com</a> (appid是你申请的application名字) 比如作者的网站域名为：<a href="https://www.imahui.com/go.php?url=aHR0cDovL2tpbmRsZWVhci5hcHBzcG90LmNvbS8=" rel="external nofollow noopener noreferrer" target="_blank">http://kindleear.appspot.com/</a> 注：初始用户名为 <strong>admin</strong>，密码为 <strong>admin</strong>，建议登录后及时修改密码。 更详细一点的说明请参照Github上的 <a href="https://www.imahui.com/go.php?url=aHR0cDovL2h0bWxwcmV2aWV3LmdpdGh1Yi5pby8/aHR0cHM6Ly9naXRodWIuY29tL2NkaGlnaC9LaW5kbGVFYXIvYmxvYi9tYXN0ZXIvc3RhdGljL2ZhcS5odG1s" rel="external nofollow noopener noreferrer" target="_blank">FAQ</a> 或作者网站的 <a href="https://www.imahui.com/go.php?url=aHR0cDovL2tpbmRsZWVhci5hcHBzcG90LmNvbS9zdGF0aWMvZmFxLmh0bWw=" rel="external nofollow noopener noreferrer" target="_blank">FAQ</a> 链接。有关部署失败，部署后”internal server error”等问题都有解释。 不建议使用GAE Launcher部署KindleEar，除非你知道怎么设置Extra Flags等参数。 <strong>具体操作</strong> 上传部署 KindleEar 步骤之前，你需要保证已完成下面的准备工作。对于每一项准备工作，如果你已经具备条件，可忽略继续进行下一项。 1、下载并安装 Python 2.7 Mac OS X 系统可略过此步骤。为保证正常下载，请复制下面的链接使用迅雷下载。 Python 下载：<a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly93d3cucHl0aG9uLm9yZy9mdHAvcHl0aG9uLzIuNy4xMS9weXRob24tMi43LjExLmFtZDY0Lm1zaQ==" rel="external nofollow noopener noreferrer" target="_blank">Windows</a> ｜ <a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly93d3cucHl0aG9uLm9yZy9mdHAvcHl0aG9uLzIuNy4xMS9weXRob24tMi43LjExLW1hY29zeDEwLjYucGtn" rel="external nofollow noopener noreferrer" target="_blank">Mac OS X</a> ｜ <a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly93d3cucHl0aG9uLm9yZy9kb3dubG9hZHMv" rel="external nofollow noopener noreferrer" target="_blank">官方页面</a> 2、下载并安装 GAE SDK for Python 为保证正常下载，请复制下面的链接使用迅雷下载。 GAE SDK for Python 下载：<a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2FwcGVuZ2luZS1zZGtzL2ZlYXR1cmVkL0dvb2dsZUFwcEVuZ2luZS0xLjkuNDAubXNp" rel="external nofollow noopener noreferrer" target="_blank">Windows</a> ｜<a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2FwcGVuZ2luZS1zZGtzL2ZlYXR1cmVkL0dvb2dsZUFwcEVuZ2luZUxhdW5jaGVyLTEuOS40MC5kbWc=" rel="external nofollow noopener noreferrer" target="_blank">Mac OS X</a> ｜ <a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2FwcGVuZ2luZS1zZGtzL2ZlYXR1cmVkL2dvb2dsZV9hcHBlbmdpbmVfMS45LjQwLnppcA==" rel="external nofollow noopener noreferrer" target="_blank">Linux</a> ｜ <a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly9jbG91ZC5nb29nbGUuY29tL2FwcGVuZ2luZS9kb3dubG9hZHMjR29vZ2xlX0FwcF9FbmdpbmVfU0RLX2Zvcl9QeXRob24=" rel="external nofollow noopener noreferrer" target="_blank">官方页面</a> 3、安装配置 SocksiPy SocksiPy 下载：<a href="https://www.imahui.com/go.php?url=aHR0cDovL2phaXN0LmRsLnNvdXJjZWZvcmdlLm5ldC9wcm9qZWN0L3NvY2tzaXB5L3NvY2tzaXB5L1NvY2tzaVB5JTIwMS4wMC9Tb2Nrc2lQeS56aXA=" rel="external nofollow noopener noreferrer" target="_blank">下载链接</a> ｜ <a href="https://www.imahui.com/go.php?url=aHR0cDovL3NvY2tzaXB5LnNvdXJjZWZvcmdlLm5ldC8=" rel="external nofollow noopener noreferrer" target="_blank">官方页面</a> Mac OS X 无需下载此文件，打开“终端”输入以下命令安装 SocksiPy：</p>
+<pre><code>sudo pip install PySocks
+</code></pre><p>*注意，如果提示找不到 pip 命令，请先下载 <a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly9yYXcuZ2l0aHViLmNvbS9weXBhL3BpcC9tYXN0ZXIvY29udHJpYi9nZXQtcGlwLnB5" rel="external nofollow noopener noreferrer" target="_blank">get-pip.py</a>，然后运行 python get-pip.py 安装 pip。 在 Windows 中，将下载到的 SocksiPy 压缩包解压缩得到文件 socks.py，把这个文件拷贝到 GAE SDK for Python 安装目录，如果你是没有修改安装路径，默认情况下其路径如下所示：</p>
+<pre><code>C:\Program Files (x86)\Google\google_appengine
+</code></pre><p>4、为 GAE SDK 配置代理 在 Windows 中，进入 GAE SDK for Python 安装目录，找到文件 appcfg.py，通过右键菜单“Edit with IDLE”，或使用代码编辑软件（如 Sublime Text）将其打开。 在 Mac OS X 中，进入“应用程序”目录，找到并右键点击 GoogleAppEngineLauncher 应用，在弹出的菜单中点击“显示包内内容”，在下面所示的路径中找到 appcfg.py，使用代码编辑器打开。</p>
+<pre><code>Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/
+</code></pre><p>找到下面这行代码：</p>
+<pre><code>&quot;&quot;&quot;Convenience wrapper for starting an appengine tool.&quot;&quot;&quot;
+</code></pre><p>在它上面添加下列代码：</p>
+<pre><code>import socks
+import socket
+socket.socket = socks.socksocket
+socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, &quot;127.0.0.1&quot;, 8788)
+</code></pre><p>​    </p>
+<p>注意，如果你使用的是 ShadowSocks，请把上面代码中的端口 8788 修改为 1080。 修改完毕后保存。 5、下载 KindleEar 源码 点击下面的链接下载 KindleEar 源码。如果你习惯使用 Git，也可以将项目 Clone 到本地。 KindleEar 下载：<a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly9naXRodWIuY29tL2NkaGlnaC9LaW5kbGVFYXIvYXJjaGl2ZS9tYXN0ZXIuemlw" rel="external nofollow noopener noreferrer" target="_blank">下载链接</a> ｜ <a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly9naXRodWIuY29tL2NkaGlnaC9LaW5kbGVFYXI=" rel="external nofollow noopener noreferrer" target="_blank">项目页面</a> 6、配置 KindleEar 程序 解压缩下载到的 KindleEar 压缩包（如果是通过 Git 的 Clone 命令获取的则不用解压缩），把 KindleEar 的源代码放到你喜欢的地方。为方便演示，在本例中放置的位置如下所示： Windows 系统中，将其放到了 C 盘根目录，路径为：</p>
+<pre><code>C:\kindleear
+</code></pre><p>Mac OS X 系统中，将其放到了用户目录下，路径为：</p>
+<pre><code>/Users/YOURNAME/Applications/kindleear
+</code></pre><p>接下来进入 KindleEar 源代码文件夹，按照下表修改文件并保存：</p>
+<p>要修改的文件</p>
+<p>要修改的内容</p>
+<p>内容修改说明</p>
+<p>app.yaml</p>
+<p><code>application: **xxx**</code></p>
+<p>红色部分修改为你创建的 APPID</p>
+<p>module-worker.yaml</p>
+<p><code>application: **xxx**</code></p>
+<p>红色部分修改为你创建的 APPID</p>
+<p>config.py</p>
+<p><code>SRC_EMAIL = &quot;**xxx@gmail.com**&quot;</code></p>
+<p>红色部分修改为你创建应用的 Gmail 邮箱</p>
+<p><code>DOMAIN = &quot;https://**xxx**.appspot.com</code>“</p>
+<p>红色部分修改为你创建的 APPID</p>
+<p>7、上传 KindleEar 程序 快捷键 Win + R 调出“运行”对话框，输入“CMD”回车打开命令提示符，然后使用 <code>cd</code> 命令进入 GAE SDK for Python 安装目录。 在 Windows 系统中，如果你是没有修改安装路径，应该是输入以下命令（小窍门：输入 cd 后，把 google_appengine 文件夹拖到命令提示符上）：</p>
+<pre><code>cd C:\Program Files (x86)\Google\google_appengine
+</code></pre><p>分别输入下面两条命令将 KindleEar 上传到 GAE：</p>
+<pre><code>C:\python27\python.exe appcfg.py update C:\kindleear\app.yaml C:\kindleear\module-worker.yaml
+C:\python27\python.exe appcfg.py update C:\kindleear
+</code></pre><p>在 MAC OS 系统中，打开“终端”，分别输入下面两条命令上传 KindleEar：</p>
+<pre><code>appcfg.py update ~/Applications/kindleear/app.yaml ~/Applications/kindleear/module-worker.yaml
+appcfg.py update ~/Applications/kindleear
+</code></pre><p>出现“Email”提示，输入你的 Gmail 邮箱地址，回车；出现“Password for <a href="mailto:xxx@gmail.com" rel="external nofollow noopener noreferrer" target="_blank">xxx@gmail.com</a>”，输入你的 Gmail 邮箱密码（密码输入时不显示），回车。 等待上传。在上传的过程中，如果第一次上传，会出现一个许可验证消息，如果是同一个电脑，直接打开链接验证即可。如果是不同的电脑，需要添加 –noauth_local_webserver 后缀，打开链接获取验证码，填写验证。 注意，–noauth_local_webserver 后缀是添加到 appcfg.py 后面，如下所示：</p>
+<pre><code>python appcfg.py --noauth_local_webserver ...
+</code></pre><p><strong>* 小贴士：</strong> 1、如果确认输入的账号密码正确却仍然出现“Invalid username or password.”，请<a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly9zZWN1cml0eS5nb29nbGUuY29tL3NldHRpbmdzL3NlY3VyaXR5L2FjdGl2aXR5" rel="external nofollow noopener noreferrer" target="_blank">点击这里</a>检查一下相关选项。首先找到“允许不够安全的应用”这个选项，确认是“已启用”状态。然后查看下账号登录是否被 Google 拦截，把可疑操作确认是自己操作，然后重新运行 uploader.bat 走一遍过程。如果取消拦截后还是出现“Invalid username or password.”这样的提示，请先使用浏览器登陆你的 Google 账号，看是否会有短信验证等提示，登录成功后重新运行 uploader.bat 走一遍过程。 2、程序会自动记录登陆邮箱密码，如果需要需要切换账号，请前往目录“C:\用户\你的用户名\”下删除“.appcfg_cookies”，然后重新运行 uploader.bat 3、如果等待很长时间仍然出现“internal serve error”，请尝试：<a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly9jb25zb2xlLmNsb3VkLmdvb2dsZS5jb20=" rel="external nofollow noopener noreferrer" target="_blank">点击这里</a> 进入 GAE 后台，点击左侧的“Dashboard”，然后点击右边页面中“Storage”下的“Cloud Datastore”，然后再点击左侧的“Indexes”就是了，查看一下 Book、DeliverLog、Feed 三项的状态，如果是绿色对勾则正常，否则就需要重新索引一下。具体操作为，KindleEar 目录下执行：appcfg.py update_indexes 更新一下索引。如：python appcfg.py update_indexes KindleEar/ 生成了索引，Data Store Indexes 从 building 变为 Serving 后，正常访问。</p>
+<h2 id="三、设置推送"><a href="#三、设置推送" class="headerlink" title="三、设置推送"></a>三、设置推送</h2><p>打开浏览器输入：<code>http://**你的专案ID**.appspot.com</code>，默认的登录名和密码都是“<strong>admin</strong>”（建议修改密码），进入推送控制台你会发现以下几个选项卡（若登录时候出现类似“internal serve error”请不要慌，只需要多等候一些时间重试即可），可以根据自己的需要进行设置：</p>
+<blockquote>
+<p><strong>1、我的订阅</strong> 可以在这里添加你自己的 RSS 地址。也可以在下方预置的一些订阅里选择自己感兴趣的。 <strong>2、基本设置</strong> 这里是推送的详细设置，在这里填写你要推送的“Kindle E-mail”，选择投递日，所选投递日的投递时间，建议勾选“多本书籍合并投递为一本”、“使能自动定时投递”、“自动定时投递自定义 RSS”。同时还可以在“书籍标题”项填写显示在 Kindle 里的个性名称。当所有设置完后还可以点击“现在投递”测试一下。 <strong>3、投递日志</strong> 每次投递的记录。 <strong>4、账户管理</strong> 可以添加多用户，更改密码等。 <strong>5、高级设置</strong> 有邮件白名单、归档和分享、URL 过滤等设置。</p>
+</blockquote>
+<p>OK，全部工作完成，在你的 Kindle 联网的状态下，这个你亲手建立的推送服务器就会按照你设置的时间定时把你所添加的 RSS 源生成精美的杂志推送到你的 Kindle 上了！Enjoy it! <strong>* 小贴士：</strong> 如果投递日志状态显示为 <code>wrong SRC_EMAIL</code>，请进入 <a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly9jb25zb2xlLmNsb3VkLmdvb2dsZS5jb20v" rel="external nofollow noopener noreferrer" target="_blank">GAE 后台</a>。在“<strong>資訊主頁</strong> (Dashboard)”标签页中找到“<strong>App Engine</strong>”卡片，点击卡片底部的“<strong>前往 App Engine 資訊主頁</strong> (Go to the App Engine dashboard)”，然后点击左侧的的“<strong>設定</strong> (settings)”，看看“Email API 已獲授權的寄件者 (Email API authorized senders)”账号里面有没有添加发送邮箱地址，如果没有就点击上方的“<strong>編輯</strong> (Edit)”添加一下，即可解决此问题。</p>
+<h2 id="四、常见问答"><a href="#四、常见问答" class="headerlink" title="四、常见问答"></a>四、常见问答</h2><p>上文已将部署 KindleEar 的步骤详细列出，一般情况下你只需要按照步骤一步步操作就能部署成功。如果遇到问题，请访问 <a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly9naXRodWIuY29tL2NkaGlnaC9LaW5kbGVFYXIvYmxvYi9tYXN0ZXIvc3RhdGljL2ZhcS5odG1s" rel="external nofollow noopener noreferrer" target="_blank">KindleEar 官方常见问答</a>。这里可以解决你在安装 KindleEar 时遇到的绝大部分问题。如果 FAQ 没有解决你的问题，可以自行搜索看是否有可行办法。 实在解决不了可以<a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly9naXRodWIuY29tL2NkaGlnaC9raW5kbGVlYXIvaXNzdWVz" rel="external nofollow noopener noreferrer" target="_blank">点击这里</a>向开发者提交一个“New issue”请求解答，也可以在本页留言请求帮助。 另外，如果你觉得 KindleEar 这款软件还不错，可以<a href="https://www.imahui.com/go.php?url=aHR0cHM6Ly9naXRodWIuY29tL2NkaGlnaC9LaW5kbGVFYXIvd2lraS9Eb25hdGU=" rel="external nofollow noopener noreferrer" target="_blank">点击这里</a>捐赠一下作者 cdhigh。</p>
+<h2 id="五、付费安装"><a href="#五、付费安装" class="headerlink" title="五、付费安装"></a>五、付费安装</h2><p>如果您不愿意折腾，本站可以帮忙搭建，只需要支付一些手工费。有需要请联系邮箱：<a href="mailto:99706@163.com" rel="external nofollow noopener noreferrer" target="_blank">99706@163.com</a>。 原文地址：<a href="https://www.imahui.com/notes/233.html" rel="external nofollow noopener noreferrer" target="_blank">https://www.imahui.com/notes/233.html</a></p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/2018/10/12/教程/yourls/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    YOURLS - 建立属于你自己的短网址生成系统
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2018/08/13/分享/音乐/decca-ultimate-decca-e6-9e-81-e8-87-b4-e7-b3-bb-e5-88-97-34cd-e4-b8-8b-e8-bd-bd-e5-9c-b0-e5-9d-80/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Decca Ultimate / DECCA极致系列  34CD下载地址</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Garvey &copy; 2019 
+            <a rel="external nofollow noopener noreferrer" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten" rel="external nofollow noopener noreferrer" target="_blank">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>

@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>Tiny File Manager | Garvey&#39;s Wiki</title>
+    
+    
+        <meta name="keywords" content="blog">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Tiny File Manager      It is a simple, fast and small file manager with single php file. It is also a web code editor. It’ll run either online or locally, on Linux, Windows or Mac based platforms. T">
+<meta name="keywords" content="blog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tiny File Manager">
+<meta property="og:url" content="https://garveyw.com/2019/01/09/教程/Tiny-File-Manager/index.html">
+<meta property="og:site_name" content="Garvey&#39;s Wiki">
+<meta property="og:description" content="Tiny File Manager      It is a simple, fast and small file manager with single php file. It is also a web code editor. It’ll run either online or locally, on Linux, Windows or Mac based platforms. T">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://camo.githubusercontent.com/afed75c52f7f2a557bf6a5ecbc73828f7f365359/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4c6976652d44656d6f2d627269676874677265656e2e7376673f7374796c653d666c61742d737175617265">
+<meta property="og:image" content="https://camo.githubusercontent.com/ea14ba199282ca611d19c546961896d6e4f25f9a/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f48656c702d446f63732d6c69676874677265792e7376673f7374796c653d666c61742d737175617265">
+<meta property="og:image" content="https://camo.githubusercontent.com/c42dbe544ace2bb6b813058994056a1e89278fa8/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f72656c656173652f7175627974652f727562696469756d2e7376673f7374796c653d666c61742d737175617265">
+<meta property="og:image" content="https://camo.githubusercontent.com/7de96638791ffa220256e563aaa3e724e068f8fb/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c6963656e73652f707261736174686d616e692f74696e7966696c656d616e616765722e7376673f7374796c653d666c61742d737175617265">
+<meta property="og:image" content="https://camo.githubusercontent.com/1bc115fa256a04cfa66e2f476c25d7ce8cca661b/68747470733a2f2f626565727061792e696f2f707261736174686d616e692f74696e7966696c656d616e616765722f62616467652e7376673f7374796c653d666c61742d737175617265">
+<meta property="og:image" content="https://github.com/prasathmani/tinyfilemanager/raw/master/screenshot.gif">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f4e2.png">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f4bf.png">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f4f1.png">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/2139.png">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/23eb.png">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f381.png">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f60e.png">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f4be.png">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/270f.png">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f4c4.png">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/26a1.png">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f310.png">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/203c.png">
+<meta property="og:image" content="https://camo.githubusercontent.com/1bc115fa256a04cfa66e2f476c25d7ce8cca661b/68747470733a2f2f626565727061792e696f2f707261736174686d616e692f74696e7966696c656d616e616765722f62616467652e7376673f7374796c653d666c61742d737175617265">
+<meta property="og:updated_time" content="2019-01-08T19:15:51.491Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tiny File Manager">
+<meta name="twitter:description" content="Tiny File Manager      It is a simple, fast and small file manager with single php file. It is also a web code editor. It’ll run either online or locally, on Linux, Windows or Mac based platforms. T">
+<meta name="twitter:image" content="https://camo.githubusercontent.com/afed75c52f7f2a557bf6a5ecbc73828f7f365359/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4c6976652d44656d6f2d627269676874677265656e2e7376673f7374796c653d666c61742d737175617265">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Garvey&#39;s Wiki" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Garvey&#39;s Wiki</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id="categories">
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id="allExpand" href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            分享
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            视频
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/10/17/分享/视频/kedi-ef-bc-882017-ef-bc-89-e5-8f-88-e5-90-8d-e3-80-8a-e7-88-b1-e7-8c-ab-e4-b9-8b-e5-9f-8e-e3-80-8b-ef-bc-8c-e3-80-8a-e4-bc-8a-e6-96-af-e5-9d-a6-e5-b8-83-e5-b0-94-e7-9a-84-e7-8c-ab-e3-80-8b/">Kedi（2017）又名《爱猫之城》，《伊斯坦布尔的猫》</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            音乐
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/12/分享/音乐/carmen-e5-8d-a1-e9-97-a8-e9-80-89-e6-9b-b2-e5-88-86-e4-ba-ab/">Carmen 卡门选曲 分享</a></li>  <li class="file"><a href="/2018/08/13/分享/音乐/decca-ultimate-decca-e6-9e-81-e8-87-b4-e7-b3-bb-e5-88-97-34cd-e4-b8-8b-e8-bd-bd-e5-9c-b0-e5-9d-80/">Decca Ultimate / DECCA极致系列  34CD下载地址</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            教程
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/01/09/教程/hexo-bangdingyuming/">Github+hexo绑定域名</a></li>  <li class="file active"><a href="/2019/01/09/教程/Tiny-File-Manager/">Tiny File Manager</a></li>  <li class="file"><a href="/2019/01/09/教程/hexo-sitemap-rss-deploy/">Hexo 入门指南 - sitemap、rss 和部署</a></li>  <li class="file"><a href="/2019/01/09/教程/hexo-theme-Wikitten/">hexo-theme-Wikitten</a></li>  <li class="file"><a href="/2019/01/05/教程/moban/">模板</a></li>  <li class="file"><a href="/2018/10/16/教程/onedrive-oneindex-wangpan/">使用 OneDrive 提供的 5T 存储自建 OneIndex 网盘（附免费 Office 365 教育版注册方法）</a></li>  <li class="file"><a href="/2018/10/12/教程/yourls/">YOURLS - 建立属于你自己的短网址生成系统</a></li>  <li class="file"><a href="/2018/09/07/教程/kindleear-e6-90-ad-e5-bb-ba-e6-95-99-e7-a8-8b-ef-bc-9a-e6-8e-a8-e9-80-81-rss-e8-ae-a2-e9-98-85-e5-88-b0-kindle/">KindleEar 搭建教程：推送 RSS 订阅到 Kindle</a></li>  <li class="file"><a href="/2019/01/09/教程/wordpress-to-hexo/">wordpress to hexo</a></li>  <li class="file"><a href="/2019/01/09/教程/linux-mingling/">Linux常用命令大全</a></li>  <li class="file"><a href="/2019/01/09/教程/hexogithub/">用 Hexo 搭建博客</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2018/08/12/hello-world/">Welcome Garvey's Wiki Site</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-教程/Tiny-File-Manager" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/教程/">教程</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2019/01/09/教程/Tiny-File-Manager/">
+            <time datetime="2019-01-08T19:13:38.000Z" itemprop="datePublished">2019-01-09</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Tiny File Manager
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Tiny-File-Manager"><span class="toc-number">1.</span> <span class="toc-text">Tiny File Manager</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Demo"><span class="toc-number">1.1.</span> <span class="toc-text">Demo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Documents"><span class="toc-number">1.2.</span> <span class="toc-text">Documents</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Requirements"><span class="toc-number">1.3.</span> <span class="toc-text">Requirements</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-use"><span class="toc-number">1.4.</span> <span class="toc-text">How to use</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Supported-constants"><span class="toc-number">1.4.1.</span> <span class="toc-text">Supported constants:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Features"><span class="toc-number">1.4.2.</span> <span class="toc-text"> Features</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#License-Credit"><span class="toc-number">1.4.3.</span> <span class="toc-text">License, Credit</span></a></li></ol></li></ol></li></ol>
+                </div>
+            
+        
+        
+            <blockquote>
+<ul>
+<li><h1 id="Tiny-File-Manager"><a href="#Tiny-File-Manager" class="headerlink" title="Tiny File Manager"></a>Tiny File Manager</h1><p><a href="https://tinyfilemanager.github.io/demo/" rel="external nofollow noopener noreferrer" target="_blank"><img src="https://camo.githubusercontent.com/afed75c52f7f2a557bf6a5ecbc73828f7f365359/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4c6976652d44656d6f2d627269676874677265656e2e7376673f7374796c653d666c61742d737175617265" alt="Live demo"></a> <a href="https://tinyfilemanager.github.io/" rel="external nofollow noopener noreferrer" target="_blank"><img src="https://camo.githubusercontent.com/ea14ba199282ca611d19c546961896d6e4f25f9a/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f48656c702d446f63732d6c69676874677265792e7376673f7374796c653d666c61742d737175617265" alt="Live demo"></a> <a href="https://github.com/prasathmani/tinyfilemanager/releases" rel="external nofollow noopener noreferrer" target="_blank"><img src="https://camo.githubusercontent.com/c42dbe544ace2bb6b813058994056a1e89278fa8/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f72656c656173652f7175627974652f727562696469756d2e7376673f7374796c653d666c61742d737175617265" alt="GitHub Release"></a> <a href="https://github.com/prasathmani/tinyfilemanager/blob/master/LICENSE" rel="external nofollow noopener noreferrer" target="_blank"><img src="https://camo.githubusercontent.com/7de96638791ffa220256e563aaa3e724e068f8fb/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c6963656e73652f707261736174686d616e692f74696e7966696c656d616e616765722e7376673f7374796c653d666c61742d737175617265" alt="GitHub License"></a> <a href="https://beerpay.io/prasathmani/tinyfilemanager" rel="external nofollow noopener noreferrer" target="_blank"><img src="https://camo.githubusercontent.com/1bc115fa256a04cfa66e2f476c25d7ce8cca661b/68747470733a2f2f626565727061792e696f2f707261736174686d616e692f74696e7966696c656d616e616765722f62616467652e7376673f7374796c653d666c61742d737175617265" alt="Beerpay"></a></p>
+<blockquote>
+<p>It is a simple, fast and small file manager with single php file. It is also a web code editor. It’ll run either online or locally, on Linux, Windows or Mac based platforms. The only requirement is to have <strong>PHP 5.5+</strong> available.</p>
+</blockquote>
+<h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p><a href="https://tinyfilemanager.github.io/demo/" rel="external nofollow noopener noreferrer" target="_blank">Demo</a></p>
+<p>Login Details : admin/admin@123 | user/12345</p>
+<h2 id="Documents"><a href="#Documents" class="headerlink" title="Documents"></a>Documents</h2><p><a href="https://tinyfilemanager.github.io/" rel="external nofollow noopener noreferrer" target="_blank">TinyFileManager.github.io</a> | <a href="https://tinyfilemanager.github.io/docs/pwd.html" rel="external nofollow noopener noreferrer" target="_blank">Password Generater</a></p>
+<hr>
+<p><a href="https://github.com/prasathmani/tinyfilemanager/blob/master/screenshot.gif" rel="external nofollow noopener noreferrer" target="_blank"><img src="https://github.com/prasathmani/tinyfilemanager/raw/master/screenshot.gif" alt="Tiny File Manager"></a></p>
+<h2 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h2><ul>
+<li>PHP 5.5.0 or higher.</li>
+<li><a href="http://php.net/manual/en/book.zip.php" rel="external nofollow noopener noreferrer" target="_blank">Zip extension</a> for zip and unzip actions.</li>
+<li>Fileinfo, iconv and mbstring extensions are strongly recommended.</li>
+</ul>
+<h2 id="How-to-use"><a href="#How-to-use" class="headerlink" title="How to use"></a>How to use</h2><p>Download ZIP with latest version from master branch.</p>
+<p>Just copy the tinyfilemanager.php to your webspace - thats all :) You can also change the file name from “tinyfilemanager.php” to something else, you know what i meant for.</p>
+<p>Default username/password: <strong>admin/admin@123</strong> and <strong>user/12345</strong>.</p>
+<p>Warning: Please set your own username and password in <code>$auth_users</code> before use. password is encrypted with <code>password_hash()</code>. to generate new password hash <a href="https://tinyfilemanager.github.io/docs/pwd.html" rel="external nofollow noopener noreferrer" target="_blank">here</a></p>
+<p>To enable/disable authentication set <code>$use_auth</code> to true or false.</p>
+<h3 id="Supported-constants"><a href="#Supported-constants" class="headerlink" title="Supported constants:"></a>Supported constants:</h3><ul>
+<li><code>FM_ROOT_PATH</code> - default is <code>$_SERVER[&#39;DOCUMENT_ROOT&#39;]</code></li>
+<li><code>FM_ROOT_URL</code> - default is <code>&#39;http(s)://site.domain/&#39;</code></li>
+<li><code>FM_SELF_URL</code> - default is <code>&#39;http(s)://site.domain/&#39; . $_SERVER[&#39;PHP_SELF&#39;]</code></li>
+<li><code>FM_ICONV_INPUT_ENC</code> - default is <code>&#39;CP1251&#39;</code></li>
+<li><code>FM_USE_HIGHLIGHTJS</code> - default is <code>true</code></li>
+<li><code>FM_HIGHLIGHTJS_STYLE</code> - default is <code>&#39;vs&#39;</code></li>
+<li><code>FM_DATETIME_FORMAT</code> - default is <code>&#39;d.m.y H:i&#39;</code></li>
+<li><code>FM_EXTENSION</code> - default is <code>&quot;&quot;</code> //upload files extensions</li>
+</ul>
+<h3 id="Features"><a href="#Features" class="headerlink" title=" Features"></a><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4e2.png" alt="loudspeaker"> Features</h3><ul>
+<li><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4bf.png" alt="cd"> Open Source, light and extremely simple</li>
+<li><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4f1.png" alt="iphone"> Mobile friendly view for touch devices</li>
+<li><img src="https://github.githubassets.com/images/icons/emoji/unicode/2139.png" alt="information_source"> Basic features likes Create, Delete, Modify, View, Download, Copy and Move files</li>
+<li><img src="https://github.githubassets.com/images/icons/emoji/unicode/23eb.png" alt="arrow_double_up"> Ajax Upload, Ability to drag &amp; drop, upload from URL, multiple files upload and file extensions filter</li>
+<li><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png" alt="file_folder"> Ability to create folders and files</li>
+<li><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f381.png" alt="gift"> Ability to compress, extract files (<code>zip</code>, <code>tar</code>)</li>
+<li><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f60e.png" alt="sunglasses"> Support user permissions - based on session and each user root folder mapping</li>
+<li><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4be.png" alt="floppy_disk"> Copy direct file URL</li>
+<li><img src="https://github.githubassets.com/images/icons/emoji/unicode/270f.png" alt="pencil2"> Cloud9 IDE - Syntax highlighting for over <code>150+</code> languages, Over <code>35+</code> themes with your favorite programming style</li>
+<li><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c4.png" alt="page_facing_up"> Google Drive viewer helps you preview <code>PDF/DOC/XLS/PPT/etc</code>. 25 MB can be previewed with the Google Drive viewer</li>
+<li><img src="https://github.githubassets.com/images/icons/emoji/unicode/26a1.png" alt="zap"> Backup files</li>
+<li><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" alt="mag_right"> Search - Search and Sorting using <code>datatable js</code></li>
+<li><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png" alt="file_folder"> Exclude folders from listing</li>
+<li><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f310.png" alt="globe_with_meridians"> Multi-language support (English, Spanish, French, Italian, German, Russian, Thailand and Chinese ) for translations <code>translation.json</code> is file required</li>
+<li><img src="https://github.githubassets.com/images/icons/emoji/unicode/203c.png" alt="bangbang"> lots more…</li>
+</ul>
+<h3 id="License-Credit"><a href="#License-Credit" class="headerlink" title="License, Credit"></a>License, Credit</h3><ul>
+<li>Available under the <a href="https://github.com/prasathmani/tinyfilemanager/blob/master/LICENSE" rel="external nofollow noopener noreferrer" target="_blank">GNU license</a></li>
+<li>Original concept and development by github.com/alexantr/filemanager</li>
+<li>CDN Used - <em>jQuery, Bootstrap, Font Awesome, Highlight js, ace js, DropZone js, DataTable js</em></li>
+<li>To report a bug or request a feature, please file an <a href="https://github.com/prasathmani/tinyfilemanager/issues" rel="external nofollow noopener noreferrer" target="_blank">issue</a></li>
+<li>We hope our tools will be helpful for you. If you find Tiny File Manager useful for your personal or commercial projects, Help me out for a couple of <a href="https://beerpay.io/prasathmani/tinyfilemanager" rel="external nofollow noopener noreferrer" target="_blank"><img src="https://camo.githubusercontent.com/1bc115fa256a04cfa66e2f476c25d7ce8cca661b/68747470733a2f2f626565727061792e696f2f707261736174686d616e692f74696e7966696c656d616e616765722f62616467652e7376673f7374796c653d666c61742d737175617265" alt="Beerpay"></a></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>密码生成器：<a href="http://www.passwordtool.hu/php5-password-hash-generator" rel="external nofollow noopener noreferrer" target="_blank">http://www.passwordtool.hu/php5-password-hash-generator</a></p>
+<p>GitHub地址：<a href="https://github.com/prasathmani/tinyfilemanager" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/prasathmani/tinyfilemanager</a></p>
+<p>官网：<a href="https://tinyfilemanager.github.io/" rel="external nofollow noopener noreferrer" target="_blank">https://tinyfilemanager.github.io/</a></p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/2019/01/09/教程/hexo-sitemap-rss-deploy/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    Hexo 入门指南 - sitemap、rss 和部署
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2019/01/09/教程/hexo-theme-Wikitten/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">hexo-theme-Wikitten</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Garvey &copy; 2019 
+            <a rel="external nofollow noopener noreferrer" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten" rel="external nofollow noopener noreferrer" target="_blank">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
