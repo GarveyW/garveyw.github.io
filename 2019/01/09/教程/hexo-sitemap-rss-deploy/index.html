@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Garvey&#39;s Wiki">
 <meta property="og:description" content="sitemap &amp;amp; rss切换到blog根目录下，输入： 123&amp;gt;   $ npm install hexo-generator-feed&amp;gt;   $ npm install hexo-generator-sitemap&amp;gt;       之后重启博客，访问/atom.xml和/sitemap.xml，会发现已经生成了。可以把sitemap提交到搜索引擎的站长平台来增加收录">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-08T19:39:15.753Z">
+<meta property="og:updated_time" content="2019-01-09T04:15:17.696Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo 入门指南 - sitemap、rss 和部署">
 <meta name="twitter:description" content="sitemap &amp;amp; rss切换到blog根目录下，输入： 123&amp;gt;   $ npm install hexo-generator-feed&amp;gt;   $ npm install hexo-generator-sitemap&amp;gt;       之后重启博客，访问/atom.xml和/sitemap.xml，会发现已经生成了。可以把sitemap提交到搜索引擎的站长平台来增加收录">
@@ -313,21 +313,21 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#当然，这个命令还有一些bug，比如windows下不能用cmd而是用gitshell。我自己一般会手动敲git代码覆盖提交。"><span class="toc-number">1.</span> <span class="toc-text">  当然，这个命令还有一些bug，比如windows下不能用cmd而是用gitshell。我自己一般会手动敲git代码覆盖提交。</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#sitemap-amp-rss"><span class="toc-number">1.</span> <span class="toc-text">sitemap &amp; rss</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#部署"><span class="toc-number">2.</span> <span class="toc-text">部署</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#当然，这个命令还有一些bug，比如windows下不能用cmd而是用gitshell。我自己一般会手动敲git代码覆盖提交。"><span class="toc-number">2.1.</span> <span class="toc-text">  当然，这个命令还有一些bug，比如windows下不能用cmd而是用gitshell。我自己一般会手动敲git代码覆盖提交。</span></a></li></ol></li></ol>
                 </div>
             
         
         
             <blockquote>
 <ul>
-<li><p>sitemap &amp; rss<br>切换到blog根目录下，输入：</p>
+<li><h1 id="sitemap-amp-rss"><a href="#sitemap-amp-rss" class="headerlink" title="sitemap &amp; rss"></a>sitemap &amp; rss</h1><p>切换到blog根目录下，输入：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;   $ npm install hexo-generator-feed</span><br><span class="line">&gt;   $ npm install hexo-generator-sitemap</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </blockquote>
 <blockquote>
 <p>  之后重启博客，访问/atom.xml和/sitemap.xml，会发现已经生成了。可以把sitemap提交到搜索引擎的站长平台来增加收录。</p>
-<p>  部署<br>  首先按照前面教程（一）的gitcafe部分建立好代码仓库，这里假设你的用户名是your_name。由于ssh配置比较麻烦，这里采用https方式提交。</p>
+<h1 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h1><p>  首先按照前面教程（一）的gitcafe部分建立好代码仓库，这里假设你的用户名是your_name。由于ssh配置比较麻烦，这里采用https方式提交。</p>
 <p>  找到配置文件中# Deployment一节，修改：</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;   type: github</span><br><span class="line">&gt;   repository: https://gitcafe.com/your_name/your_name.git </span><br><span class="line">&gt;   branch: gitcafe-pages</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
