@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://garveyw.com/"/>
-  <updated>2019-01-12T19:28:11.037Z</updated>
+  <updated>2019-01-13T08:06:04.822Z</updated>
   <id>https://garveyw.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>merlin搭建局域网内免配置KMS自动激活环境</title>
+    <link href="https://garveyw.com/2019/01/13/%E6%95%99%E7%A8%8B/juyuwang-ksm/"/>
+    <id>https://garveyw.com/2019/01/13/教程/juyuwang-ksm/</id>
+    <published>2019-01-13T08:03:56.000Z</published>
+    <updated>2019-01-13T08:06:04.822Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><ul><li>准备工作：</li></ul><p>  ​      1.一台刷了merlin的路由器</p><p>  ​      2.我的环境，AC66U，merlin380.58</p><p>  一、部署kms服务</p><p>  ​      常用的KMS激活服务器程序为py-kms与vlmcsd，分别为python和C语言版本。可运行于各种类linux和windows及mac os环境中。</p><p>  ​      vlmcsd发布地址：      </p><p>  ​      </p><p>  <a href="http://forums.mydigitallife.info" rel="external nofollow noopener noreferrer" target="_blank">http://forums.mydigitallife.info</a></p><p>   … n-Windows-platforms</p><p>  ​      py-kms发布地址：</p><p>  ​      </p><p>  <a href="https://github.com/dzacharo/py-kms" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/dzacharo/py-kms</a></p><p>  ​      个人比较喜欢vlmcsd，虽然需要编译，但是不用在路由器端安装python环境。</p><p>  ​       我在ac66u中部署vlmcsd的流程如下</p><p>  ​       1.开启jffs和ssh(或telnet)，登陆路由器管理界面，通过系统管理-系统设置开启jffs和ssh（或telnet，需要重新启动，格式化jffs)如下图：</p><p>  ​       </p><p>  <img src="https://img.okay.do/0f7b30afcb7b51ac0df0df3d2be5d83b_W533_H473_G0@0e_290w" alt="img"></p><p>  ​       2.通过官方下载vlmcsd可执行文件（官方提供源码及一堆各环境下的编译好的可执行文件，有兴趣可以自己编译）。</p><p>  ​       3.上传vlmcsd可执行文件到路由器/</p><p>  ​          mips架构的路由器使用/binaries/Linux/mips/little-endian/static/vlmcsd-mips32el-uclibc-static</p><p>  ​          arm架构的路由器使用/binaries/Linux/armlittle-endian/static/vlmcsd-armv7el-uclibc-static</p><p>  ​          将文件重命名为vlmcsd，通过xftp，winscp等工具上传到路由器/jffs目录下</p><p>  ​       4.通过ssh或telnet连接路由器</p><p>  ​          赋予vlmcsd可执行权限</p><p>  ​          chmod 700 vlmcsd</p><p>  ​          启动vlmcsd</p><p>  ​          /jffs/vlmcsd</p><p>  ​          使用命令netstat -an |grep 1688 得到返回结果如下</p><p>  ​          </p><p>  <img src="https://img.okay.do/32c09ffbcb703d36ef9ab9ce985d1ff8_W685_H63_G0@0e_290w" alt="img"></p><p>  ​          kms服务部署完成</p><p>  ​       5.手动激活office（非必要步骤）</p><p>  ​         Windows下使用管理员权限打开命令提示符（cmd） 执行以下命令：</p><ol><li>#我使用的是office2010 x64版本</li><li>#office2010 64位版本：</li><li>cd “%ProgramFiles%\Microsoft Office\Office14”</li><li>#office2010 32位版本：</li><li>#cd “%ProgramFiles(x86)%\Microsoft Office\Office14”</li><li>#office2013把office14替换成office15</li><li>cscript ospp.vbs /sethst:192.168.1.1</li><li>cscript ospp.vbs /act</li><li><p>cscript ospp.vbs /dstatus</p><p>复制代码</p><p>​             以上四行的大意是：1.切换到office2010目录；2.设置激活服务器地址为192.168.1.1，即你的内网kms服务器地址（即路由地址）；3.激活；4.查看激活状态。得到返回信息如下：</p></li></ol><p>  ​              </p><p>  <img src="https://img.okay.do/505909bec11212d7053bcf0c90163f66_W1200_H644_G0@0e_290w" alt="img"></p><p>  二、实现局域网用户免配置自动激活</p><p>  ​       虽然经在路由器部署完成了KMS服务。但是我们却需要在被激活主机上运行批处理命令，是不是有点繁琐呢，接下来通过配置DNS服务器的SRV记录实现被激活主机接入局域网，不需要任何配置就可以激活系统或office。</p><p>  ​       merlin固件的dnsmasq配置文件为/etc/dnsmasq.conf，添加自定义项需要开启jffs，在/jffs/configs/dnsmasq.conf.add中添加(详见参考2)。srv记录的格式参考merlin源代码dnsmasq中dnsmasq.conf.example(详见参考3)</p><p>  ​       1.通过ssh或telnet连接路由器</p><p>  ​       输入命令</p><p>  ​       echo “srv-host=_vlmcs._tcp,router,1688”&gt;&gt;/jffs/configs/dnsmasq.conf.add</p><p>  ​       添加srv记录到/jffs/configs/dnsmasq.conf.add.</p><p>  ​       其中 _vlmcs._tcp 为服务名；router为路由在内网中的网络名称（可通过uname –n查看）；1688为kms激活服务默认端口号；</p><p>  ​       输入命令service restart_dnsmasq重启dnsmasq服务。如图：</p><p>  ​      </p><p>  <img src="https://img.okay.do/b306e8d88d7377c22911b71189e405c8_W932_H155_G0@0e_290w" alt="img"></p><p>  ​       2.Windows下使用管理员打开命令提示符（cmd），使用命令nslookup -type=srv _vlmcs_tcp验证dns配置是否正确，得到返回信息如下图：</p><p>  ​      </p><p>  <img src="https://img.okay.do/9d06bc038c97a9cd563de6eeb0da6667_W850_H301_G0@0e_290w" alt="img"></p><p>  ​       说明dns配置正确</p><p>  ​       3.验证office能不能成功发现kms服务器，还是在管理员模式命令提示符（cmd）下运行以下命令：</p><ol><li>cd “%ProgramFiles%\Microsoft Office\Office14”</li><li>cscript ospp.vbs /remhst</li><li>cscript ospp.vbs /act</li><li><p>cscript ospp.vbs /dstatus</p><p>复制代码</p><p>​        其中第一行切换到office目录，第二行表示清除之前设置的kms激活服务器地址，第三行手动激活，第四行显示激活状态。最终看到信息：</p></li></ol><p>  ​          </p><p>  <img src="https://img.okay.do/79217f6d246d5045dd6584e1e83849f6_W690_H611_G0@0e_290w" alt="img"></p><p>  ​         说明office可以完全免配置自动激活。以后任何电脑只要连接入局域网，即可对其VOL版本的office以及windows进行自动激活。套用螃蟹（玩wow的都知道）的话so coooooooool！</p><p>  ​        参考：</p><p>  ​        1. </p><p>  <a href="https://support.microsoft.com/en-us/kb/816587" rel="external nofollow noopener noreferrer" target="_blank">https://support.microsoft.com/en-us/kb/816587</a></p><p>  ​        2. </p><p>  <a href="https://github.com/RMerl/asuswrt-merlin/wiki/Custom-config-files" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/RMerl/asuswrt-merlin/wiki/Custom-config-files</a></p><p>  ​        3. </p><p>  <a href="https://raw.githubusercontent.co" rel="external nofollow noopener noreferrer" target="_blank">https://raw.githubusercontent.co</a></p><p>   … nsmasq.conf.example</p><p>  补充下py-kms的部署</p><p>  ​       1.路由器安装entware或optware，请自行论坛搜索</p><p>  ​       2.安装python环境，entware使用命令opkg install python<em>,optware使用命令ipkg install python</em></p><p>  ​       3.下载py-kms到/jffs</p><p>  ​       首先安装git命令，opkg install git</p><p>  ​       下载py-kms</p><ol><li>cd /jffs</li><li><p>git clone git:<a href="chrome-extension://github.com/dzacharo/py-kms" rel="external nofollow noopener noreferrer" target="_blank">//github.com/dzacharo/py-kms</a></p><p>复制代码</p><p>​      4.运行激活KMS服务</p></li></ol><p>  ​       python2.7 /jffs/py-kms/server.py</p><p>  如果安装了entware也可以使用以下命令安装vlmcsd</p><p>  ​      </p><ol><li>opkg install p7zip</li><li>cd /opt/tmp</li><li>wget <a href="http://rghost.net/download/62BgHwKq9/97412839f948a67e494b679d796037775e49e2ba/97412839f948a67e494b679d796037775e49e2ba/vlmcsd-svn818-2016-03-07-Hotbird64.7z" rel="external nofollow noopener noreferrer" target="_blank">http://rghost.net/download/62BgHwKq9/97412839f948a67e494b679d796037775e49e2ba/97412839f948a67e494b679d796037775e49e2ba/vlmcsd-svn818-2016-03-07-Hotbird64.7z</a></li><li>7za -x vlmcsd-svn818-2016-03-07-Hotbird64.7z -r -o./vlm/  #p7zip</li><li>[ <code>uname -m</code> = “armv7l” ] &amp;&amp; cp /opt/tmp/vlm/binaries/Linux/armlittle-endian/static/vlmcsd-armv7el-uclibc-static /jffs/vlmcsd ||\</li><li>cp /opt/tmp/vlm/binaries/Linux/mips/little-endian/static/vlmcsd-mips32el-uclibc-static /jffs/vlmcsd</li><li>/jffs/vlmcsd</li><li>rm -rf /opt/tmp/vlm</li><li><p>rm -rf /opt/tmp/vlmcsd*</p><p>复制代码</p><p>原地址：<a href="http://koolshare.cn/thread-43602-1-1.html" rel="external nofollow noopener noreferrer" target="_blank">http://koolshare.cn/thread-43602-1-1.html</a></p></li></ol></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;准备工作：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;  ​      1.一台刷了merlin的路由器&lt;/p&gt;
+&lt;p&gt;  ​      2.我的环境，AC66U，merlin380.58&lt;/p&gt;
+&lt;p&gt;  一、部署kms服务&lt;/p&gt;
+&lt;p&gt;  ​ 
+      
+    
+    </summary>
+    
+      <category term="教程" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>hexo 文章、草稿</title>
