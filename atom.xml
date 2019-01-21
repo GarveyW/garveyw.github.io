@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://garveyw.com/"/>
-  <updated>2019-01-20T11:21:31.083Z</updated>
+  <updated>2019-01-21T08:13:27.800Z</updated>
   <id>https://garveyw.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>zhonggong</title>
+    <link href="https://garveyw.com/2019/01/21/%E6%95%99%E7%A8%8B/zhonggong/"/>
+    <id>https://garveyw.com/2019/01/21/教程/zhonggong/</id>
+    <published>2019-01-21T08:12:36.000Z</published>
+    <updated>2019-01-21T08:13:27.800Z</updated>
+    
+    <content type="html"><![CDATA[<p>中公网校学习室<a href="http://www.eoffcn.com/book/" rel="external nofollow noopener noreferrer" target="_blank">http://www.eoffcn.com/book/</a></p><p>时事政治 <a href="http://www.offcn.com/shizheng/" rel="external nofollow noopener noreferrer" target="_blank">http://www.offcn.com/shizheng/</a></p><p>19课堂 <a href="http://19ke.offcn.com/course/jp/" rel="external nofollow noopener noreferrer" target="_blank">http://19ke.offcn.com/course/jp/</a></p><p>事业单位联考分类 其他考试免费视频领取处<a href="http://m.eoffcn.com/gk/sxxm/" rel="external nofollow noopener noreferrer" target="_blank">http://m.eoffcn.com/gk/sxxm/</a></p><p>体验课听课中心<a href="http://tiyan.eoffcn.com/" rel="external nofollow noopener noreferrer" target="_blank">http://tiyan.eoffcn.com/</a></p><p>模考题库<a href="http://tiku.offcn.com/" rel="external nofollow noopener noreferrer" target="_blank">http://tiku.offcn.com/</a></p><p>关注 中公教育移动自习室 weixin公众号，获取更多资料</p><p>公务员500G视频<a href="http://www.eoffcn.com/gwy/tsxyty/index.php" rel="external nofollow noopener noreferrer" target="_blank">http://www.eoffcn.com/gwy/tsxyty/index.php</a></p><p>账号：zgtsxy  密码：eoffcn</p><p>关注weixin公众号 中公教育移动自习室 —学习账户—学习资料—选择考试类目</p><p>百度网盘链接：<a href="https://pan.baidu.com/s/17-f6WzTTvcn_4czkjpbdyg" rel="external nofollow noopener noreferrer" target="_blank">https://pan.baidu.com/s/17-f6WzTTvcn_4czkjpbdyg</a> 密码：2rug</p><p>网盘已更新为百度盘</p><p>地址为：链接： <a href="https://pan.baidu.com/s/1dFxHv01" rel="external nofollow noopener noreferrer" target="_blank">https://pan.baidu.com/s/1dFxHv01</a> 密码：wb3w</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;中公网校学习室&lt;a href=&quot;http://www.eoffcn.com/book/&quot; rel=&quot;external nofollow noopener noreferrer&quot; target=&quot;_blank&quot;&gt;http://www.eoffcn.com/book/&lt;/a&gt;&lt;
+      
+    
+    </summary>
+    
+      <category term="教程" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>利用Robots.txt优化你的WordPress站点</title>
@@ -507,26 +530,6 @@
       
         &lt;p&gt;题目有点拗口，但是意思就是，先去申请一个 OneDrive 的网盘，正常途径申请只是 5G 容量的普通版，但微软面向学生推出了一个免费的 Office 365 教育版，包含 OneDrive 5T 容量，很关键而且还是免费的，但必须要微软认证的教育网邮箱才可以注册，这类邮箱
       
-    
-    </summary>
-    
-      <category term="教程" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>YOURLS - 建立属于你自己的短网址生成系统</title>
-    <link href="https://garveyw.com/2018/10/12/%E6%95%99%E7%A8%8B/yourls/"/>
-    <id>https://garveyw.com/2018/10/12/教程/yourls/</id>
-    <published>2018-10-12T15:47:42.000Z</published>
-    <updated>2019-01-08T20:16:28.433Z</updated>
-    
-    <content type="html"><![CDATA[<p> <a href="http://wjw.me/2018/10/12/yourls/" rel="external nofollow noopener noreferrer" target="_blank">YOURLS</a> (Your Own URL Shortener) 是一款开源的PHP程序，让你可以轻松建立属于自己的短网址生成系统。而无需第三方平台你就可以获得所有的数据统计，并且支持一系列插件扩展。</p><a id="more"></a><p><img src="http://wjw.me/wp-content/uploads/2018/12/31.png" alt=""> </p><p><a href="http://wjw.me/2018/10/12/yourls/" rel="external nofollow noopener noreferrer" target="_blank">YOURLS</a> (Your Own URL Shortener) 是一款开源的PHP程序，让你可以轻松建立属于自己的短网址生成系统。而无需第三方平台你就可以获得所有的数据统计，并且支持一系列插件扩展。 功能特性 私有（只能自己使用）或 公共（所有人都可以创建短网址）模式 支持顺序生成 或 自定义 URL 关键字 好用的书签 轻松创建和分享链接 </p><p>完善的统计：历史点击报告、来源追踪、访客地理位置 简洁的 AJAX 界面 开发者 API 友好的安装流程   </p><p>在线演示 <a href="http://yourls.org/cookie+" rel="external nofollow noopener noreferrer" target="_blank">http://yourls.org/cookie+</a> </p><p>安装流程 YOURLS 的安装流程类似于 WordPress： 将安装包解压并上传至服务器； 将 user/config-sample.php 重命名为 user/config.php； 编辑 user/config.php 文件，填入数据库信息和配置站点选项； 访问 <a href="http://yoursite.com/admin/" rel="external nofollow noopener noreferrer" target="_blank">http://yoursite.com/admin/</a> 开始使用吧！ </p><p>立即下载 <a href="http://yourls.org/download" rel="external nofollow noopener noreferrer" target="_blank">下载 YOURLS</a> | <a href="https://github.com/guox/yourls-zh_CN/" rel="external nofollow noopener noreferrer" target="_blank">中文语言文件</a> | <a href="http://yourls.org/" rel="external nofollow noopener noreferrer" target="_blank">软件官网</a> | <a href="https://github.com/YOURLS/YOURLS" rel="external nofollow noopener noreferrer" target="_blank">GitHub</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt; &lt;a href=&quot;http://wjw.me/2018/10/12/yourls/&quot; rel=&quot;external nofollow noopener noreferrer&quot; target=&quot;_blank&quot;&gt;YOURLS&lt;/a&gt; (Your Own URL Shortener) 是一款开源的PHP程序，让你可以轻松建立属于自己的短网址生成系统。而无需第三方平台你就可以获得所有的数据统计，并且支持一系列插件扩展。&lt;/p&gt;
     
     </summary>
     
