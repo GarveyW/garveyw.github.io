@@ -41,8 +41,8 @@
   
   <entry>
     <title>最全Hexo博客搭建+主题优化+插件配置+常用操作+错误分析</title>
-    <link href="https://garveyw.com/2019/01/23/%E6%95%99%E7%A8%8B/hexo-changyong/"/>
-    <id>https://garveyw.com/2019/01/23/教程/hexo-changyong/</id>
+    <link href="https://garveyw.com/2019/01/23/%E6%95%99%E7%A8%8B/Hexo/hexo-changyong/"/>
+    <id>https://garveyw.com/2019/01/23/教程/Hexo/hexo-changyong/</id>
     <published>2019-01-23T11:33:41.000Z</published>
     <updated>2019-01-23T11:35:31.782Z</updated>
     
@@ -59,13 +59,15 @@
     
       <category term="教程" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/"/>
     
+      <category term="Hexo" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/Hexo/"/>
+    
     
   </entry>
   
   <entry>
     <title>hexo自动部署到git、ftp（虚拟主机等）、云服务器的方式</title>
-    <link href="https://garveyw.com/2019/01/23/%E6%95%99%E7%A8%8B/Hexo-Ftp/"/>
-    <id>https://garveyw.com/2019/01/23/教程/Hexo-Ftp/</id>
+    <link href="https://garveyw.com/2019/01/23/%E6%95%99%E7%A8%8B/Hexo/Hexo-Ftp/"/>
+    <id>https://garveyw.com/2019/01/23/教程/Hexo/Hexo-Ftp/</id>
     <published>2019-01-23T11:20:36.000Z</published>
     <updated>2019-01-23T11:21:49.304Z</updated>
     
@@ -83,6 +85,8 @@
     </summary>
     
       <category term="教程" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="Hexo" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/Hexo/"/>
     
     
   </entry>
@@ -189,8 +193,8 @@
   
   <entry>
     <title>yourls 安装</title>
-    <link href="https://garveyw.com/2019/01/20/%E6%95%99%E7%A8%8B/yourls-install/"/>
-    <id>https://garveyw.com/2019/01/20/教程/yourls-install/</id>
+    <link href="https://garveyw.com/2019/01/20/%E6%95%99%E7%A8%8B/Yourls/yourls-install/"/>
+    <id>https://garveyw.com/2019/01/20/教程/Yourls/yourls-install/</id>
     <published>2019-01-19T19:43:57.000Z</published>
     <updated>2019-01-19T19:44:34.194Z</updated>
     
@@ -208,13 +212,15 @@
     
       <category term="教程" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/"/>
     
+      <category term="Yourls" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/Yourls/"/>
+    
     
   </entry>
   
   <entry>
     <title>yourls配置 Configuration (in user/config.php)</title>
-    <link href="https://garveyw.com/2019/01/20/%E6%95%99%E7%A8%8B/yourls-Configuration/"/>
-    <id>https://garveyw.com/2019/01/20/教程/yourls-Configuration/</id>
+    <link href="https://garveyw.com/2019/01/20/%E6%95%99%E7%A8%8B/Yourls/yourls-Configuration/"/>
+    <id>https://garveyw.com/2019/01/20/教程/Yourls/yourls-Configuration/</id>
     <published>2019-01-19T19:42:00.000Z</published>
     <updated>2019-01-19T19:43:14.682Z</updated>
     
@@ -232,6 +238,8 @@
     </summary>
     
       <category term="教程" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="Yourls" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/Yourls/"/>
     
     
   </entry>
@@ -316,8 +324,8 @@
   
   <entry>
     <title>hexo 文章、草稿</title>
-    <link href="https://garveyw.com/2019/01/13/%E6%95%99%E7%A8%8B/wenzhang-caogao/"/>
-    <id>https://garveyw.com/2019/01/13/教程/wenzhang-caogao/</id>
+    <link href="https://garveyw.com/2019/01/13/%E6%95%99%E7%A8%8B/Hexo/wenzhang-caogao/"/>
+    <id>https://garveyw.com/2019/01/13/教程/Hexo/wenzhang-caogao/</id>
     <published>2019-01-12T19:22:15.000Z</published>
     <updated>2019-01-12T19:28:11.037Z</updated>
     
@@ -367,6 +375,8 @@
     
       <category term="教程" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/"/>
     
+      <category term="Hexo" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/Hexo/"/>
+    
     
   </entry>
   
@@ -395,8 +405,8 @@
   
   <entry>
     <title>Github+hexo绑定域名</title>
-    <link href="https://garveyw.com/2019/01/09/%E6%95%99%E7%A8%8B/hexo-bangdingyuming/"/>
-    <id>https://garveyw.com/2019/01/09/教程/hexo-bangdingyuming/</id>
+    <link href="https://garveyw.com/2019/01/09/%E6%95%99%E7%A8%8B/Hexo/hexo-bangdingyuming/"/>
+    <id>https://garveyw.com/2019/01/09/教程/Hexo/hexo-bangdingyuming/</id>
     <published>2019-01-09T14:33:23.000Z</published>
     <updated>2019-01-09T14:36:18.913Z</updated>
     
@@ -413,13 +423,15 @@
     
       <category term="教程" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/"/>
     
+      <category term="Hexo" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/Hexo/"/>
+    
     
   </entry>
   
   <entry>
     <title>Hexo 入门指南 - sitemap、rss 和部署</title>
-    <link href="https://garveyw.com/2019/01/09/%E6%95%99%E7%A8%8B/hexo-sitemap-rss-deploy/"/>
-    <id>https://garveyw.com/2019/01/09/教程/hexo-sitemap-rss-deploy/</id>
+    <link href="https://garveyw.com/2019/01/09/%E6%95%99%E7%A8%8B/Hexo/hexo-sitemap-rss-deploy/"/>
+    <id>https://garveyw.com/2019/01/09/教程/Hexo/hexo-sitemap-rss-deploy/</id>
     <published>2019-01-08T19:27:37.000Z</published>
     <updated>2019-01-09T04:15:17.696Z</updated>
     
@@ -437,6 +449,8 @@
     </summary>
     
       <category term="教程" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="Hexo" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/Hexo/"/>
     
     
   </entry>
@@ -468,8 +482,8 @@
   
   <entry>
     <title>hexo-theme-Wikitten</title>
-    <link href="https://garveyw.com/2019/01/09/%E6%95%99%E7%A8%8B/hexo-theme-Wikitten/"/>
-    <id>https://garveyw.com/2019/01/09/教程/hexo-theme-Wikitten/</id>
+    <link href="https://garveyw.com/2019/01/09/%E6%95%99%E7%A8%8B/Hexo/hexo-theme-Wikitten/"/>
+    <id>https://garveyw.com/2019/01/09/教程/Hexo/hexo-theme-Wikitten/</id>
     <published>2019-01-08T18:01:31.000Z</published>
     <updated>2019-01-08T18:03:28.798Z</updated>
     
@@ -488,13 +502,15 @@
     
       <category term="教程" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/"/>
     
+      <category term="Hexo" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/Hexo/"/>
+    
     
   </entry>
   
   <entry>
     <title>wordpress to hexo</title>
-    <link href="https://garveyw.com/2019/01/09/%E6%95%99%E7%A8%8B/wordpress-to-hexo/"/>
-    <id>https://garveyw.com/2019/01/09/教程/wordpress-to-hexo/</id>
+    <link href="https://garveyw.com/2019/01/09/%E6%95%99%E7%A8%8B/Hexo/wordpress-to-hexo/"/>
+    <id>https://garveyw.com/2019/01/09/教程/Hexo/wordpress-to-hexo/</id>
     <published>2019-01-08T17:55:16.000Z</published>
     <updated>2019-01-08T18:03:18.628Z</updated>
     
@@ -511,13 +527,15 @@
     
       <category term="教程" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/"/>
     
+      <category term="Hexo" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/Hexo/"/>
+    
     
   </entry>
   
   <entry>
     <title>用 Hexo 搭建博客</title>
-    <link href="https://garveyw.com/2019/01/09/%E6%95%99%E7%A8%8B/hexogithub/"/>
-    <id>https://garveyw.com/2019/01/09/教程/hexogithub/</id>
+    <link href="https://garveyw.com/2019/01/09/%E6%95%99%E7%A8%8B/Hexo/hexogithub/"/>
+    <id>https://garveyw.com/2019/01/09/教程/Hexo/hexogithub/</id>
     <published>2019-01-08T17:46:19.000Z</published>
     <updated>2019-01-08T17:47:52.309Z</updated>
     
@@ -535,6 +553,8 @@
     </summary>
     
       <category term="教程" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="Hexo" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/Hexo/"/>
     
     
   </entry>
