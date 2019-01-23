@@ -18,8 +18,8 @@
   
   <entry>
     <title>最全Hexo博客搭建+主题优化+插件配置+常用操作+错误分析</title>
-    <link href="https://garveyw.com/2019/01/23/hexo-changyong/"/>
-    <id>https://garveyw.com/2019/01/23/hexo-changyong/</id>
+    <link href="https://garveyw.com/2019/01/23/%E6%95%99%E7%A8%8B/hexo-changyong/"/>
+    <id>https://garveyw.com/2019/01/23/教程/hexo-changyong/</id>
     <published>2019-01-23T11:33:41.000Z</published>
     <updated>2019-01-23T11:35:31.782Z</updated>
     
@@ -33,6 +33,8 @@
       
     
     </summary>
+    
+      <category term="教程" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/"/>
     
     
   </entry>
