@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://garveyw.com/"/>
-  <updated>2019-02-13T09:21:16.710Z</updated>
+  <updated>2019-02-14T10:56:13.272Z</updated>
   <id>https://garveyw.com/</id>
   
   <author>
@@ -15,6 +15,54 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>bookmarks程序安装</title>
+    <link href="https://garveyw.com/2019/02/14/%E6%95%99%E7%A8%8B/bookmarks-install/"/>
+    <id>https://garveyw.com/2019/02/14/教程/bookmarks-install/</id>
+    <published>2019-02-14T10:46:56.000Z</published>
+    <updated>2019-02-14T10:56:13.272Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ul><li>部署代码并配置好web服务器；</li><li>创建并导入<code>db/bookmark.sql</code>到数据库；</li><li>修改<code>root/config/base.php</code>配置数据库连接参数及其他选项；</li><li>申请第三方应用并配置<code>root/config/oauth.php</code>；</li><li>修改<code>root/data/*</code>目录为可写权限；</li></ul><h2 id="url重写配置参考"><a href="#url重写配置参考" class="headerlink" title="url重写配置参考"></a>url重写配置参考</h2><p>配置文件<code>root/config/base.php</code>修改：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">switch (App::getName()) &#123;</span><br><span class="line">    case &quot;public&quot;:</span><br><span class="line">        $config[&quot;rewriteRules&quot;] = array(</span><br><span class="line">            &quot;User_Index&quot; =&gt; &quot;/[uid]&quot;</span><br><span class="line">        );</span><br><span class="line">        break;</span><br><span class="line">    case &quot;mobile&quot;:</span><br><span class="line">        $config[&quot;rewriteRules&quot;] = array(</span><br><span class="line">            &quot;User_Index&quot; =&gt; &quot;/m/[uid]&quot;</span><br><span class="line">        );</span><br><span class="line">        break;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>nginx配置url重写规则：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rewrite ^/([0-9]+)$ /?do=User_Index&amp;uid=$1&amp;$args last;</span><br><span class="line">rewrite ^/m/([0-9]+)$ /m/?do=User_Index&amp;uid=$1&amp;$args last;</span><br></pre></td></tr></table></figure><p>apache配置<code>.htaccess</code>url重写规则：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;ifmodule mod_rewrite.c&gt;</span><br><span class="line">RewriteEngine On</span><br><span class="line">RewriteRule ^([0-9]+)$ /?do=User_Index&amp;uid=$1&amp;%&#123;QUERY_STRING&#125; [L]</span><br><span class="line">RewriteRule ^m/([0-9]+)$ /m/?do=User_Index&amp;uid=$1&amp;%&#123;QUERY_STRING&#125; [L]</span><br><span class="line">&lt;/ifmodule&gt;</span><br></pre></td></tr></table></figure><h2 id="第三方应用申请地址"><a href="#第三方应用申请地址" class="headerlink" title="第三方应用申请地址"></a>第三方应用申请地址</h2><ul><li>微博：<a href="http://open.weibo.com/connect" rel="external nofollow noopener noreferrer" target="_blank">http://open.weibo.com/connect</a></li><li>QQ：<a href="http://connect.qq.com/intro/login" rel="external nofollow noopener noreferrer" target="_blank">http://connect.qq.com/intro/login</a></li><li>百度：<a href="http://developer.baidu.com/ms/oauth" rel="external nofollow noopener noreferrer" target="_blank">http://developer.baidu.com/ms/oauth</a></li></ul><h2 id="新浪SAE配置说明"><a href="#新浪SAE配置说明" class="headerlink" title="新浪SAE配置说明"></a>新浪SAE配置说明</h2><ul><li>数据库表请使用SAE提供的<code>PHPMyAdmin</code>导入；</li><li>数据库连接配置请直接填写<code>SAE_MYSQL_*</code>开头的常量；</li><li>鉴于SAE目录不能直接写入文件，所以模板编译路径需要配置到临时目录<code>SAE_TMP_PATH</code>，示例如下：</li></ul><p>配置文件<code>root/config/base.php</code>添加如下代码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 模板编译路径</span><br><span class="line">$config[&quot;templateCompilePath&quot;] = SAE_TMP_PATH;</span><br><span class="line">return $config; // 添加在此行之前</span><br></pre></td></tr></table></figure><h2 id="阿里云ACE配置说明"><a href="#阿里云ACE配置说明" class="headerlink" title="阿里云ACE配置说明"></a>阿里云ACE配置说明</h2><ul><li>创建应用，并开通数据库扩展服务，使用mysql客户端工具导入数据库表；</li><li>数据库连接配置参考如上云数据库配置；</li><li>URL重写参考阿里云ACE文档，如下给出一个示例配置：</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// app.yaml添加如下代码：</span><br><span class="line">rewrite:</span><br><span class="line">    - url: ^/([0-9]+)$</span><br><span class="line">      script: /index.php?do=User_Index&amp;uid=$1&amp;$args last</span><br><span class="line">    - url: ^/m/([0-9]+)$</span><br><span class="line">      script: /m/index.php?do=User_Index&amp;uid=$1&amp;$args last</span><br></pre></td></tr></table></figure><h2 id="API接口文档"><a href="#API接口文档" class="headerlink" title="API接口文档"></a>API接口文档</h2><ul><li><a href="https://gitee.com/wuwenbin/bookmark/blob/master/API.md" rel="external nofollow noopener noreferrer" target="_blank">API.md</a></li></ul><h2 id="官方主页"><a href="#官方主页" class="headerlink" title="官方主页"></a>官方主页</h2><ul><li><a href="http://f.wuwenbin.info/" rel="external nofollow noopener noreferrer" target="_blank">http://f.wuwenbin.info</a></li></ul><h2 id="授权协议"><a href="#授权协议" class="headerlink" title="授权协议"></a>授权协议</h2><ul><li>MIT</li></ul><p>地址：<a href="https://gitee.com/wuwenbin/bookmark" rel="external nofollow noopener noreferrer" target="_blank">https://gitee.com/wuwenbin/bookmark</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;安装步骤&quot;&gt;&lt;a href=&quot;#安装步骤&quot; class=&quot;headerlink&quot; title=&quot;安装步骤&quot;&gt;&lt;/a&gt;安装步骤&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;部署代码并配置好web服务器；&lt;/li&gt;
+&lt;li&gt;创建并导入&lt;code&gt;db/bookmark.sql&lt;/cod
+      
+    
+    </summary>
+    
+      <category term="教程" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://garveyw.com/2019/02/14/2019first-snow/"/>
+    <id>https://garveyw.com/2019/02/14/2019first-snow/</id>
+    <published>2019-02-14T09:22:47.528Z</published>
+    <updated>2019-02-14T10:18:04.283Z</updated>
+    
+    <content type="html"><![CDATA[<hr><p>title：2019年第一场雪</p><h2 id="date：2019-02-14-17-23-27"><a href="#date：2019-02-14-17-23-27" class="headerlink" title="date：2019-02-14 17:23:27"></a>date：2019-02-14 17:23:27</h2><p>​        2018年没有看到雪，本来以为这个冬天不会下雪了，还很失落。今天终于下雪了，虽然小的可怜，但是终究是雪。在这之前可能还下过小得不能算雪的雪，像毛毛雨一样，落到地上就化了，或者干脆是小雨。</p><p>​        </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;hr&gt;
+&lt;p&gt;title：2019年第一场雪&lt;/p&gt;
+&lt;h2 id=&quot;date：2019-02-14-17-23-27&quot;&gt;&lt;a href=&quot;#date：2019-02-14-17-23-27&quot; class=&quot;headerlink&quot; title=&quot;date：2019-02-14 
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>centos file</title>
@@ -459,59 +507,6 @@
     </summary>
     
       <category term="教程" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>yourls 安装</title>
-    <link href="https://garveyw.com/2019/01/20/%E6%95%99%E7%A8%8B/Yourls/yourls-install/"/>
-    <id>https://garveyw.com/2019/01/20/教程/Yourls/yourls-install/</id>
-    <published>2019-01-19T19:43:57.000Z</published>
-    <updated>2019-01-19T19:44:34.194Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Fresh-Install"><a href="#Fresh-Install" class="headerlink" title="Fresh Install"></a>Fresh Install</h2><ol><li>Unzip the YOURLS archive</li><li>Copy <code>user/config-sample.php</code> to <code>user/config.php</code></li><li>Open <code>user/config.php</code> with a raw text editor (like Notepad) and fill in the required settings</li><li>Upload the unzipped files to your domain <code>public_html</code> or <code>www</code> folder</li><li>Create a new database (see <a href="https://yourls.org/#Config" rel="external nofollow noopener noreferrer" target="_blank">Configuration</a> – you can also use an existing one)</li><li>Point your browser to <code>http://your-own-domain-here.com/admin/</code></li></ol><h3 id="Install-Guides"><a href="#Install-Guides" class="headerlink" title="Install Guides"></a>Install Guides</h3><p>Here is a list of some (unofficial) install guides using automated tools:</p><ul><li><a href="https://www.rosehosting.com/blog/how-to-install-yourls-on-ubuntu-14-04/" rel="external nofollow noopener noreferrer" target="_blank">How to Install YOURLS on Ubuntu 14.04</a></li><li><a href="https://computingforgeeks.com/how-to-install-yourls-your-own-url-shortener-on-ubuntu-18-04-bionic-beaver-linux/" rel="external nofollow noopener noreferrer" target="_blank">How to install YOURLS on Ubuntu 18.04</a></li><li><a href="https://thishosting.rocks/how-to-shorten-your-links-with-your-own-domain/" rel="external nofollow noopener noreferrer" target="_blank">How to Install YOURLS on a VPS or shared hosting</a></li><li><a href="https://www.websitehostingrating.com/how-to-install-yourls-using-softaculous/" rel="external nofollow noopener noreferrer" target="_blank">How to Install YOURLS using Softaculous</a></li></ul><h2 id="Upgrade"><a href="#Upgrade" class="headerlink" title="Upgrade"></a>Upgrade</h2><ol><li><strong>Backup the database!</strong></li><li>Unzip the YOURLS archive</li><li>Upload files to your server, overwriting your existing install</li><li>Point your browser to <code>http://your-own-domain-here.com/admin/</code></li><li>Tip: you can now move your <code>config.php</code> file to the <code>/user</code> directory参考资料</li></ol><p>原地址：<a href="https://yourls.org/#Install" rel="external nofollow noopener noreferrer" target="_blank">https://yourls.org/#Install</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Fresh-Install&quot;&gt;&lt;a href=&quot;#Fresh-Install&quot; class=&quot;headerlink&quot; title=&quot;Fresh Install&quot;&gt;&lt;/a&gt;Fresh Install&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;Unzip the YOURLS arc
-      
-    
-    </summary>
-    
-      <category term="教程" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="Yourls" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/Yourls/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>yourls配置 Configuration (in user/config.php)</title>
-    <link href="https://garveyw.com/2019/01/20/%E6%95%99%E7%A8%8B/Yourls/yourls-Configuration/"/>
-    <id>https://garveyw.com/2019/01/20/教程/Yourls/yourls-Configuration/</id>
-    <published>2019-01-19T19:42:00.000Z</published>
-    <updated>2019-01-19T19:43:14.682Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><ul><li><h3 id="MySQL-settings"><a href="#MySQL-settings" class="headerlink" title="MySQL settings"></a>MySQL settings</h3><ul><li><code>YOURLS_DB_USER</code><br>your MySQL username<br><em>Example:</em> <code>define( &#39;YOURLS_DB_USER&#39;, &#39;joe&#39; );</code></li><li><code>YOURLS_DB_PASS</code><br>your MySQL password<br><em>Example:</em> <code>define( &#39;YOURLS_DB_PASS&#39;, &#39;MySeCreTPaSsW0rd&#39; );</code></li><li><code>YOURLS_DB_NAME</code>: The database name<br><em>Example:</em> <code>define( &#39;YOURLS_DB_NAME&#39;, &#39;yourls&#39; );</code></li><li><code>YOURLS_DB_HOST</code><br>The database host<br><em>Example:</em> <code>define( &#39;YOURLS_DB_HOST&#39;, &#39;localhost&#39; );</code></li><li><code>YOURLS_DB_PREFIX</code><br>The name prefix for all the tables YOURLS will need<br><em>Example:</em> <code>define( &#39;YOURLS_DB_PREFIX&#39;, &#39;yourls_&#39; );</code></li></ul><h3 id="Site-options"><a href="#Site-options" class="headerlink" title="Site options"></a>Site options</h3><ul><li><code>YOURLS_SITE</code><br>Your (hopefully short) domain URL, no trailing slash, lowercase. If you pick the non-www version of your domain, don’t use the www version in your browser (and vice-versa)<br><em>Example:</em> <code>define( &#39;YOURLS_SITE&#39;, &#39;http://ozh.in&#39; );</code></li><li><code>YOURLS_HOURS_OFFSET</code><br>Timezone GMT offset<br><em>Example:</em> <code>define( &#39;YOURLS_HOURS_OFFSET&#39;, &#39;-5&#39; );</code></li><li><code>YOURLS_PRIVATE</code><br>Private means the admin area will be protected with login/pass as defined below. See <a href="https://yourls.org/privatepublic" rel="external nofollow noopener noreferrer" target="_blank">Private or Public</a> for more.<br><em>Example:</em> <code>define( &#39;YOURLS_PRIVATE&#39;, &#39;true&#39; );</code></li><li><code>YOURLS_UNIQUE_URLS</code><br>Allow multiple short URLs for a same long URL<br>Set to <code>true</code> to allow only one pair of shortURL/longURL (default YOURLS behavior), or to <code>false</code> to allow creation of multiple short URLs pointing to the same long URL (as bit.ly does)<br><em>Example:</em> <code>define( &#39;YOURLS_UNIQUE_URLS&#39;, &#39;true&#39; );</code></li><li><code>YOURLS_COOKIEKEY</code><br>A random secret hash used to encrypt cookies. You don’t have to remember it, make it long and complicated. Hint: generate a unique one at <a href="https://yourls.org/cookie" rel="external nofollow noopener noreferrer" target="_blank">https://yourls.org/cookie</a><br><em>Example:</em> <code>define( &#39;YOURLS_COOKIEKEY&#39;, &#39;qQ4KhL_pu|s@Zm7n#%:b^{A[vhm&#39; );</code></li><li><code>yourls_user_passwords</code><br>A list of username(s) and password(s) allowed to access the site if private<br>Passwords can either be in plain text, or encrypted: see <a href="https://yourls.org/userpassword" rel="external nofollow noopener noreferrer" target="_blank">https://yourls.org/userpassword</a> for more information.<br><em>Example:</em> <code>&#39;joe&#39; =&gt; &#39;mypassword&#39;</code></li></ul><h3 id="URL-Shortening-settings"><a href="#URL-Shortening-settings" class="headerlink" title="URL Shortening settings"></a>URL Shortening settings</h3><ul><li><code>YOURLS_URL_CONVERT</code><br>URL shortening method: base <code>36</code> or <code>62</code>. See <a href="https://yourls.org/#FAQ" rel="external nofollow noopener noreferrer" target="_blank">FAQ</a> for more explanations</li><li><code>yourls_reserved_URL</code><br>A list of reserved keywords that won’t be used as short URLs. Define here negative, unwanted or potentially misleading keywords<br><em>Example:</em> <code>&#39;porn&#39;, &#39;faggot&#39;, &#39;sex&#39;, &#39;nigger&#39;, &#39;fuck&#39;, &#39;cunt&#39;, &#39;dick&#39;</code></li></ul><h3 id="Optional-settings"><a href="#Optional-settings" class="headerlink" title="Optional settings"></a>Optional settings</h3><ul><li><code>YOURLS_PRIVATE_INFOS</code><br>If <code>YOURLS_PRIVATE</code> is set to <code>true</code>, you can still make stat pages public. To do so, define with:<br><code>define(&#39;YOURLS_PRIVATE_INFOS&#39;, false);</code></li><li><code>YOURLS_PRIVATE_API</code><br>If <code>YOURLS_PRIVATE</code> is set to <code>true</code>, you can still make your API public. To do so, define with:<br><code>define(&#39;YOURLS_PRIVATE_API&#39;, false);</code></li><li><code>YOURLS_NOSTATS</code><br>If <code>YOURLS_NOSTATS</code> is set to <code>true</code>, redirects won’t be logged and there will be not stats available.</li></ul><h3 id="Advanced-settings"><a href="#Advanced-settings" class="headerlink" title="Advanced settings"></a>Advanced settings</h3><ul><li>YOURLS will look for the MySQL extension PDO, MySQLi or MySQL, in that order. If you want to force usage of one particular extension, add the following line to your <code>config.php</code>:<br><code>define( &#39;YOURLS_DB_DRIVER&#39;, &#39;mysqli&#39; );</code></li><li>You can install YOURLS behind a firewall or a proxy: see <a href="https://yourls.org/proxy" rel="external nofollow noopener noreferrer" target="_blank">Proxy Support</a></li><li>File <code>includes/load-yourls.php</code> contains a few more undocumented but self explanatory and commented settings. Add them to your own <code>config.php</code> if you know what you’re doing.</li></ul></li></ul></blockquote><p>原地址：<a href="https://yourls.org/#Config" rel="external nofollow noopener noreferrer" target="_blank">https://yourls.org/#Config</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;h3 id=&quot;MySQL-settings&quot;&gt;&lt;a href=&quot;#MySQL-settings&quot; class=&quot;headerlink&quot; title=&quot;MySQL settings&quot;&gt;&lt;/a&gt;MySQL settings&lt;/h3&gt;&lt;ul
-      
-    
-    </summary>
-    
-      <category term="教程" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="Yourls" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/Yourls/"/>
     
     
   </entry>
