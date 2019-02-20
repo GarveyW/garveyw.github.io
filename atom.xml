@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://garveyw.com/"/>
-  <updated>2019-02-14T10:56:13.272Z</updated>
+  <updated>2019-02-18T10:12:48.089Z</updated>
   <id>https://garveyw.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>FileZilla读取目录列表失败的解决办法</title>
+    <link href="https://garveyw.com/2019/02/18/%E6%95%99%E7%A8%8B/FileZilla-duqushibai/"/>
+    <id>https://garveyw.com/2019/02/18/教程/FileZilla-duqushibai/</id>
+    <published>2019-02-18T10:11:10.000Z</published>
+    <updated>2019-02-18T10:12:48.089Z</updated>
+    
+    <content type="html"><![CDATA[<p>FileZilla是一款非常优秀的且免费的FTP软件，包含服务器端和客户端。但最近在连接某服务器时发现FileZilla出现“读取目录列表失败”的错误提示，无法正常连接该服务器</p><p>FileZilla是一款非常优秀的且免费的FTP软件，包含服务器端和客户端。下载地址:<a href="https://www.jb51.net/softs/2052.html" rel="external nofollow noopener noreferrer" target="_blank">FileZilla</a> 。 </p><p>但最近在连接某服务器时发现FileZilla出现“读取目录列表失败”的错误提示，无法正常连接该服务器。 </p><p>但是使用CuteFtp没有问题。 </p><p>百度一下，得到解决方法如下： </p><p>（1）检查FileZilla传输模式是否设置为被动。 </p><p>（2）如果是被动的话就要设置为主动，可以在“文件”-“站点管理器”中设置。如图： </p><p><img src="https://files.jb51.net/file_images/article/201401/20140130141318.jpg" alt="img"></p><p>FileZilla 连接超时 读取目录列表失败问题 </p><p>有其它工具或者是客户端可以连接成功的情况下只有本机连接超时读取目录列表失败 </p><p>1.确认是否通过了防火墙， </p><p>2.修改传输模式为主动或者被动 </p><p>有时可能需要重启电脑才生效 </p><p>原地址：<a href="https://www.jb51.net/softjc/134785.html" rel="external nofollow noopener noreferrer" target="_blank">https://www.jb51.net/softjc/134785.html</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;FileZilla是一款非常优秀的且免费的FTP软件，包含服务器端和客户端。但最近在连接某服务器时发现FileZilla出现“读取目录列表失败”的错误提示，无法正常连接该服务器&lt;/p&gt;
+&lt;p&gt;FileZilla是一款非常优秀的且免费的FTP软件，包含服务器端和客户端。下载地
+      
+    
+    </summary>
+    
+      <category term="教程" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>bookmarks程序安装</title>
@@ -37,29 +61,6 @@
     </summary>
     
       <category term="教程" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://garveyw.com/2019/02/14/2019first-snow/"/>
-    <id>https://garveyw.com/2019/02/14/2019first-snow/</id>
-    <published>2019-02-14T09:22:47.528Z</published>
-    <updated>2019-02-14T10:18:04.283Z</updated>
-    
-    <content type="html"><![CDATA[<hr><p>title：2019年第一场雪</p><h2 id="date：2019-02-14-17-23-27"><a href="#date：2019-02-14-17-23-27" class="headerlink" title="date：2019-02-14 17:23:27"></a>date：2019-02-14 17:23:27</h2><p>​        2018年没有看到雪，本来以为这个冬天不会下雪了，还很失落。今天终于下雪了，虽然小的可怜，但是终究是雪。在这之前可能还下过小得不能算雪的雪，像毛毛雨一样，落到地上就化了，或者干脆是小雨。</p><p>​        </p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;hr&gt;
-&lt;p&gt;title：2019年第一场雪&lt;/p&gt;
-&lt;h2 id=&quot;date：2019-02-14-17-23-27&quot;&gt;&lt;a href=&quot;#date：2019-02-14-17-23-27&quot; class=&quot;headerlink&quot; title=&quot;date：2019-02-14 
-      
-    
-    </summary>
     
     
   </entry>
