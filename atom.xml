@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://garveyw.com/"/>
-  <updated>2019-02-28T10:34:03.195Z</updated>
+  <updated>2019-03-01T05:44:42.503Z</updated>
   <id>https://garveyw.com/</id>
   
   <author>
@@ -17,9 +17,32 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Linux通过docker安装运行酷Q</title>
+    <link href="https://garveyw.com/2019/03/01/%E6%95%99%E7%A8%8B/docker-install-coolq/"/>
+    <id>https://garveyw.com/2019/03/01/教程/docker-install-coolq/</id>
+    <published>2019-03-01T05:38:02.000Z</published>
+    <updated>2019-03-01T05:44:42.503Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Linux通过docker安装运行酷Q"><a href="#Linux通过docker安装运行酷Q" class="headerlink" title="Linux通过docker安装运行酷Q"></a>Linux通过docker安装运行酷Q</h3><p>文：铁乐与猫</p><p><strong>需求：</strong>和小伙伴周末进行愉快的TRPG跑团，需要在QQ讨论组上加了qq小号后，将qq小号用酷Q配合投骰的应用变成骰子君。<br><strong>限制：</strong>我个人的云计算服务器都是Linux的，所以不能直接用普通青年在windows服务器上安装酷Q的简单方法。<br><strong>环境：</strong>centos7.4、docker、酷Q容器<br>酷Q on Docker 基于 Docker 和 wine 技术，具体官方链接<a href="https://cqp.cc/t/34558" rel="external nofollow noopener noreferrer" target="_blank">https://cqp.cc/t/34558</a></p><h4 id="1、安装及运行docker"><a href="#1、安装及运行docker" class="headerlink" title="1、安装及运行docker"></a>1、安装及运行docker</h4><p><strong>sudo yum install docker</strong><br>yum安装完docker后，直接运行命令会报还没有连接上docker。<br>[yunwei_wwz@tielemao ~]$ docker info<br>Cannot connect to the Docker daemon. Is the docker daemon running on this host?<br>这是因为docker还没有在运行。<br>sudo运行一下docker就正常了。<br><strong>sudo systemctl start docker</strong></p><h4 id="2、下载酷Q镜像，后台运行容器。"><a href="#2、下载酷Q镜像，后台运行容器。" class="headerlink" title="2、下载酷Q镜像，后台运行容器。"></a>2、下载酷Q镜像，后台运行容器。</h4><p><strong>sudo docker pull coolq/wine-coolq</strong><br>下载花的时间还是蛮久的，可能是因为我的ecs宽带只有1M。而这个镜像大小大概会有1.33G大小。</p><p>查看酷Q镜像详情：<br>[yunwei_wwz@tielemao ~]$ sudo docker images<br>REPOSITORY TAG IMAGE ID CREATED SIZE<br>docker.io/coolq/wine-coolq latest b8ae73a8fe42 4 months ago 1.324 GB</p><p>创建一个用于存放（映射）coolq数据的目录（可以理解为数据卷？），用于持久化存放coolq（酷Q应用）的数据。<br><strong>sudo mkdir /coolq-data</strong><br>这一步很重要，因为数据是最重要的，而且后面你的酷Q应用都要上传到此目录才能应用上的。</p><h5 id="后台运行酷Q容器："><a href="#后台运行酷Q容器：" class="headerlink" title="后台运行酷Q容器："></a>后台运行酷Q容器：</h5><blockquote><p>//—————–后台运行——————————-<br>sudo docker run –name=coolq -d -p 8080:9000 -v /coolq-data:/home/user/coolq -e VNC_PASSWD=12345678 -e COOLQ_ACCOUNT=1000000000 coolq/wine-coolq<br>———————————————————–//</p></blockquote><p>其中部分参数根据自己的需求替换：</p><p>远程监听端口<br>8080(9000映射成8080)<br>数据存放位置<br>/coolq-data（/home/user/coolq 映射到/coolq-data）<br>远程访问密码<br>12345678（只能设8位）<br>机器人 QQ 帐号<br>1000000000</p><p>实际上我当然运行的参数不是上面那些示例参数。根据自己的服务器实际来。<br>这里要注意的是，首先你远程监听的端口，也就是自定义的web端口需要在服务器防火墙和云安全组都放行。<br>其次，-d 指的是后台运行容器，-v后面接的就是将服务器的自己定义的coolq数据目录映射到容器内的/home/user/coolq目录，-e是设置容器的系统环境。<br>因为我们后面要通过vnc连接，所以要指定VNC_PASSWD。<br>而酷Q要登录的qq小号（充当机器人）也可以通过-e COOLQ_ACCOUNT 去指定。</p><h4 id="3、登录vnc进行酷Q操作。"><a href="#3、登录vnc进行酷Q操作。" class="headerlink" title="3、登录vnc进行酷Q操作。"></a>3、登录vnc进行酷Q操作。</h4><p>在浏览器中访问 http://你的服务器IP:你定义的web端口 即可看到noVNC远程操作登录页面，逼格顿时很高有没有。<br><img src="https://www.tielemao.com/wp-content/uploads/2018/02/noVNC.jpg" alt="img"><br>点击Connect进行连接，在弹出的密码框中输入密码，可以看到 酷Q Air 的登录界面。<br>随后的操作就是用小号登录上去。</p><p>在登录后，右键点击悬浮窗 -&gt; 你的 QQ 昵称 -&gt; 勾选「开机启动」和「快速登录」，即可保证 酷Q 能自动登录。<br><img src="https://www.tielemao.com/wp-content/uploads/2018/02/%E9%85%B7Q%E7%99%BB%E5%BD%95%E5%90%8E%E8%AE%BE%E7%BD%AE%E5%BF%AB%E9%80%9F%E7%99%BB%E5%BD%95.jpg" alt="img"><br>那个悬浮图标在图中已完全被菜单遮住。</p><p>平时对应用的管理同样是在酷Q的应用菜单-应用管理和应用目录中。<br><img src="https://www.tielemao.com/wp-content/uploads/2018/02/%E9%85%B7Q%E5%BA%94%E7%94%A8%E7%AE%A1%E7%90%86.jpg" alt="img"></p><h4 id="4、如何上传你想安装的酷Q的应用到容器中。"><a href="#4、如何上传你想安装的酷Q的应用到容器中。" class="headerlink" title="4、如何上传你想安装的酷Q的应用到容器中。"></a>4、如何上传你想安装的酷Q的应用到容器中。</h4><p>细心的朋友可能发现我在前面已经提到过，在centos服务器上做了一个对酷Q容器/home/user/coolq的映射，映射到了docker宿主上的/coolq-data<br>所以你可以在centos宿主机上cd进/coolq-data目录，再rz等方式上传就可以了，是实时能在酷Q web上的vnc窗口能看到变化的，<br>不过上传后还需要重新再登录酷Q再进应用管理才看得到新上传的应用去启用。</p><p>另外注意的是上传的文件记得修改一下属主和属组统一比较好。像我的服务器上的属主和权限就是如图：<br><img src="https://www.tielemao.com/wp-content/uploads/2018/02/coolq_data%E5%B1%9E%E6%80%A7.jpg" alt="img"><br>属主和属组分别是systemd-bus-proxy ssh_keys。</p><p>原地址：<a href="http://www.cnblogs.com/tielemao/p/8462263.html" rel="external nofollow noopener noreferrer" target="_blank">http://www.cnblogs.com/tielemao/p/8462263.html</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Linux通过docker安装运行酷Q&quot;&gt;&lt;a href=&quot;#Linux通过docker安装运行酷Q&quot; class=&quot;headerlink&quot; title=&quot;Linux通过docker安装运行酷Q&quot;&gt;&lt;/a&gt;Linux通过docker安装运行酷Q&lt;/h3&gt;&lt;p&gt;文：
+      
+    
+    </summary>
+    
+      <category term="教程" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>npm更新</title>
-    <link href="https://garveyw.com/2019/02/28/npm-update/"/>
-    <id>https://garveyw.com/2019/02/28/npm-update/</id>
+    <link href="https://garveyw.com/2019/02/28/%E6%95%99%E7%A8%8B/npm-update/"/>
+    <id>https://garveyw.com/2019/02/28/教程/npm-update/</id>
     <published>2019-02-28T10:32:53.000Z</published>
     <updated>2019-02-28T10:34:03.195Z</updated>
     
@@ -34,6 +57,8 @@
       
     
     </summary>
+    
+      <category term="教程" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/"/>
     
     
   </entry>
@@ -468,33 +493,6 @@
       
       
         &lt;h3 id=&quot;博客搭建&quot;&gt;&lt;a href=&quot;#博客搭建&quot; class=&quot;headerlink&quot; title=&quot;博客搭建&quot;&gt;&lt;/a&gt;博客搭建&lt;/h3&gt;&lt;h4 id=&quot;准备环境&quot;&gt;&lt;a href=&quot;#准备环境&quot; class=&quot;headerlink&quot; title=&quot;准备环境&quot;&gt;&lt;/a
-      
-    
-    </summary>
-    
-      <category term="教程" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="Hexo" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/Hexo/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>hexo自动部署到git、ftp（虚拟主机等）、云服务器的方式</title>
-    <link href="https://garveyw.com/2019/01/23/%E6%95%99%E7%A8%8B/Hexo/Hexo-Ftp/"/>
-    <id>https://garveyw.com/2019/01/23/教程/Hexo/Hexo-Ftp/</id>
-    <published>2019-01-23T11:20:36.000Z</published>
-    <updated>2019-01-23T11:21:49.304Z</updated>
-    
-    <content type="html"><![CDATA[<p>自动部署很有用，当你写完文章后，直接使用hexo d就可以自动更新你的网站了</p><p>部署到git</p><p>首先你需要在你的bloghexo自动部署到git、ftp（虚拟主机等）、云服务器的方式下安装git deployer插件：npm install hexo-deployer-git –save，然后再把如下代码添加到你的_config.yml文件中</p><h3 id="git-deploy"><a href="#git-deploy" class="headerlink" title="git deploy"></a>git deploy</h3><p>deploy:<br>  type: git<br>  repo: <a href="https://github.com/cmlanche/cmlanche.github.io.git" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/cmlanche/cmlanche.github.io.git</a>  # 你的远程仓库<br>  branch: master # 你的远程残酷分支<br>  message: “hello guys” # 每次提交的信息</p><p>需要注意的是，部署到git需要再本地安装你ssh key，也就是说允许本地进行读写远程git仓库，否则你会没权限的</p><p>部署到ftp服务器</p><p>你可能会用一台虚拟主机（虚拟主机评测看这里hostreport.cn）来部署你的hexo个人站点，那么fip怎么部署? 首先你需要下载安装ftp deployer插件：npm install hexo-deployer-ftpsync –save，然后把你下面的代码贴到你的_config.yml中，注意修改ftp的相关参数。</p><h4 id="ftp-deploy"><a href="#ftp-deploy" class="headerlink" title="ftp deploy"></a>ftp deploy</h4><p>deploy:<br> type: ftpsync<br> host: ftpserver # ftp服务器地址<br> user: ftpusername # ftp用户名<br> pass: xxxx # 你的ftp用户密码<br> remote: xxx # 你要上传到的地址，例如/wwwroot<br> port: 21 # ftp端口，不同的ftp可能会不一样<br> delete: true # 上传本地文件是否删除ftp中的所有文件<br> verbose: true # 是否打印调试信息<br> ignore_errors: false # 是否忽略错误<br>部署到远程主机，通常如VPS或者云服务器（评测看这里：hostreport.cn）</p><p>同样要下载hexo deployer: npm install hexo-deployer-rsync –save，然后代码奉上：</p><p>deploy:<br>  type: rsync<br>  host: <host> # 主机地址<br>  user: <user> # 用户名<br>  root: <root> # 要上传到的目录<br>  port: [port] # Default is 22<br>  delete: [true|false] # Default is true<br>  args: <rsync args=""><br>  verbose: [true|false] # Default is true<br>  ignore_errors: [true|false] # Default is false<br>原文：</rsync></root></user></host></p><p>title: hexo自动部署到git、ftp（虚拟主机等）、云服务器的方式<br>tag: hexo,git,ftp,云服务器<br>自动部署很有用，当你写完文章后，直接使用hexo d就可以自动更新你的网站了</p><p>部署到git</p><p>首先你需要在你的blog下安装git deployer插件：npm install hexo-deployer-git –save，然后再把如下代码添加到你的_config.yml文件中</p><h3 id="git-deploy-1"><a href="#git-deploy-1" class="headerlink" title="git deploy"></a>git deploy</h3><p>deploy:<br>  type: git<br>  repo: <a href="https://github.com/cmlanche/cmlanche.github.io.git" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/cmlanche/cmlanche.github.io.git</a>  # 你的远程仓库<br>  branch: master # 你的远程残酷分支<br>  message: “hello guys” # 每次提交的信息</p><p>需要注意的是，部署到git需要再本地安装你ssh key，也就是说允许本地进行读写远程git仓库，否则你会没权限的</p><p>部署到ftp服务器</p><p>你可能会用一台虚拟主机（虚拟主机评测看这里hostreport.cn）来部署你的hexo个人站点，那么fip怎么部署? 首先你需要下载安装ftp deployer插件：npm install hexo-deployer-ftpsync –save，然后把你下面的代码贴到你的_config.yml中，注意修改ftp的相关参数。</p><h4 id="ftp-deploy-1"><a href="#ftp-deploy-1" class="headerlink" title="ftp deploy"></a>ftp deploy</h4><p>deploy:<br> type: ftpsync<br> host: ftpserver # ftp服务器地址<br> user: ftpusername # ftp用户名<br> pass: xxxx # 你的ftp用户密码<br> remote: xxx # 你要上传到的地址，例如/wwwroot<br> port: 21 # ftp端口，不同的ftp可能会不一样<br> delete: true # 上传本地文件是否删除ftp中的所有文件<br> verbose: true # 是否打印调试信息<br> ignore_errors: false # 是否忽略错误<br>部署到远程主机，通常如VPS或者云服务器（评测看这里：hostreport.cn）</p><p>同样要下载hexo deployer: npm install hexo-deployer-rsync –save，然后代码奉上：</p><p>deploy:<br>  type: rsync<br>  host: <host> # 主机地址<br>  user: <user> # 用户名<br>  root: <root> # 要上传到的目录<br>  port: [port] # Default is 22<br>  delete: [true|false] # Default is true<br>  args: <rsync args=""><br>  verbose: [true|false] # Default is true<br>  ignore_errors: [true|false] # Default is false</rsync></root></user></host></p><h2 id="原文：http-www-cmlanche-com-2018-06-20-hexo-deployers"><a href="#原文：http-www-cmlanche-com-2018-06-20-hexo-deployers" class="headerlink" title="原文：http://www.cmlanche.com/2018/06/20/hexo-deployers/"></a>原文：<a href="http://www.cmlanche.com/2018/06/20/hexo-deployers/" rel="external nofollow noopener noreferrer" target="_blank">http://www.cmlanche.com/2018/06/20/hexo-deployers/</a></h2><p>作者：HostReport<br>来源：CSDN<br>原文：<a href="https://blog.csdn.net/u011476664/article/details/80741118" rel="external nofollow noopener noreferrer" target="_blank">https://blog.csdn.net/u011476664/article/details/80741118</a><br>版权声明：本文为博主原创文章，转载请附上博文链接！</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;自动部署很有用，当你写完文章后，直接使用hexo d就可以自动更新你的网站了&lt;/p&gt;
-&lt;p&gt;部署到git&lt;/p&gt;
-&lt;p&gt;首先你需要在你的bloghexo自动部署到git、ftp（虚拟主机等）、云服务器的方式下安装git deployer插件：npm install hexo
       
     
     </summary>
