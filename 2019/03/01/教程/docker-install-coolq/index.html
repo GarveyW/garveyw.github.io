@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://www.tielemao.com/wp-content/uploads/2018/02/%E9%85%B7Q%E7%99%BB%E5%BD%95%E5%90%8E%E8%AE%BE%E7%BD%AE%E5%BF%AB%E9%80%9F%E7%99%BB%E5%BD%95.jpg">
 <meta property="og:image" content="https://www.tielemao.com/wp-content/uploads/2018/02/%E9%85%B7Q%E5%BA%94%E7%94%A8%E7%AE%A1%E7%90%86.jpg">
 <meta property="og:image" content="https://www.tielemao.com/wp-content/uploads/2018/02/coolq_data%E5%B1%9E%E6%80%A7.jpg">
-<meta property="og:updated_time" content="2019-03-02T14:09:52.060Z">
+<meta property="og:updated_time" content="2019-03-02T14:14:04.214Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux通过docker安装运行酷Q">
 <meta name="twitter:description" content="Linux通过docker安装运行酷Q文：铁乐与猫 需求：和小伙伴周末进行愉快的TRPG跑团，需要在QQ讨论组上加了qq小号后，将qq小号用酷Q配合投骰的应用变成骰子君。限制：我个人的云计算服务器都是Linux的，所以不能直接用普通青年在windows服务器上安装酷Q的简单方法。环境：centos7.4、docker、酷Q容器酷Q on Docker 基于 Docker 和 wine 技术，具体官">
@@ -374,9 +374,7 @@
 <h4 id="2、下载酷Q镜像，后台运行容器。"><a href="#2、下载酷Q镜像，后台运行容器。" class="headerlink" title="2、下载酷Q镜像，后台运行容器。"></a>2、下载酷Q镜像，后台运行容器。</h4><p><strong>sudo docker pull coolq/wine-coolq</strong><br>下载花的时间还是蛮久的，可能是因为我的ecs宽带只有1M。而这个镜像大小大概会有1.33G大小。</p>
 <p>查看酷Q镜像详情：<br>[yunwei_wwz@tielemao ~]$ sudo docker images<br>REPOSITORY TAG IMAGE ID CREATED SIZE<br>docker.io/coolq/wine-coolq latest b8ae73a8fe42 4 months ago 1.324 GB</p>
 <p>创建一个用于存放（映射）coolq数据的目录（可以理解为数据卷？），用于持久化存放coolq（酷Q应用）的数据。<br><strong>sudo mkdir /coolq-data</strong><br>这一步很重要，因为数据是最重要的，而且后面你的酷Q应用都要上传到此目录才能应用上的。</p>
-<h5 id="后台运行酷Q容器："><a href="#后台运行酷Q容器：" class="headerlink" title="后台运行酷Q容器："></a>后台运行酷Q容器：</h5><blockquote>
-<p>//—————–后台运行——————————-<br>sudo docker run  - -name=coolq -d -p 8080:9000 -v /coolq-data:/home/user/coolq -e VNC_PASSWD=12345678 -e COOLQ_ACCOUNT=1000000000 coolq/wine-coolq<br>———————————————————–//</p>
-</blockquote>
+<h5 id="后台运行酷Q容器："><a href="#后台运行酷Q容器：" class="headerlink" title="后台运行酷Q容器："></a>后台运行酷Q容器：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//-----------------后台运行-------------------------------</span><br><span class="line">sudo docker run --name=coolq -d -p 8080:9000 -v /coolq-data:/home/user/coolq -e VNC_PASSWD=12345678 -e COOLQ_ACCOUNT=1000000000 coolq/wine-coolq</span><br><span class="line">-----------------------------------------------------------//</span><br></pre></td></tr></table></figure>
 <p>其中部分参数根据自己的需求替换：</p>
 <p>远程监听端口<br>8080(9000映射成8080)<br>数据存放位置<br>/coolq-data（/home/user/coolq 映射到/coolq-data）<br>远程访问密码<br>12345678（只能设8位）<br>机器人 QQ 帐号<br>1000000000</p>
 <p>实际上我当然运行的参数不是上面那些示例参数。根据自己的服务器实际来。<br>这里要注意的是，首先你远程监听的端口，也就是自定义的web端口需要在服务器防火墙和云安全组都放行。<br>其次，-d 指的是后台运行容器，-v后面接的就是将服务器的自己定义的coolq数据目录映射到容器内的/home/user/coolq目录，-e是设置容器的系统环境。<br>因为我们后面要通过vnc连接，所以要指定VNC_PASSWD。<br>而酷Q要登录的qq小号（充当机器人）也可以通过-e COOLQ_ACCOUNT 去指定。</p>
