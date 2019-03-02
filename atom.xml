@@ -18,8 +18,8 @@
   
   <entry>
     <title>docker安装bitwarden</title>
-    <link href="https://garveyw.com/2019/03/02/docker-bitwarden/"/>
-    <id>https://garveyw.com/2019/03/02/docker-bitwarden/</id>
+    <link href="https://garveyw.com/2019/03/02/%E6%95%99%E7%A8%8B/docker-bitwarden/"/>
+    <id>https://garveyw.com/2019/03/02/教程/docker-bitwarden/</id>
     <published>2019-03-02T14:17:01.000Z</published>
     <updated>2019-03-02T14:18:30.287Z</updated>
     
@@ -33,6 +33,8 @@
       
     
     </summary>
+    
+      <category term="教程" scheme="https://garveyw.com/categories/%E6%95%99%E7%A8%8B/"/>
     
     
   </entry>
