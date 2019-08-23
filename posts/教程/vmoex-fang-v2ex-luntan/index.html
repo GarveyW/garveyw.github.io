@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>Vmoex，一款仿V2EX的开源二次元论坛程序附安装教程 | Garvey&#39;s Wiki</title>
+    
+    
+        <meta name="keywords" content="blog">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="说明：Vmoex是一个仿V2ex的开源二次元向的社区程序，使用的php框架symfony3.4版本，支持markdown，主要为动漫、二次元、番剧的(还有萌萌哒的(●´ω｀●)φ)爱好者打造。由于作者的安装教程对新手有点不是很友好，所以这里博主就发个详细的安装教程，有需求的可以搭建一个玩玩。 截图 功能 github登录 邮箱验证、用户信息编辑功能 多国语言支持 丰富的后台管理功能 用户发帖、">
+<meta name="keywords" content="blog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vmoex，一款仿V2EX的开源二次元论坛程序附安装教程">
+<meta property="og:url" content="https://garveyw.com/posts/教程/vmoex-fang-v2ex-luntan/index.html">
+<meta property="og:site_name" content="Garvey&#39;s Wiki">
+<meta property="og:description" content="说明：Vmoex是一个仿V2ex的开源二次元向的社区程序，使用的php框架symfony3.4版本，支持markdown，主要为动漫、二次元、番剧的(还有萌萌哒的(●´ω｀●)φ)爱好者打造。由于作者的安装教程对新手有点不是很友好，所以这里博主就发个详细的安装教程，有需求的可以搭建一个玩玩。 截图 功能 github登录 邮箱验证、用户信息编辑功能 多国语言支持 丰富的后台管理功能 用户发帖、">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://ww2.sinaimg.cn/large/007qKirjgy1fygznu6hsej30z30htn15.jpg">
+<meta property="og:image" content="https://ww2.sinaimg.cn/large/007qKirjgy1fygzons5h6j311g0h8dh8.jpg">
+<meta property="og:updated_time" content="2019-01-19T11:14:03.615Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vmoex，一款仿V2EX的开源二次元论坛程序附安装教程">
+<meta name="twitter:description" content="说明：Vmoex是一个仿V2ex的开源二次元向的社区程序，使用的php框架symfony3.4版本，支持markdown，主要为动漫、二次元、番剧的(还有萌萌哒的(●´ω｀●)φ)爱好者打造。由于作者的安装教程对新手有点不是很友好，所以这里博主就发个详细的安装教程，有需求的可以搭建一个玩玩。 截图 功能 github登录 邮箱验证、用户信息编辑功能 多国语言支持 丰富的后台管理功能 用户发帖、">
+<meta name="twitter:image" content="https://ww2.sinaimg.cn/large/007qKirjgy1fygznu6hsej30z30htn15.jpg">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Garvey&#39;s Wiki" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Garvey&#39;s Wiki</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id="categories">
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id="allExpand" href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            分享
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            学习资料
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/分享/学习资料/zhonggong/">中公考试资料</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            视频
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/分享/视频/kedi-ef-bc-882017-ef-bc-89-e5-8f-88-e5-90-8d-e3-80-8a-e7-88-b1-e7-8c-ab-e4-b9-8b-e5-9f-8e-e3-80-8b-ef-bc-8c-e3-80-8a-e4-bc-8a-e6-96-af-e5-9d-a6-e5-b8-83-e5-b0-94-e7-9a-84-e7-8c-ab-e3-80-8b/">Kedi（2017）又名《爱猫之城》，《伊斯坦布尔的猫》</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            音乐
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/分享/音乐/carmen-e5-8d-a1-e9-97-a8-e9-80-89-e6-9b-b2-e5-88-86-e4-ba-ab/">Carmen 卡门选曲 分享</a></li>  <li class="file"><a href="/posts/分享/音乐/decca-ultimate-decca-e6-9e-81-e8-87-b4-e7-b3-bb-e5-88-97-34cd-e4-b8-8b-e8-bd-bd-e5-9c-b0-e5-9d-80/">Decca Ultimate / DECCA极致系列  34CD下载地址</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/posts/分享/niming-fenxiang/">永久/匿名分享文件的网站</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            教程
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Hexo
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/教程/Hexo/Hexo-Ftp/">hexo自动部署到git、ftp（虚拟主机等）、云服务器的方式</a></li>  <li class="file"><a href="/posts/教程/Hexo/hexo-bangdingyuming/">Github+hexo绑定域名</a></li>  <li class="file"><a href="/posts/教程/Hexo/hexo-sitemap-rss-deploy/">Hexo 入门指南 - sitemap、rss 和部署</a></li>  <li class="file"><a href="/posts/教程/Hexo/hexo-theme-Wikitten/">hexo-theme-Wikitten</a></li>  <li class="file"><a href="/posts/教程/Hexo/moban/">模板</a></li>  <li class="file"><a href="/posts/教程/Hexo/wenzhang-caogao/">hexo 文章、草稿</a></li>  <li class="file"><a href="/posts/教程/Hexo/wordpress-to-hexo/">wordpress to hexo</a></li>  <li class="file"><a href="/posts/教程/Hexo/hexo-changyong/">最全Hexo博客搭建+主题优化+插件配置+常用操作+错误分析</a></li>  <li class="file"><a href="/posts/教程/Hexo/hexogithub/">用 Hexo 搭建博客</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Linux
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/教程/Linux/centos-file/">centos file</a></li>  <li class="file"><a href="/posts/教程/Linux/CentOS-install-docker/">CentOS安装docker</a></li>  <li class="file"><a href="/posts/教程/Linux/linux-mingling/">Linux常用命令大全</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Yourls
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/教程/Yourls/yourls-Configuration/">yourls配置 Configuration (in user/config.php)</a></li>  <li class="file"><a href="/posts/教程/Yourls/yourls-install/">yourls 安装</a></li>  <li class="file"><a href="/posts/教程/Yourls/yourls/">YOURLS - 建立属于你自己的短网址生成系统</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            打谱
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/教程/打谱/luogujingjiaocheng/">锣鼓经输入法</a></li>  <li class="file"><a href="/posts/教程/打谱/pupufengbiji/">谱谱风笔记</a></li>  <li class="file"><a href="/posts/教程/打谱/sibeliusbiji/">Sibelius笔记</a></li>  <li class="file"><a href="/posts/教程/打谱/pupufeng-jiqiao/">谱谱风使用技巧</a></li>  <li class="file"><a href="/posts/教程/打谱/pupufengjiqiao/">谱谱风技巧</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            服务器
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/教程/服务器/apache-fangdaolian/">apache 实现图片防盗链</a></li>  <li class="file"><a href="/posts/教程/服务器/Apache-http-https/">Apache环境下几种http强制跳转https设置方法</a></li>  <li class="file"><a href="/posts/教程/服务器/bangding-yuming-dao-zimulu/">绑定域名到你空间的子目录</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/posts/教程/API-3-in-1/">简单制作图片/视频API</a></li>  <li class="file"><a href="/posts/教程/Bing-pic-Api/">Bing美图API源码</a></li>  <li class="file"><a href="/posts/教程/FileZilla-duqushibai/">FileZilla读取目录列表失败的解决办法</a></li>  <li class="file"><a href="/posts/教程/Hitoko-dajian/">Hitoko一言 搭建</a></li>  <li class="file"><a href="/posts/教程/KMSfwudajian/">一键KMS服务脚本，搭建你自己的激活服务器</a></li>  <li class="file"><a href="/posts/教程/RSSHUB-install/">RSSHUB安装</a></li>  <li class="file"><a href="/posts/教程/Tiny-File-Manager/">Tiny File Manager</a></li>  <li class="file"><a href="/posts/教程/Typora-jiaocheng/">Typora入门（中文版）</a></li>  <li class="file"><a href="/posts/教程/diy-WordPress-login/">自定义wordpress登录页</a></li>  <li class="file"><a href="/posts/教程/bookmarks-install/">bookmarks程序安装</a></li>  <li class="file"><a href="/posts/教程/docker-install-coolq/">Linux通过docker安装运行酷Q</a></li>  <li class="file"><a href="/posts/教程/html-daima/">HTML代码笔记</a></li>  <li class="file"><a href="/posts/教程/juyuwang-ksm/">merlin搭建局域网内免配置KMS自动激活环境</a></li>  <li class="file"><a href="/posts/教程/mianfei-jiema/">免费接码平台</a></li>  <li class="file"><a href="/posts/教程/npm-update/">npm更新</a></li>  <li class="file"><a href="/posts/教程/onedrive-oneindex-wangpan/">使用 OneDrive 提供的 5T 存储自建 OneIndex 网盘（附免费 Office 365 教育版注册方法）</a></li>  <li class="file"><a href="/posts/教程/php-niming-chat/">php简单匿名聊天室</a></li>  <li class="file"><a href="/posts/教程/typecho-weijingtai/">typecho伪静态设置</a></li>  <li class="file active"><a href="/posts/教程/vmoex-fang-v2ex-luntan/">Vmoex，一款仿V2EX的开源二次元论坛程序附安装教程</a></li>  <li class="file"><a href="/posts/教程/wordpress-er-ji-daohang/">wordpress二级导航设置</a></li>  <li class="file"><a href="/posts/教程/wangyejiami/">输入密码才能浏览网页内容的JS代码</a></li>  <li class="file"><a href="/posts/教程/wordpress-genghuan-yuming/">完美更换WordPress网站的域名</a></li>  <li class="file"><a href="/posts/教程/wordpress-youhua-robots-txt/">利用Robots.txt优化你的WordPress站点</a></li>  <li class="file"><a href="/posts/教程/bitwarden-server/">使用 bitwarden_rs 搭建自托管的密码服务器</a></li>  <li class="file"><a href="/posts/教程/qunguanjiamingling/">QQ群管家指令</a></li>  <li class="file"><a href="/posts/教程/wordpress-rss-youhua/">wordpress的RSS优化技巧</a></li>  <li class="file"><a href="/posts/教程/docker-bitwarden/">docker安装bitwarden</a></li>  <li class="file"><a href="/posts/教程/kindleear-e6-90-ad-e5-bb-ba-e6-95-99-e7-a8-8b-ef-bc-9a-e6-8e-a8-e9-80-81-rss-e8-ae-a2-e9-98-85-e5-88-b0-kindle/">KindleEar 搭建教程：推送 RSS 订阅到 Kindle</a></li>  <li class="file"><a href="/posts/教程/typecho-email/">typecho 邮件模板</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/posts/hello-world/">Welcome Garvey's Wiki Site</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-教程/vmoex-fang-v2ex-luntan" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/教程/">教程</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/posts/教程/vmoex-fang-v2ex-luntan/">
+            <time datetime="2019-01-19T08:49:06.000Z" itemprop="datePublished">2019-01-19</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Vmoex，一款仿V2EX的开源二次元论坛程序附安装教程
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#截图"><span class="toc-number">1.</span> <span class="toc-text">截图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#功能"><span class="toc-number">2.</span> <span class="toc-text">功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">3.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置文件"><span class="toc-number">4.</span> <span class="toc-text">配置文件</span></a></li></ol>
+                </div>
+            
+        
+        
+            <blockquote>
+<ul>
+<li><p><strong>说明：</strong><code>Vmoex</code>是一个仿<code>V2ex</code>的开源二次元向的社区程序，使用的<code>php</code>框架<code>symfony3.4</code>版本，支持<code>markdown</code>，主要为动漫、二次元、番剧的(还有萌萌哒的<code>(●´ω｀●)φ</code>)爱好者打造。由于作者的安装教程对新手有点不是很友好，所以这里博主就发个详细的安装教程，有需求的可以搭建一个玩玩。</p>
+<h2 id="截图"><a href="#截图" class="headerlink" title="截图"></a>截图</h2><p><a href="https://ww2.sinaimg.cn/large/007qKirjgy1fygznu6hsej30z30htn15.jpg" rel="external nofollow noopener noreferrer" target="_blank"><img src="https://ww2.sinaimg.cn/large/007qKirjgy1fygznu6hsej30z30htn15.jpg" alt="Hidove"></a><br><a href="https://ww2.sinaimg.cn/large/007qKirjgy1fygzons5h6j311g0h8dh8.jpg" rel="external nofollow noopener noreferrer" target="_blank"><img src="https://ww2.sinaimg.cn/large/007qKirjgy1fygzons5h6j311g0h8dh8.jpg" alt="Hidove"></a></p>
+<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><ul>
+<li><code>github</code>登录</li>
+<li>邮箱验证、用户信息编辑功能</li>
+<li>多国语言支持</li>
+<li>丰富的后台管理功能</li>
+<li>用户发帖、回复（支持@其他人）</li>
+<li>站内即时聊天、无刷新获取通知</li>
+<li>支持<code>markdown</code></li>
+<li>会员主页、关注他人、发送私信给他人</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><strong>Github地址：</strong><a href="https://blog.hidove.cn/go/aHR0cHM6Ly9naXRodWIuY29tL3llc2tuLXN0dWRpby92bW9leC1mcmFtZXdvcms=" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/yeskn-studio/vmoex-framework</a></p>
+<p><strong>环境要求：</strong><code>PHP 5.6+</code>、<code>Mysql</code>、<code>Nginx</code>、<code>Redis</code>、<code>Composer</code>、<code>Nodejs</code>、<code>Fileinfo</code>拓展等。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;   关于环境一些提示：</span><br><span class="line">&gt;   #由于作者留的数据库文件只兼容Mysql 5.6+，所以你内存如果超过1G，建议直接安装Mysql 5.6+；要是内存低于1G只能安装Mysql 5.5也没事，博主会提供兼容5.5的数据库文件。</span><br><span class="line">&gt;   </span><br><span class="line">&gt;   #如果在Dev模式下运行是不需要Nginx的，不过不适合我们使用，所以下面主要使用Nginx的Web运行该程序。</span><br><span class="line">&gt;   </span><br><span class="line">&gt;   #推荐安装环境PHP 7.2+、Mysql 5.6+</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>  <strong>1、安装宝塔</strong></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;   #Centos系统</span><br><span class="line">&gt;   yum install -y wget &amp;&amp; wget -O install.sh http://download.bt.cn/install/install.sh &amp;&amp; sh install.sh</span><br><span class="line">&gt;   #Ubuntu系统</span><br><span class="line">&gt;   wget -O install.sh http://download.bt.cn/install/install-ubuntu.sh &amp;&amp; sudo bash install.sh</span><br><span class="line">&gt;   #Debian系统</span><br><span class="line">&gt;   wget -O install.sh http://download.bt.cn/install/install-ubuntu.sh &amp;&amp; bash install.sh</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>  安装完成后，进入面板，点击左侧软件管理，然后安装<code>PHP 5.6+</code>、<code>Nginx</code>、<code>Mysql</code>、<code>Redis</code>。</p>
+<p>  <strong>2、相关配置</strong><br>  找到左侧软件管理-<code>PHP</code>管理-设置-安装<code>Fileinfo</code>扩展。</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;   #如果Fileinfo拓展安装失败，就是内存太小，我们可以添加swap，不适用于ovz</span><br><span class="line">&gt;   1、脚本添加，脚本：`wget https://www.hidove.cn/shell/swap.sh &amp;&amp; bash swap.sh`。</span><br><span class="line">&gt;   2、面板添加，找到左侧软件管理-系统工具-安装Linux工具箱，然后进入工具箱添加。</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>  点击左侧软件管理-<code>PHP</code>设置-禁用函数-删除<code>proc_open</code>和<code>proc_get_status</code>。</p>
+<p>  点击左侧数据库-添加数据库，设置好数据库名、密码。</p>
+<p>  点击左侧网站-添加站点，数据库不创建，使用上面创建的即可。</p>
+<p>  <strong>3、安装Composer</strong></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;   curl -sS https://getcomposer.org/installer | php</span><br><span class="line">&gt;   mv composer.phar /usr/local/bin/composer</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>  <strong>4、安装依赖</strong><br>  安装<code>Nodejs</code>：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;   #Debian、Ubuntu系统</span><br><span class="line">&gt;   curl -sL https://deb.nodesource.com/setup_10.x | bash -</span><br><span class="line">&gt;   apt-get install -y nodejs git</span><br><span class="line">&gt;   </span><br><span class="line">&gt;   #CentOS系统</span><br><span class="line">&gt;   curl -sL https://rpm.nodesource.com/setup_10.x | bash -</span><br><span class="line">&gt;   yum install nodejs -y git</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>  安装<code>Bower</code>：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;   npm install -g bower</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>  安装<code>uglifyjs</code>：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;   npm install -g uglify-js</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>  <strong>5、配置源码</strong></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;   #进入站点文件夹，路径自行修改后再运行</span><br><span class="line">&gt;   cd /www/wwwroot/www.loligod.com</span><br><span class="line">&gt;   #下载源码</span><br><span class="line">&gt;   git clone https://github.com/yeskn-studio/vmoex-framework.git</span><br><span class="line">&gt;   #将源码文件移动到根目录，如果有提示，enter就行</span><br><span class="line">&gt;   mv vmoex-framework/&#123;,.&#125;* ./</span><br><span class="line">&gt;   #修改runtime目录权限</span><br><span class="line">&gt;   chown -R www:www var web/avatar web/upload app/Resources/translations</span><br><span class="line">&gt;   #修改配置文件，不会使用nano编辑器的，可以通过面板的文件管理进行操作</span><br><span class="line">&gt;   nano app/config/parameters.yml.dist</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>  配置文件大致修改如下：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;   1、填入你的数据库名称，用户名和密码。</span><br><span class="line">&gt;   2、填入secret值，且secret必须是没有规则的一些字符，还是不会的，直接填数据库密码吧。</span><br><span class="line">&gt;   3、关于redis_dsn参数，这里是建议设置密码的，毕竟Redis有漏洞，如果你不会使用Redis的，直接修改为redis_dsn: &apos;redis://localhost&apos;</span><br><span class="line">&gt;   4、修改socket_host参数，将127.0.0.1修改为你的服务器ip，不然会有小问题。</span><br><span class="line">&gt;   5、修改cdn地址，参数assets_base_url: https://www.loligod.com，如果你开启SSL，就使用https，反之http</span><br><span class="line">&gt;   6、其它配置可根据你的需求自行开启。</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>  <strong>6、开始安装</strong><br>  调整数据库文件：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;   #如果你安装的是Mysql 5.5版本数据库，需要先替换下源码的数据库文件，使用命令：</span><br><span class="line">&gt;   wget https://blog.hidove.cn/usr/uploads/down/vmoex_sql -O var/data/vmoex.sql</span><br><span class="line">&gt;   </span><br><span class="line">&gt;   #如果你是Mysql 5.6+，可以直接使用源码里的数据库文件。</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>  然后开始安装，使用命令：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&gt;   #安装php依赖，期间会提示配置，检查无误可一路回车</span><br><span class="line">&gt;   composer install</span><br><span class="line">&gt;   #安装前端依赖</span><br><span class="line">&gt;   bower install --allow-root</span><br><span class="line">&gt;   #导入数据</span><br><span class="line">&gt;   php bin/console doctrine:database:init</span><br><span class="line">&gt;   #载入翻译数据</span><br><span class="line">&gt;   php bin/console translation:persist</span><br><span class="line">&gt;   #修改管理员密码</span><br><span class="line">&gt;   php bin/console change-password -u admin -p [password]</span><br><span class="line">&gt;   #清理缓存</span><br><span class="line">&gt;   chown -R www:www var</span><br><span class="line">&gt;   php bin/console cache:clear --env=prod</span><br><span class="line">&gt;   #创建静态资源文件</span><br><span class="line">&gt;   php bin/console assetic:dump --env=prod</span><br><span class="line">&gt;   #启动websocket</span><br><span class="line">&gt;   php bin/push-service.php start -d</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>  然后点击面板左侧安全，开放<code>websocket</code>的<code>3120</code>端口即可。</p>
+<p>  <strong>7、Nginx设置</strong><br>  点击左侧网站-站点设置，进行如下修改：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;   1、网站目录：取消防跨站攻击，运行目录设置/web</span><br><span class="line">&gt;   2、伪静态：添加以下代码。</span><br><span class="line">&gt;   if (!-e $request_filename) &#123;</span><br><span class="line">&gt;       rewrite  ^(.*)$  /?$1  last;</span><br><span class="line">&gt;       break;</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;   3、默认文档：可以删除全部，然后添加app.php。</span><br><span class="line">&gt;   4、SSL等其他设置可自行修改</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>  最后我们打开站点就可以看到一个萌萌哒的论坛了，历史帖子，评论什么的可以在后台自行删除。</p>
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>  站点运行后，配置文件为<code>app/config/parameters.yml</code>， 需修改配置时请修改此文件，修改完后，需要重新清理缓存或者生成静态资源文件。</p>
+<p>  最后如果我们重启服务器后，还需要先开启<code>websocket</code>，使用命令：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;   #进入站点文件夹，路径自行修改后再运行</span><br><span class="line">&gt;   cd /www/wwwroot/www.loligod.com</span><br><span class="line">&gt;   #启动websocket</span><br><span class="line">&gt;   php bin/push-service.php start -d</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>原文地址：<a href="https://blog.hidove.cn/post/444" rel="external nofollow noopener noreferrer" target="_blank">https://blog.hidove.cn/post/444</a></p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/posts/教程/服务器/Apache-http-https/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    Apache环境下几种http强制跳转https设置方法
+                
+            </div>
+        </a>
+    
+    
+        <a href="/posts/教程/juyuwang-ksm/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">merlin搭建局域网内免配置KMS自动激活环境</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Garvey &copy; 2019 
+            <a rel="external nofollow noopener noreferrer" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten" rel="external nofollow noopener noreferrer" target="_blank">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
