@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>绑定域名到你空间的子目录 | Garvey&#39;s Wiki</title>
+    
+    
+        <meta name="keywords" content="blog">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="绑定域名到你空间的子目录首先在本地建个txt文件，复制下面的代码修改替换你要绑的域名和目录，并传到网站主目录下再改成为.htaccess。 123456789&amp;lt;IfModule mod_rewrite.c&amp;gt;RewriteEngine OnRewriteBase /# 绑定music.morfans.cn 到子目录musicRewriteCond %&amp;#123;HTTP_HOST&amp;#12">
+<meta name="keywords" content="blog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="绑定域名到你空间的子目录">
+<meta property="og:url" content="https://garveyw.com/posts/1548320833/index.html">
+<meta property="og:site_name" content="Garvey&#39;s Wiki">
+<meta property="og:description" content="绑定域名到你空间的子目录首先在本地建个txt文件，复制下面的代码修改替换你要绑的域名和目录，并传到网站主目录下再改成为.htaccess。 123456789&amp;lt;IfModule mod_rewrite.c&amp;gt;RewriteEngine OnRewriteBase /# 绑定music.morfans.cn 到子目录musicRewriteCond %&amp;#123;HTTP_HOST&amp;#12">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://cdn.morfans.cn/wp-content/themes/iMorFans/css/img/smilies/icon_eek.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:updated_time" content="2019-08-24T07:49:34.857Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="绑定域名到你空间的子目录">
+<meta name="twitter:description" content="绑定域名到你空间的子目录首先在本地建个txt文件，复制下面的代码修改替换你要绑的域名和目录，并传到网站主目录下再改成为.htaccess。 123456789&amp;lt;IfModule mod_rewrite.c&amp;gt;RewriteEngine OnRewriteBase /# 绑定music.morfans.cn 到子目录musicRewriteCond %&amp;#123;HTTP_HOST&amp;#12">
+<meta name="twitter:image" content="http://cdn.morfans.cn/wp-content/themes/iMorFans/css/img/smilies/icon_eek.gif">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Garvey&#39;s Wiki" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Garvey&#39;s Wiki</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id="categories">
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id="allExpand" href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            分享
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            学习资料
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/1548058356/">中公考试资料</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            视频
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/1539786985/">Kedi（2017）又名《爱猫之城》，《伊斯坦布尔的猫》</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            音乐
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/1534044869/">Carmen 卡门选曲 分享</a></li>  <li class="file"><a href="/posts/1534094717/">Decca Ultimate / DECCA极致系列  34CD下载地址</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/posts/1548329226/">永久/匿名分享文件的网站</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            教程
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Hexo
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/1548242436/">hexo自动部署到git、ftp（虚拟主机等）、云服务器的方式</a></li>  <li class="file"><a href="/posts/1547044403/">Github+hexo绑定域名</a></li>  <li class="file"><a href="/posts/1546975657/">Hexo 入门指南 - sitemap、rss 和部署</a></li>  <li class="file"><a href="/posts/1546970491/">hexo-theme-Wikitten</a></li>  <li class="file"><a href="/posts/1546626092/">模板</a></li>  <li class="file"><a href="/posts/1547320935/">hexo 文章、草稿</a></li>  <li class="file"><a href="/posts/1546969579/">用 Hexo 搭建博客</a></li>  <li class="file"><a href="/posts/1548243221/">最全Hexo博客搭建+主题优化+插件配置+常用操作+错误分析</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Linux
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/1550049567/">centos file</a></li>  <li class="file"><a href="/posts/1550029462/">CentOS安装docker</a></li>  <li class="file"><a href="/posts/1546969267/">Linux常用命令大全</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Wordpress
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/1566403200/">自定义wordpress登录页</a></li>  <li class="file"><a href="/posts/1552534222/">wordpress二级导航设置</a></li>  <li class="file"><a href="/posts/1548762745/">完美更换WordPress网站的域名</a></li>  <li class="file"><a href="/posts/1547983242/">利用Robots.txt优化你的WordPress站点</a></li>  <li class="file"><a href="/posts/1551336947/">wordpress的RSS优化技巧</a></li>  <li class="file"><a href="/posts/1546970116/">wordpress to hexo</a></li>  <li class="file"><a href="/posts/1566628113/">wordpress修改代码</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Yourls
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/1547926920/">yourls配置 Configuration (in user/config.php)</a></li>  <li class="file"><a href="/posts/1547927037/">yourls 安装</a></li>  <li class="file"><a href="/posts/1539359262/">YOURLS - 建立属于你自己的短网址生成系统</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            打谱
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/教程/打谱/luogujingjiaocheng/">锣鼓经输入法</a></li>  <li class="file"><a href="/posts/1554020316/">谱谱风使用技巧</a></li>  <li class="file"><a href="/posts/1566553478/">谱谱风笔记</a></li>  <li class="file"><a href="/posts/1566553391/">Sibelius笔记</a></li>  <li class="file"><a href="/posts/1566403200/">谱谱风技巧</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            服务器
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/1547896406/">Apache环境下几种http强制跳转https设置方法</a></li>  <li class="file"><a href="/posts/1548596072/">apache 实现图片防盗链</a></li>  <li class="file active"><a href="/posts/1548320833/">绑定域名到你空间的子目录</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/posts/1548273667/">简单制作图片/视频API</a></li>  <li class="file"><a href="/posts/1548251707/">Bing美图API源码</a></li>  <li class="file"><a href="/posts/1550484670/">FileZilla读取目录列表失败的解决办法</a></li>  <li class="file"><a href="/posts/1547982931/">Hitoko一言 搭建</a></li>  <li class="file"><a href="/posts/1551283516/">RSSHUB安装</a></li>  <li class="file"><a href="/posts/1547320616/">一键KMS服务脚本，搭建你自己的激活服务器</a></li>  <li class="file"><a href="/posts/1546974818/">Tiny File Manager</a></li>  <li class="file"><a href="/posts/1548242240/">Typora入门（中文版）</a></li>  <li class="file"><a href="/posts/1551536221/">docker安装bitwarden</a></li>  <li class="file"><a href="/posts/1551418682/">Linux通过docker安装运行酷Q</a></li>  <li class="file"><a href="/posts/1548513249/">免费接码平台</a></li>  <li class="file"><a href="/posts/1551258055/">HTML代码笔记</a></li>  <li class="file"><a href="/posts/1547366636/">merlin搭建局域网内免配置KMS自动激活环境</a></li>  <li class="file"><a href="/posts/1551349973/">npm更新</a></li>  <li class="file"><a href="/posts/1548329052/">php简单匿名聊天室</a></li>  <li class="file"><a href="/posts/1539663321/">使用 OneDrive 提供的 5T 存储自建 OneIndex 网盘（附免费 Office 365 教育版注册方法）</a></li>  <li class="file"><a href="/posts/1554299574/">typecho伪静态设置</a></li>  <li class="file"><a href="/posts/1547887746/">Vmoex，一款仿V2EX的开源二次元论坛程序附安装教程</a></li>  <li class="file"><a href="/posts/1566403200/">输入密码才能浏览网页内容的JS代码</a></li>  <li class="file"><a href="/posts/1550028650/">使用 bitwarden_rs 搭建自托管的密码服务器</a></li>  <li class="file"><a href="/posts/1548692861/">QQ群管家指令</a></li>  <li class="file"><a href="/posts/1550141216/">bookmarks程序安装</a></li>  <li class="file"><a href="/posts/1536315942/">KindleEar 搭建教程：推送 RSS 订阅到 Kindle</a></li>  <li class="file"><a href="/posts/1554351874/">typecho 邮件模板</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/posts/1534084585/">Welcome Garvey's Wiki Site</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-1548320833" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/教程/">教程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/教程/服务器/">服务器</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/posts/1548320833/">
+            <time datetime="2019-01-24T09:07:13.000Z" itemprop="datePublished">2019-01-24</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            绑定域名到你空间的子目录
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#绑定域名到你空间的子目录"><span class="toc-number">1.</span> <span class="toc-text">绑定域名到你空间的子目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#利用-htaccess-绑定域名到子目录"><span class="toc-number">2.</span> <span class="toc-text">利用 .htaccess 绑定域名到子目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#绑定域名到子目录"><span class="toc-number">3.</span> <span class="toc-text">绑定域名到子目录</span></a></li></ol>
+                </div>
+            
+        
+        
+            <h1 id="绑定域名到你空间的子目录"><a href="#绑定域名到你空间的子目录" class="headerlink" title="绑定域名到你空间的子目录"></a>绑定域名到你空间的子目录</h1><p>首先在本地建个txt文件，复制下面的代码修改替换你要绑的域名和目录，并传到网站主目录下再改成为.<a href="http://morfans.cn/archives/tag/htaccess" rel="external nofollow noopener noreferrer" target="_blank">htaccess</a>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;IfModule mod_rewrite.c&gt;</span><br><span class="line">RewriteEngine On</span><br><span class="line">RewriteBase /</span><br><span class="line"># 绑定music.morfans.cn 到子目录music</span><br><span class="line">RewriteCond %&#123;HTTP_HOST&#125; ^music.morfans.cn$ [NC]</span><br><span class="line">RewriteCond %&#123;REQUEST_URI&#125; !^/music/</span><br><span class="line">RewriteRule ^(.*) music/1?Rewrite [L,QSA]</span><br><span class="line">#可以绑定多个, 只需重复上三行代码并更改一下域名、目录名 就OK了</span><br><span class="line">&lt;/IfModule&gt;</span><br></pre></td></tr></table></figure>
+<p>如果你以完成上面的步骤，你的子域名就应该可以访问了。就<a href="https://www.baidu.com/s?wd=%E5%A4%A7%E5%8A%9F%E5%91%8A%E6%88%90&amp;tn=24004469_oem_dg&amp;rsv_dl=gh_pl_sl_csd" rel="external nofollow noopener noreferrer" target="_blank">大功告成</a>了？ <img src="http://cdn.morfans.cn/wp-content/themes/iMorFans/css/img/smilies/icon_eek.gif" alt=":shock:"> <del>你想多了</del>当然没有。你会发现在浏览器上访问 主域名+绑定的域名目录 也可以访问。，可这并不是我们想要的结果。<del>你想要可直接忽略以下步骤</del>接下来我们完成最后一步。</p>
+<p>在每一个绑定的目录中 如music目录中 也增加一个 .<a href="http://morfans.cn/archives/tag/htaccess" rel="external nofollow noopener noreferrer" target="_blank">htaccess</a> 文件</p>
+<p>.htaccess</p>
+<p>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;IfModule mod_rewrite.c&gt;</span><br><span class="line">RewriteEngine On</span><br><span class="line">RewriteBase /</span><br><span class="line">#只许绑定的域名访问</span><br><span class="line">RewriteCond %&#123;HTTP_HOST&#125; !^music.morfans.cn$ [NC]</span><br><span class="line">RewriteRule (.*) http://music.morfans.cn/$1 [L,R=301]</span><br><span class="line">#对绑定目录下与 同名的目录的处理</span><br><span class="line">RewriteCond %&#123;REQUEST_URI&#125; ^\/music\/ [NC]</span><br><span class="line">RewriteCond %&#123;QUERY_STRING&#125; !^(.*)?Rewrite</span><br><span class="line">RewriteRule ^(.*) /%&#123;REQUEST_URI&#125;/%&#123;REQUEST_URI&#125;/1?Rewrite [L,QSA]</span><br><span class="line">&lt;/IfModule&gt;</span><br></pre></td></tr></table></figure>
+<p>原地址：<a href="http://morfans.cn/archives/1291?qqdrsign=07429" rel="external nofollow noopener noreferrer" target="_blank">http://morfans.cn/archives/1291?qqdrsign=07429</a></p>
+<h1 id="利用-htaccess-绑定域名到子目录"><a href="#利用-htaccess-绑定域名到子目录" class="headerlink" title="利用 .htaccess 绑定域名到子目录"></a>利用 .htaccess 绑定域名到子目录</h1><p> 利用 .htaccess 绑定域名到子目录，适用于不支持绑定域名到子目录的虚拟主机。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">RewriteEngine on</span><br><span class="line"># 把 mangguo.org 改为你要绑定的域名</span><br><span class="line">RewriteCond %&#123;HTTP_HOST&#125; ^(www.)?mangguo.org$</span><br><span class="line"></span><br><span class="line"># 把 subfolder 改为要绑定的目录.</span><br><span class="line">RewriteCond %&#123;REQUEST_URI&#125; !^/subfolder/</span><br><span class="line"></span><br><span class="line"># 不要改以下两行</span><br><span class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</span><br><span class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</span><br><span class="line"></span><br><span class="line"># 把 subfolder 改为要绑定的目录</span><br><span class="line">RewriteRule ^(.*)$ /subfolder/$1</span><br><span class="line"></span><br><span class="line"># 把 mangguo.org 改为你要绑定的域名</span><br><span class="line"># 把 subfolder 改为要绑定的目录.</span><br><span class="line"># subfolder/ 后面是首页文件index.php, index.html...</span><br><span class="line"></span><br><span class="line">RewriteCond %&#123;HTTP_HOST&#125; ^(www.)?mangguo.org$</span><br><span class="line">RewriteRule ^(/)?$ subfolder/index.php [L]</span><br></pre></td></tr></table></figure>
+<p>使用前请保证主机支持 .htaccess，并且域名已经解析到主机。</p>
+<p>原地址：<a href="http://www.veryhuo.com/a/view/40214.html" rel="external nofollow noopener noreferrer" target="_blank">http://www.veryhuo.com/a/view/40214.html</a></p>
+<h1 id="绑定域名到子目录"><a href="#绑定域名到子目录" class="headerlink" title="绑定域名到子目录"></a>绑定域名到子目录</h1><p>我们在虚拟主机上安装论坛或者博客的时候，为了便于管理，我们都会安装在根目录(www/web目录)下的一个文件夹中，比如，我安装一个Discuz论坛，我就会在根目录下新建一个bbs目录，然后将Discuz安装程序上传到该目录进行安装，这样安装完成以后，我们访问该论坛的地址就变成：<a href="http://www.example.com/bbs" rel="external nofollow noopener noreferrer" target="_blank">http://www.example.com/bbs</a> (<a href="http://www.example.com/bbs/forum.php" rel="external nofollow noopener noreferrer" target="_blank">http://www.example.com/bbs/forum.php</a>)，但是这样就会有点不舒服，毕竟我们的域名是：<a href="http://www.example.com/" rel="external nofollow noopener noreferrer" target="_blank">http://www.example.com</a> ，我们只想通过该域名就可以直接访问我们的论坛，而不用再加上一个bbs子目录，这时候URL转发记录上场了，他就是为了解决该类问题而诞生的，让人它也可以用来实现URL伪静态，这不是本文的主题，这里我们只讨论如果使用URL转发技术实现域名到子目录转发的实现，至于什么是URL转发，这里就不说了，百度上到处都是，下面只讲如何实现。</p>
+<p>（1）我们在本地新建一个.htaccess的文本文件，注意.htaccess是这个文本文件的名称，所以文本文件的全称是：.htaccess.txt</p>
+<p>（2）在该文本文件中写入如下代码：</p>
+<p><a href="javascript:void(0" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>;)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> 1 # 将 RewriteEngine 模式打开</span><br><span class="line"> 2 RewriteEngine On</span><br><span class="line"> 3 </span><br><span class="line"> 4 RewiteBase /</span><br><span class="line"> 5 </span><br><span class="line"> 6 RewriteCond %&#123;HTTP_HOST&#125; ^(www\.)?example\.com$ [NC]</span><br><span class="line"> 7 RewriteCond %&#123;REQUEST_URI&#125; !^/bbs/</span><br><span class="line"> 8 RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</span><br><span class="line"> 9 RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</span><br><span class="line">10 RewriteRule ^(.*)$ bbs/$1</span><br><span class="line">11 # 没有输入文件名的默认到到首页</span><br><span class="line">12 RewriteCond %&#123;HTTP_HOST&#125; ^(www\.)?example\.com$ [NC]</span><br><span class="line">13 RewriteRule ^(/)?$ bbs/forum.php [L]</span><br></pre></td></tr></table></figure>
+<p><a href="javascript:void(0" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>;)</p>
+<p>(3)将该文本文件的扩展名.txt去掉，使用ftp上传工具上传到网站的根目录（www/web目录），注意，这里一定要是网站的根目录。我们在做seo优化设置里面的URL静态化也需要写这个文件，但是那个.htaccess文件就要放在bbs目录里面。</p>
+<p>现在只要你访问：<a href="http://www.example.com就可以访问论坛了" rel="external nofollow noopener noreferrer" target="_blank">http://www.example.com就可以访问论坛了</a></p>
+<p>注：（.htaccess文件解释）</p>
+<p>【RewriteEngine On】表示重写引擎开，关闭off，作用就是方便的开启或关闭以下的语句，这样就不需要一条一条的注释语句了。</p>
+<p>【RewriteCond %{HTTP_HOST} ^(www.)?example.com$ [NC]】表示重写条件，前面%{HTTP_HOST}表示当前访问的网址，只是指前缀部分，格式是<a href="http://www.example.com不包括“http://”和“/”，^表" rel="external nofollow noopener noreferrer" target="_blank">www.example.com不包括“http://”和“/”，^表</a> 示字符串开始，$表示字符串结尾，.表示转义的. ，如果不转义也行，推荐转义，防止有些服务器不支持，?表示前面括号www.出现0次或1次，这句规则的意思就是如果访问的网址是example.com或者 <a href="http://www.example.com就执行以下的语句，不符合就跳过。还有，不能保证每个人输入的网址都是小写的，如果输入大写的呢，linux系统是区分大小写的，所以应该在RewriteCond后添加[NC]忽略大小写的。" rel="external nofollow noopener noreferrer" target="_blank">www.example.com就执行以下的语句，不符合就跳过。还有，不能保证每个人输入的网址都是小写的，如果输入大写的呢，linux系统是区分大小写的，所以应该在RewriteCond后添加[NC]忽略大小写的。</a></p>
+<p>【RewriteCond %{REQUEST_URI} !^/bbs/】也是重写条件，%{REQUEST_URI}表示访问的相对地址，就是相对根目录的地址，就是域名/后面的成分，格式上包括最前面的“/”，!表示非，这句语句表示访问的地址不以/bbs/开头，只是开头^，没有结尾$</p>
+<p>【RewriteCond %{REQUEST_FILENAME} !-f】<br>【RewriteCond %{REQUEST_FILENAME} !-d】<br>这两句语句的意思是请求的文件或路径是不存在的，如果文件或路径存在将返回已经存在的文件或路径</p>
+<p>【RewriteRule ^(.<em>)$ bbs/$1】表示重写规则，最重要的部分，意思是当上面的RewriteCond条件都满足的时候，将会执行此重写规则，^(.</em>)$是一个正则表达的 匹配，匹配的是当前请求的URL，^(.<em>)$意思是匹配当前URL任意字符，.表示任意单个字符，</em>表示匹配0次或N次（N&gt;0），后面 /bbs/$1是重写成分，意思是将前面匹配的字符重写成/bbs/$1，这个$1表示反向匹配，引用的是前面第一个圆括号的成分，即^(.<em>)$中 的.</em> 。</p>
+<p>——————————————————————————————————————————————————————————————————————————————————————————————</p>
+<p>下面附上简单的语法规则和flags：</p>
+<p>【RewriteCond语法：】<br>RewriteCond TestString CondPattern [flags]<br>rewritecond的其他用法：<br><strong>‘-d’(目录)</strong><br>将TestString视为一个路径名并测试它是否为一个存在的目录。<br><strong>‘-f’(常规文件)</strong><br>将TestString视为一个路径名并测试它是否为一个存在的常规文件。<br><strong>‘-s’(非空的常规文件)</strong><br>将TestString视为一个路径名并测试它是否为一个存在的、尺寸大于0的常规文件。<br><strong>‘-l’(符号连接)</strong><br>将TestString视为一个路径名并测试它是否为一个存在的符号连接。<br><strong>‘-x’(可执行)</strong><br>将TestString视为一个路径名并测试它是否为一个存在的、具有可执行权限的文件。该权限由操作系统检测。<br><strong>‘-F’(对子请求存在的文件)</strong><br>检查TestString是否为一个有效的文件，而且可以在服务器当前的访问控制配置下被访问。它使用一个内部子请求来做检查，由于会降低服务器的性能，所以请谨慎使用！<br><strong>‘-U’(对子请求存在的URL)</strong><br>检查TestString是否为一个有效的URL，而且可以在服务器当前的访问控制配置下被访问。它使用一个内部子请求来做检查，由于会降低服务器的性能，所以请谨慎使用！</p>
+<p>【RewriteRule语法：】<br>RewriteRule Pattern Substitution [flags]</p>
+<p>【flags】：</p>
+<p><strong>‘chain|C’(链接下一规则)</strong><br>此 标记使当前规则与下一个规则相链接。它产生这样的效果：如果一个规则被匹配，则继续处理其后继规则，也就是这个标记不起作用；如果该规则不被匹配，则其后 继规则将被跳过。比如，在一个目录级规则中执行一个外部重定向时，你可能需要删除”.www”(此处不应该出现”.www”)。</p>
+<p><strong>‘cookie|CO=NAME:VAL:domain[:lifetime[:path]]’(设置cookie)</strong><br>在客户端设置一个cookie。cookie的名称是NAME，值是VAL。domain是该cookie的域，比如’.apache.org’，可选的lifetime是cookie的有效期(分钟)，可选的path是cookie的路径。<br><strong>‘env|E=VAR:VAL’(设置环境变量)</strong><br>此 标记将环境变量VAR的值为VAL，VAL可以包含可扩展的正则表达式反向引用($N和%N)。此标记可以多次使用以设置多个变量。这些变量可以在其后许 多情况下被间接引用，通常是在XSSI(&lt;!–#echo var=”VAR”–&gt;)或CGI($ENV{‘VAR’})中，也可以在后继的RewriteCond指令的CondPattern参数中通过% {ENV:VAR}引用。使用它可以记住从URL中剥离的信息。</p>
+<p><strong>‘forbidden|F’(强制禁止URL)</strong><br>强制禁止当前URL，也就是立即反馈一个HTTP响应码403(被禁止的)。使用这个标记，可以链接若干个RewriteConds来有条件地阻塞某些URL。</p>
+<p><strong>‘gone|G’(强制废弃URL)</strong><br>强制当前URL为已废弃，也就是立即反馈一个HTTP响应码410(已废弃的)。使用这个标记，可以标明页面已经被废弃而不存在了。</p>
+<p><strong>‘handler|H=Content-handler’(强制指定内容处理器)</strong><br>强自制定目标文件的内容处理器为Content-handler。例如，用来模拟mod_alias模块的ScriptAlias指令，以强制映射文件夹内的所有文件都由”cgi-script”处理器处理。</p>
+<p><strong>‘last|L’(结尾规则)</strong><br>立即停止重写操作，并不再应用其他重写规则。它对应于Perl中的last命令或C语言中的break命令。这个标记用于阻止当前已被重写的URL被后继规则再次重写。例如，使用它可以重写根路径的URL(‘/’)为实际存在的URL(比如：’/e/www/’)。</p>
+<p><strong>‘next|N’(从头再来)</strong><br>重 新执行重写操作(从第一个规则重新开始)。此时再次进行处理的URL已经不是原始的URL了，而是经最后一个重写规则处理过的URL。它对应于Perl中 的next命令或C语言中的continue命令。此标记可以重新开始重写操作(立即回到循环的开头)。但是要小心，不要制造死循环！</p>
+<p><strong>‘nocase|NC’(忽略大小写)</strong><br>它使Pattern忽略大小写，也就是在Pattern与当前URL匹配时，’A-Z’和’a-z’没有区别。</p>
+<p><strong>‘noescape|NE’(在输出中不对URI进行转义)</strong><br>此 标记阻止mod_rewrite对重写结果应用常规的URI转义规则。 一般情况下，特殊字符(‘%’, ‘$’, ‘;’等)会被转义为等值的十六进制编码(‘%25′, ‘%24′, ‘%3B’等)。此标记可以阻止这样的转义，以允许百分号等符号出现在输出中，比如：<br>RewriteRule /foo/(.*) /bar?arg=P1\%3d$1 [R,NE]<br>可以使’/foo/zed转向到一个安全的请求’/bar?arg=P1=zed’。</p>
+<p><strong>‘nosubreq|NS’(不对内部子请求进行处理)</strong><br>在 当前请求是一个内部子请求时，此标记强制重写引擎跳过该重写规则。比如，在mod_include试图搜索目录默认文件(index.xxx) 时，Apache会在内部产生子请求。对于子请求，重写规则不一定有用，而且如果整个规则集都起作用，它甚至可能会引发错误。所以，可以用这个标记来排除 某些规则。<br>使用原则：如果你为URL添加了CGI脚本前缀，以强制它们由CGI脚本处理，但对子请求处理的出错率(或者资源开销)很高，在这种情况下，可以使用这个标记。</p>
+<p><strong>‘proxy|P’(强制为代理)</strong><br>此 标记使替换成分被内部地强制作为代理请求发送，并立即中断重写处理，然后把处理移交给mod_proxy模块。你必须确保此替换串是一个能够被 mod_proxy处理的有效URI(比如以<a href="http://hostname开头)，否则将得到一个代理模块返回的错误。使用这个标记，可以把某些远程成" rel="external nofollow noopener noreferrer" target="_blank">http://hostname开头)，否则将得到一个代理模块返回的错误。使用这个标记，可以把某些远程成</a> 分映射到本地服务器域名空间，从而增强了ProxyPass指令的功能。<br>注意：要使用这个功能，必须已经启用了mod_proxy模块。</p>
+<p><strong>‘passthrough|PT’(移交给下一个处理器)</strong><br>此 标记强制重写引擎将内部request_rec结构中的uri字段设置为filename字段的值，这个小小的修改使得RewriteRule指令的输出 能够被(从URI转换到文件名的)Alias, ScriptAlias, Redirect等指令进行后续处理[原文：This flag is just a hack to enable post-processing of the output of RewriteRule directives, using Alias, ScriptAlias, Redirect, and other directives from various URI-to-filename translators.]。举一个能说明其含义的例子： 如果要将/abc重写为/def， 然后再使用mod_alias将/def转换为/ghi，可以这样：<br>RewriteRule ^/abc(.*) /def$1 [PT]<br>Alias /def /ghi<br>如果省略了PT标记，虽然将uri=/abc/…重写为filename=/def/…的部分运作正常，但是后续的mod_alias在试图将URI转换到文件名时会遭遇失效。<br>注意：如果需要混合使用多个将URI转换到文件名的模块时，就必须使用这个标记。。此处混合使用mod_alias和mod_rewrite就是个典型的例子。</p>
+<p><strong>‘qsappend|QSA’(追加查询字符串)</strong><br>此标记强制重写引擎在已有的替换字符串中追加一个查询字符串，而不是简单的替换。如果需要通过重写规则在请求串中增加信息，就可以使用这个标记。</p>
+<p><strong>‘redirect|R [=code]‘(强制重定向)</strong><br>若 Substitution以<a href="http://thishost[:thisport]/(使新的URL成为一个URI)开头，可以强制性执行一个外部重定" rel="external nofollow noopener noreferrer" target="_blank">http://thishost[:thisport]/(使新的URL成为一个URI)开头，可以强制性执行一个外部重定</a> 向。如果没有指定code，则产生一个HTTP响应码302(临时性移动)。如果需要使用在300-400范围内的其他响应代码，只需在此指定即可(或使 用下列符号名称之一：temp(默认), permanent, seeother)。使用它可以把规范化的URL反馈给客户端，如将”/~”重写为”/u/”，或始终对/u/user加上斜杠，等等。<br>注意：在 使用这个标记时，必须确保该替换字段是一个有效的URL。否则，它会指向一个无效的位置！并且要记住，此标记本身只是对URL加上 <a href="http://thishost[:thisport]/前缀，重写操作仍然会继续进行。通常，你还会希望停止重写操作而立即重定向，那么就还需要使" rel="external nofollow noopener noreferrer" target="_blank">http://thishost[:thisport]/前缀，重写操作仍然会继续进行。通常，你还会希望停止重写操作而立即重定向，那么就还需要使</a> 用’L’标记。</p>
+<p><strong>’skip|S=num’(跳过后继规则)</strong><br>此标记强制重写引擎跳过当前匹配规则之后的num个规则。它可以模拟if-then-else结构：最后一个规则是then从句，而被跳过的skip=N个规则是else从句。注意：它和’chain|C’标记是不同的！</p>
+<p><strong>‘type|T=MIME-type’(强制MIME类型)</strong><br>强 制目标文件的MIME类型为MIME-type，可以用来基于某些特定条件强制设置内容类型。比如，下面的指令可以让.php文件在以.phps扩展名调 用的情况下由mod_php按照PHP源代码的MIME类型(application/x-httpd-php-source)显示：<br>RewriteRule ^(.+.php)s$ $1 [T=application/x-httpd-php-source]</p>
+<p>原地址：<a href="https://www.cnblogs.com/magic-cube/archive/2012/07/26/2609669.html" rel="external nofollow noopener noreferrer" target="_blank">https://www.cnblogs.com/magic-cube/archive/2012/07/26/2609669.html</a></p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/posts/1548329052/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    php简单匿名聊天室
+                
+            </div>
+        </a>
+    
+    
+        <a href="/posts/1548273667/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">简单制作图片/视频API</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Garvey &copy; 2019 
+            <a rel="external nofollow noopener noreferrer" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten" rel="external nofollow noopener noreferrer" target="_blank">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>

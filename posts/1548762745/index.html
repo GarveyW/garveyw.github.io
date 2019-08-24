@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>完美更换WordPress网站的域名 | Garvey&#39;s Wiki</title>
+    
+    
+        <meta name="keywords" content="blog">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="一 修改数据库配置文件，如果你在同一主机同一空间上更改域名，这步可以省掉，如果数据库不同，还得要打开wp-config.php将数据库配置正确才可以正常访问新域名。  2 更改博客的安装地址和博客地址，首先用phpmyadmin打开你的数据库，然后找到wp-options这个数据表，找到第一条记录也就是siteurl这条，还有第39条home，这两条将地址改成你更换后的最域名即可。只有完成这一步后">
+<meta name="keywords" content="blog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="完美更换WordPress网站的域名">
+<meta property="og:url" content="https://garveyw.com/posts/1548762745/index.html">
+<meta property="og:site_name" content="Garvey&#39;s Wiki">
+<meta property="og:description" content="一 修改数据库配置文件，如果你在同一主机同一空间上更改域名，这步可以省掉，如果数据库不同，还得要打开wp-config.php将数据库配置正确才可以正常访问新域名。  2 更改博客的安装地址和博客地址，首先用phpmyadmin打开你的数据库，然后找到wp-options这个数据表，找到第一条记录也就是siteurl这条，还有第39条home，这两条将地址改成你更换后的最域名即可。只有完成这一步后">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://imgsa.baidu.com/exp/w=500/sign=be89bdb3c3fdfc03e578e3b8e43e87a9/a50f4bfbfbedab64753a068df736afc379311e36.jpg">
+<meta property="og:image" content="https://imgsa.baidu.com/exp/w=500/sign=8582ec38d688d43ff0a991f24d1fd2aa/aa64034f78f0f736d642074c0a55b319ebc4133a.jpg">
+<meta property="og:image" content="http://pic.wpchina.org/9f9b47d8fee0_11235/pic-2014-0525-003.png">
+<meta property="og:updated_time" content="2019-08-24T07:49:34.845Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="完美更换WordPress网站的域名">
+<meta name="twitter:description" content="一 修改数据库配置文件，如果你在同一主机同一空间上更改域名，这步可以省掉，如果数据库不同，还得要打开wp-config.php将数据库配置正确才可以正常访问新域名。  2 更改博客的安装地址和博客地址，首先用phpmyadmin打开你的数据库，然后找到wp-options这个数据表，找到第一条记录也就是siteurl这条，还有第39条home，这两条将地址改成你更换后的最域名即可。只有完成这一步后">
+<meta name="twitter:image" content="https://imgsa.baidu.com/exp/w=500/sign=be89bdb3c3fdfc03e578e3b8e43e87a9/a50f4bfbfbedab64753a068df736afc379311e36.jpg">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Garvey&#39;s Wiki" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Garvey&#39;s Wiki</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id="categories">
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id="allExpand" href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            分享
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            学习资料
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/1548058356/">中公考试资料</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            视频
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/1539786985/">Kedi（2017）又名《爱猫之城》，《伊斯坦布尔的猫》</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            音乐
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/1534044869/">Carmen 卡门选曲 分享</a></li>  <li class="file"><a href="/posts/1534094717/">Decca Ultimate / DECCA极致系列  34CD下载地址</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/posts/1548329226/">永久/匿名分享文件的网站</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            教程
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Hexo
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/1548242436/">hexo自动部署到git、ftp（虚拟主机等）、云服务器的方式</a></li>  <li class="file"><a href="/posts/1547044403/">Github+hexo绑定域名</a></li>  <li class="file"><a href="/posts/1546975657/">Hexo 入门指南 - sitemap、rss 和部署</a></li>  <li class="file"><a href="/posts/1546970491/">hexo-theme-Wikitten</a></li>  <li class="file"><a href="/posts/1546626092/">模板</a></li>  <li class="file"><a href="/posts/1547320935/">hexo 文章、草稿</a></li>  <li class="file"><a href="/posts/1546969579/">用 Hexo 搭建博客</a></li>  <li class="file"><a href="/posts/1548243221/">最全Hexo博客搭建+主题优化+插件配置+常用操作+错误分析</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Linux
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/1550049567/">centos file</a></li>  <li class="file"><a href="/posts/1550029462/">CentOS安装docker</a></li>  <li class="file"><a href="/posts/1546969267/">Linux常用命令大全</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Wordpress
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/1566403200/">自定义wordpress登录页</a></li>  <li class="file"><a href="/posts/1552534222/">wordpress二级导航设置</a></li>  <li class="file active"><a href="/posts/1548762745/">完美更换WordPress网站的域名</a></li>  <li class="file"><a href="/posts/1547983242/">利用Robots.txt优化你的WordPress站点</a></li>  <li class="file"><a href="/posts/1551336947/">wordpress的RSS优化技巧</a></li>  <li class="file"><a href="/posts/1546970116/">wordpress to hexo</a></li>  <li class="file"><a href="/posts/1566628113/">wordpress修改代码</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Yourls
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/1547926920/">yourls配置 Configuration (in user/config.php)</a></li>  <li class="file"><a href="/posts/1547927037/">yourls 安装</a></li>  <li class="file"><a href="/posts/1539359262/">YOURLS - 建立属于你自己的短网址生成系统</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            打谱
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/教程/打谱/luogujingjiaocheng/">锣鼓经输入法</a></li>  <li class="file"><a href="/posts/1554020316/">谱谱风使用技巧</a></li>  <li class="file"><a href="/posts/1566553478/">谱谱风笔记</a></li>  <li class="file"><a href="/posts/1566553391/">Sibelius笔记</a></li>  <li class="file"><a href="/posts/1566403200/">谱谱风技巧</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            服务器
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/1547896406/">Apache环境下几种http强制跳转https设置方法</a></li>  <li class="file"><a href="/posts/1548596072/">apache 实现图片防盗链</a></li>  <li class="file"><a href="/posts/1548320833/">绑定域名到你空间的子目录</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/posts/1548273667/">简单制作图片/视频API</a></li>  <li class="file"><a href="/posts/1548251707/">Bing美图API源码</a></li>  <li class="file"><a href="/posts/1550484670/">FileZilla读取目录列表失败的解决办法</a></li>  <li class="file"><a href="/posts/1547982931/">Hitoko一言 搭建</a></li>  <li class="file"><a href="/posts/1551283516/">RSSHUB安装</a></li>  <li class="file"><a href="/posts/1547320616/">一键KMS服务脚本，搭建你自己的激活服务器</a></li>  <li class="file"><a href="/posts/1546974818/">Tiny File Manager</a></li>  <li class="file"><a href="/posts/1548242240/">Typora入门（中文版）</a></li>  <li class="file"><a href="/posts/1551536221/">docker安装bitwarden</a></li>  <li class="file"><a href="/posts/1551418682/">Linux通过docker安装运行酷Q</a></li>  <li class="file"><a href="/posts/1548513249/">免费接码平台</a></li>  <li class="file"><a href="/posts/1551258055/">HTML代码笔记</a></li>  <li class="file"><a href="/posts/1547366636/">merlin搭建局域网内免配置KMS自动激活环境</a></li>  <li class="file"><a href="/posts/1551349973/">npm更新</a></li>  <li class="file"><a href="/posts/1548329052/">php简单匿名聊天室</a></li>  <li class="file"><a href="/posts/1539663321/">使用 OneDrive 提供的 5T 存储自建 OneIndex 网盘（附免费 Office 365 教育版注册方法）</a></li>  <li class="file"><a href="/posts/1554299574/">typecho伪静态设置</a></li>  <li class="file"><a href="/posts/1547887746/">Vmoex，一款仿V2EX的开源二次元论坛程序附安装教程</a></li>  <li class="file"><a href="/posts/1566403200/">输入密码才能浏览网页内容的JS代码</a></li>  <li class="file"><a href="/posts/1550028650/">使用 bitwarden_rs 搭建自托管的密码服务器</a></li>  <li class="file"><a href="/posts/1548692861/">QQ群管家指令</a></li>  <li class="file"><a href="/posts/1550141216/">bookmarks程序安装</a></li>  <li class="file"><a href="/posts/1536315942/">KindleEar 搭建教程：推送 RSS 订阅到 Kindle</a></li>  <li class="file"><a href="/posts/1554351874/">typecho 邮件模板</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/posts/1534084585/">Welcome Garvey's Wiki Site</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-1548762745" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/教程/">教程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/教程/Wordpress/">Wordpress</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/posts/1548762745/">
+            <time datetime="2019-01-29T11:52:25.000Z" itemprop="datePublished">2019-01-29</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            完美更换WordPress网站的域名
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一"><span class="toc-number">1.</span> <span class="toc-text">一</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二"><span class="toc-number">2.</span> <span class="toc-text">二</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">2.1.</span> <span class="toc-text">参考资料</span></a></li></ol></li></ol>
+                </div>
+            
+        
+        
+            <h1 id="一"><a href="#一" class="headerlink" title="一"></a>一</h1><ol>
+<li><p>修改数据库配置文件，如果你在同一主机同一空间上更改域名，这步可以省掉，如果数据库不同，还得要打开wp-config.php将数据库配置正确才可以正常访问新域名。</p>
+</li>
+<li><p>2</p>
+<p>更改博客的安装地址和博客地址，首先用phpmyadmin打开你的数据库，然后找到wp-options这个数据表，找到第一条记录也就是siteurl这条，还有第39条home，这两条将地址改成你更换后的最域名即可。只有完成这一步后，才可以顺利进入后台，否则即使你输入密码，也会自动跳转到原来的老域名。PHP My管理中选择数据库，—-&gt;点击 SQL 在输入栏中输入如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UPDATE wp_options SET option_value = replace( option_value, ‘http://老域名’, ’http://新域名’) WHERE option_name = ‘home’ OR option_name =’siteurl’ ;</span><br></pre></td></tr></table></figure>
+<p><img src="https://imgsa.baidu.com/exp/w=500/sign=be89bdb3c3fdfc03e578e3b8e43e87a9/a50f4bfbfbedab64753a068df736afc379311e36.jpg" alt="WordPress如何更换域名"></p>
+<p><img src="https://imgsa.baidu.com/exp/w=500/sign=8582ec38d688d43ff0a991f24d1fd2aa/aa64034f78f0f736d642074c0a55b319ebc4133a.jpg" alt="WordPress如何更换域名"></p>
+</li>
+<li><p>3</p>
+<p>修改文章内部所有的链接为新域名，相信大家在以前发表的文章中一定加了不少内链吧，域名更换了，老的内链也就没有意义了。此时得要将文章内链的旧域名修改为新域名。如果从后台文章编辑里一个一个找那是不现实的，方法有一个，通用phpmyadmin进入你所在的数据库，执行以下语句就可以把文章内的所有内链旧域名批量改为新域名：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UPDATE wp_posts SET post_content = replace(post_content, ‘http://老域名’, ‘http://新域名’);</span><br><span class="line">UPDATE wp_posts SET guid = replace( guid, ‘http://老域名’ , ’http://新域名’ ) ;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>4</p>
+<p>好了进入后台用以前的账号密码登陆就好了。</p>
+</li>
+</ol>
+<h1 id="二"><a href="#二" class="headerlink" title="二"></a>二</h1><p>如何将<a href="http://wpchina.org/" rel="external nofollow noopener noreferrer" target="_blank">WordPress</a>网站的域名从旧域名 <a href="http://www.mydomain.com" rel="external nofollow noopener noreferrer" target="_blank">www.mydomain.com</a> 更换为新域名 <a href="http://www.newdomain.com" rel="external nofollow noopener noreferrer" target="_blank">www.newdomain.com</a> 。</p>
+<p>第一步，开始之前，请先做好网站的备份，<a href="http://wpchina.org/how-to-backup-wordpress-database-manually-1437/" rel="external nofollow noopener noreferrer" target="_blank">备份好网站数据库</a>和网站文件。尤其是数据库，一定要做好备份，以防操作过程中出现错误，我们可以使用备份的数据库重新进行操作。</p>
+<p>第二步，将新域名做好解析和绑定操作。解析新域名，就是将域名指向服务器的IP地址，通常在域名商那里进行操作；绑定新域名，通常在空间商那里进行操作，就是在服务器上添加新域名，并确保网站目录和旧域名的网站目录一致。</p>
+<p>完成以上两步之后，需要确认新域名生效之后，再继续进行以下操作。新域名设置解析后，通常需要一段时间才能传递到各地网络，各地生效时间并不一致，通常需要几分钟或者几个小时，最多不会超过48小时。你可以使用ping命令来检查，来查看新域名是否生效。如果ping出来的ip地址是刚刚设置的ip，那么解析就生效了。</p>
+<p>新域名生效之后，这个时候在浏览器中输入新域名和旧域名，都可以打开原来的网站。如果旧域名已经失效，比如说已经过期，或者已经解析到其他地方等，那么网站虽然可以打开，但网页看起来会比较乱；这是因为网页无法正常加载WordPress主题的样式表。</p>
+<p>第三步，登录主机管理系统，进入phpmyadmin，选择WordPress网站所使用的数据库。如果你不确定WordPress使用的是哪一个数据库，可以查看WordPress目录下的wp-config.php配置文件，查看其中的 DB_NAME 设置。</p>
+<p>选中该数据库之后，点击SQL，输入以下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">UPDATE wp_options SET option_value = replace(option_value, &apos;www.mydomain.com&apos;,&apos;www.newdomain.com&apos;) ;</span><br><span class="line">UPDATE wp_posts SET post_content = replace(post_content, &apos;www.mydomain.com&apos;,&apos;www.newdomain.com&apos;) ;</span><br><span class="line">UPDATE wp_comments SET comment_content = replace(comment_content, &apos;www.mydomain.com&apos;, &apos;www.newdomain.com&apos;) ;</span><br><span class="line">UPDATE wp_comments SET comment_author_url = replace(comment_author_url, &apos;www.mydomain.com&apos;, &apos;www.newdomain.com&apos;) ;</span><br></pre></td></tr></table></figure>
+<p>以上代码中，<a href="http://www.mydomain.com/" rel="external nofollow noopener noreferrer" target="_blank">www.mydomain.com</a> 代表原来的域名，<a href="http://www.newdomain.com" rel="external nofollow noopener noreferrer" target="_blank">www.newdomain.com</a> 代表新域名。域名一定要输入完整；如果你使用类似 blog.newdomain.com 这样的二级域名，也是可以的，只要输入完整域名就可以了。</p>
+<p><img src="http://pic.wpchina.org/9f9b47d8fee0_11235/pic-2014-0525-003.png" alt="在phpmyadmin中修改WordPress网站域名"></p>
+<p>然后点击右下角的【执行】按钮，就可以了。phpmyadmin会返回结果，告诉你每行命令修改了多少处地方。这样，我们就将WordPress的域名完美地切换到新的域名了。</p>
+<p>与直接在WordPress的管理后台修改域名相比，今天介绍的这个办法有两个优点：</p>
+<p>\1. 即便旧域名已经失效了，也可以更换新域名；因为整个操作过程中，根本不需要登陆WordPress的管理后台。</p>
+<p>\2. 更换比较彻底，不光更换了网站的域名，连文章内部的链接，图片和音视频等媒体文件的地址、链接，以及评论中的链接等，都一起进行了更换。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote>
+<ul>
+<li><a href="https://jingyan.baidu.com/article/fdffd1f8e73607f3e98ca137.html##1" rel="external nofollow noopener noreferrer" target="_blank">https://jingyan.baidu.com/article/fdffd1f8e73607f3e98ca137.html##1</a></li>
+<li><a href="http://wpchina.org/how-to-change-wordpress-domain-prefectly-1528/" rel="external nofollow noopener noreferrer" target="_blank">http://wpchina.org/how-to-change-wordpress-domain-prefectly-1528/</a></li>
+</ul>
+</blockquote>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/posts/1550028650/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    使用 bitwarden_rs 搭建自托管的密码服务器
+                
+            </div>
+        </a>
+    
+    
+        <a href="/posts/1548692861/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">QQ群管家指令</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Garvey &copy; 2019 
+            <a rel="external nofollow noopener noreferrer" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten" rel="external nofollow noopener noreferrer" target="_blank">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>

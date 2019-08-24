@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>Github+hexo绑定域名 | Garvey&#39;s Wiki</title>
+    
+    
+        <meta name="keywords" content="blog">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="如果图片无法加载，请访问：https://www.jianshu.com/p/0886c99f826a Github绑定域名近期在新网购买了一个属于自己的域名，因此想着把自己用hexo+github搭建的博客通过域名访问，但是找了n长时间来搞，都没有成功。心灰意冷之中再次通过google来搜索，终于有了头目，并且成功通过我的域名访问了我的站点。接下来就简单介绍一下实现。 过程 创建CNMAE文件">
+<meta name="keywords" content="blog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Github+hexo绑定域名">
+<meta property="og:url" content="https://garveyw.com/posts/1547044403/index.html">
+<meta property="og:site_name" content="Garvey&#39;s Wiki">
+<meta property="og:description" content="如果图片无法加载，请访问：https://www.jianshu.com/p/0886c99f826a Github绑定域名近期在新网购买了一个属于自己的域名，因此想着把自己用hexo+github搭建的博客通过域名访问，但是找了n长时间来搞，都没有成功。心灰意冷之中再次通过google来搜索，终于有了头目，并且成功通过我的域名访问了我的站点。接下来就简单介绍一下实现。 过程 创建CNMAE文件">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://ooo.0o0.ooo/2016/10/31/58171d58d7860.png">
+<meta property="og:image" content="https://ooo.0o0.ooo/2016/10/31/58171adc24e3f.png">
+<meta property="og:image" content="https://ooo.0o0.ooo/2016/10/31/58171d58d7860.png">
+<meta property="og:image" content="https://ooo.0o0.ooo/2016/10/31/58171df7b8113.png">
+<meta property="og:image" content="https://ooo.0o0.ooo/2016/10/31/58174c8118551.png">
+<meta property="og:image" content="https://ooo.0o0.ooo/2016/10/31/58174d08df76a.png">
+<meta property="og:image" content="https://ooo.0o0.ooo/2016/10/31/581750320a6fc.png">
+<meta property="og:image" content="https://ooo.0o0.ooo/2016/10/31/58175096b1453.png">
+<meta property="og:updated_time" content="2019-08-24T07:49:34.839Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Github+hexo绑定域名">
+<meta name="twitter:description" content="如果图片无法加载，请访问：https://www.jianshu.com/p/0886c99f826a Github绑定域名近期在新网购买了一个属于自己的域名，因此想着把自己用hexo+github搭建的博客通过域名访问，但是找了n长时间来搞，都没有成功。心灰意冷之中再次通过google来搜索，终于有了头目，并且成功通过我的域名访问了我的站点。接下来就简单介绍一下实现。 过程 创建CNMAE文件">
+<meta name="twitter:image" content="https://ooo.0o0.ooo/2016/10/31/58171d58d7860.png">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Garvey&#39;s Wiki" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Garvey&#39;s Wiki</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id="categories">
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id="allExpand" href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            分享
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            学习资料
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/1548058356/">中公考试资料</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            视频
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/1539786985/">Kedi（2017）又名《爱猫之城》，《伊斯坦布尔的猫》</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            音乐
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/1534044869/">Carmen 卡门选曲 分享</a></li>  <li class="file"><a href="/posts/1534094717/">Decca Ultimate / DECCA极致系列  34CD下载地址</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/posts/1548329226/">永久/匿名分享文件的网站</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            教程
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Hexo
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/1548242436/">hexo自动部署到git、ftp（虚拟主机等）、云服务器的方式</a></li>  <li class="file active"><a href="/posts/1547044403/">Github+hexo绑定域名</a></li>  <li class="file"><a href="/posts/1546975657/">Hexo 入门指南 - sitemap、rss 和部署</a></li>  <li class="file"><a href="/posts/1546970491/">hexo-theme-Wikitten</a></li>  <li class="file"><a href="/posts/1546626092/">模板</a></li>  <li class="file"><a href="/posts/1547320935/">hexo 文章、草稿</a></li>  <li class="file"><a href="/posts/1546969579/">用 Hexo 搭建博客</a></li>  <li class="file"><a href="/posts/1548243221/">最全Hexo博客搭建+主题优化+插件配置+常用操作+错误分析</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Linux
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/1550049567/">centos file</a></li>  <li class="file"><a href="/posts/1550029462/">CentOS安装docker</a></li>  <li class="file"><a href="/posts/1546969267/">Linux常用命令大全</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Wordpress
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/1566403200/">自定义wordpress登录页</a></li>  <li class="file"><a href="/posts/1552534222/">wordpress二级导航设置</a></li>  <li class="file"><a href="/posts/1548762745/">完美更换WordPress网站的域名</a></li>  <li class="file"><a href="/posts/1547983242/">利用Robots.txt优化你的WordPress站点</a></li>  <li class="file"><a href="/posts/1551336947/">wordpress的RSS优化技巧</a></li>  <li class="file"><a href="/posts/1546970116/">wordpress to hexo</a></li>  <li class="file"><a href="/posts/1566628113/">wordpress修改代码</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Yourls
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/1547926920/">yourls配置 Configuration (in user/config.php)</a></li>  <li class="file"><a href="/posts/1547927037/">yourls 安装</a></li>  <li class="file"><a href="/posts/1539359262/">YOURLS - 建立属于你自己的短网址生成系统</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            打谱
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/教程/打谱/luogujingjiaocheng/">锣鼓经输入法</a></li>  <li class="file"><a href="/posts/1554020316/">谱谱风使用技巧</a></li>  <li class="file"><a href="/posts/1566553478/">谱谱风笔记</a></li>  <li class="file"><a href="/posts/1566553391/">Sibelius笔记</a></li>  <li class="file"><a href="/posts/1566403200/">谱谱风技巧</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            服务器
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/1547896406/">Apache环境下几种http强制跳转https设置方法</a></li>  <li class="file"><a href="/posts/1548596072/">apache 实现图片防盗链</a></li>  <li class="file"><a href="/posts/1548320833/">绑定域名到你空间的子目录</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/posts/1548273667/">简单制作图片/视频API</a></li>  <li class="file"><a href="/posts/1548251707/">Bing美图API源码</a></li>  <li class="file"><a href="/posts/1550484670/">FileZilla读取目录列表失败的解决办法</a></li>  <li class="file"><a href="/posts/1547982931/">Hitoko一言 搭建</a></li>  <li class="file"><a href="/posts/1551283516/">RSSHUB安装</a></li>  <li class="file"><a href="/posts/1547320616/">一键KMS服务脚本，搭建你自己的激活服务器</a></li>  <li class="file"><a href="/posts/1546974818/">Tiny File Manager</a></li>  <li class="file"><a href="/posts/1548242240/">Typora入门（中文版）</a></li>  <li class="file"><a href="/posts/1551536221/">docker安装bitwarden</a></li>  <li class="file"><a href="/posts/1551418682/">Linux通过docker安装运行酷Q</a></li>  <li class="file"><a href="/posts/1548513249/">免费接码平台</a></li>  <li class="file"><a href="/posts/1551258055/">HTML代码笔记</a></li>  <li class="file"><a href="/posts/1547366636/">merlin搭建局域网内免配置KMS自动激活环境</a></li>  <li class="file"><a href="/posts/1551349973/">npm更新</a></li>  <li class="file"><a href="/posts/1548329052/">php简单匿名聊天室</a></li>  <li class="file"><a href="/posts/1539663321/">使用 OneDrive 提供的 5T 存储自建 OneIndex 网盘（附免费 Office 365 教育版注册方法）</a></li>  <li class="file"><a href="/posts/1554299574/">typecho伪静态设置</a></li>  <li class="file"><a href="/posts/1547887746/">Vmoex，一款仿V2EX的开源二次元论坛程序附安装教程</a></li>  <li class="file"><a href="/posts/1566403200/">输入密码才能浏览网页内容的JS代码</a></li>  <li class="file"><a href="/posts/1550028650/">使用 bitwarden_rs 搭建自托管的密码服务器</a></li>  <li class="file"><a href="/posts/1548692861/">QQ群管家指令</a></li>  <li class="file"><a href="/posts/1550141216/">bookmarks程序安装</a></li>  <li class="file"><a href="/posts/1536315942/">KindleEar 搭建教程：推送 RSS 订阅到 Kindle</a></li>  <li class="file"><a href="/posts/1554351874/">typecho 邮件模板</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/posts/1534084585/">Welcome Garvey's Wiki Site</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-1547044403" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/教程/">教程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/教程/Hexo/">Hexo</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/posts/1547044403/">
+            <time datetime="2019-01-09T14:33:23.000Z" itemprop="datePublished">2019-01-09</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Github+hexo绑定域名
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#Github绑定域名"><span class="toc-number">1.</span> <span class="toc-text">Github绑定域名</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#过程"><span class="toc-number">2.</span> <span class="toc-text">过程</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#创建CNAME文件"><span class="toc-number">2.1.</span> <span class="toc-text">创建CNAME文件</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#配置域名解析"><span class="toc-number">2.2.</span> <span class="toc-text">配置域名解析</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#成功访问"><span class="toc-number">2.3.</span> <span class="toc-text">成功访问</span></a></li></ol></li></ol>
+                </div>
+            
+        
+        
+            <p>如果图片无法加载，请访问：<a href="https://www.jianshu.com/p/0886c99f826a" rel="external nofollow noopener noreferrer" target="_blank">https://www.jianshu.com/p/0886c99f826a</a></p>
+<h5 id="Github绑定域名"><a href="#Github绑定域名" class="headerlink" title="Github绑定域名"></a>Github绑定域名</h5><p>近期在<a href="http://www.xinnet.com/" rel="external nofollow noopener noreferrer" target="_blank">新网</a>购买了一个属于自己的域名，因此想着把自己用hexo+github搭建的博客通过域名访问，但是找了n长时间来搞，都没有成功。心灰意冷之中再次通过google来搜索，终于有了头目，并且成功通过我的域名访问了<a href="http://supermokey.com/" rel="external nofollow noopener noreferrer" target="_blank">我的站点</a>。接下来就简单介绍一下实现。</p>
+<h5 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h5><ul>
+<li>创建CNMAE文件</li>
+<li>配置域名解析</li>
+<li>成功访问</li>
+</ul>
+<p><img src="https://ooo.0o0.ooo/2016/10/31/58171d58d7860.png" alt="12A6F385-367E-41DD-BF67-E25804F005C3.png"><br>现在开始介绍每一步。</p>
+<h6 id="创建CNAME文件"><a href="#创建CNAME文件" class="headerlink" title="创建CNAME文件"></a>创建CNAME文件</h6><p>首先我们在我们的站点文件夹下找到source文件夹，在里面创建CNAME文件如下：<br><img src="https://ooo.0o0.ooo/2016/10/31/58171adc24e3f.png" alt="5BD14313-9B02-4ADE-B677-0C3287664C2B.png"><br>创建完成之后执行如下命令行在站点目录文件夹里面：</p>
+<p><code>hexo g</code></p>
+<p><code>hexo d</code></p>
+<p>ok，此步骤完成。</p>
+<h6 id="配置域名解析"><a href="#配置域名解析" class="headerlink" title="配置域名解析"></a>配置域名解析</h6><p>我是在新网购买的域名，因为域名现在都需要实名认证，所以如果您想配置域名解析，首先要做的就是实名认证。这个是新网官网提供的提示：<br><code>.com/.net/.cn/.公司/.网络域名需及时提交实名制审核资料，实名制审核不通过将禁止解析。</code><br>这里实名认证就不再介绍了，直接开始配置解析吧。<br>首先打开域名管理：点击我的账户，然后打开域名管理:<br><img src="https://ooo.0o0.ooo/2016/10/31/58171d58d7860.png" alt="12A6F385-367E-41DD-BF67-E25804F005C3.png"><br>这里点击管理之后进入如下界面：<br><img src="https://ooo.0o0.ooo/2016/10/31/58171df7b8113.png" alt="9DE3DB35-E8D0-4A72-894B-6DF4C185F498.png"><br>这里点击域名管理：<br><img src="https://ooo.0o0.ooo/2016/10/31/58174c8118551.png" alt="2E7BEF93-944A-43E5-BFA3-6B624EA2211F.png"><br>然后点击修改域名DNS：<br><img src="https://ooo.0o0.ooo/2016/10/31/58174d08df76a.png" alt="629C33E9-AC99-47A0-B59A-86B8DF08C219.png"><br>这里可以看到我用的主域名服务器名字和辅助域名服务器名字是：<br><code>f1g1ns1.dnspod.net</code><br><code>f1g1ns2.dnspod.net</code><br>可以看出这里我使用的是<a href="http://baike.baidu.com/link?url=Pn4nqThDUBSR3dZeR1_Mk63xxxb1apiXmRVMNaFJTlGR3Rc2brpFdj4T4vgrkfCCzDpODUAKGADo3jvJX--Zaq" rel="external nofollow noopener noreferrer" target="_blank">DNSPod</a>，它是一个DNS解析服务提供商、域名托管商。我们可以使用DNSPod来进行域名解析和托管。<br>如果这里我设置主域名服务器名字和辅助域名服务器名字是：<br><code>ns11.xincache.com</code><br><code>ns12.xincache.com</code><br>那么我们使用的就是默认的使用–我公司域名服务器进行解析。这个是使用新网默认的dns解析服务：<a href="http://baike.baidu.com/link?url=nLtr8fcED8fL_V-U8K-z3wJ7HH5BEaCAbWe_Me1Lk02zq5xVlrkRNMz82wBeefeuqyXqz7YnVeTF5K0DWoUutK" rel="external nofollow noopener noreferrer" target="_blank">MyDNS</a>。<br>其实DNSPod和MyDNS我理解的都算是域名解析服务提供商，还有的就是<br><code>ns1.alidns.com</code><br><code>ns2.alidns.com</code><br>这个应该是<a href="http://www.alidns.com/" rel="external nofollow noopener noreferrer" target="_blank">阿里DNS</a>解析，其他的还有好多，读者可以自行选择自己喜欢的解析服务提供商。这里面我使用的是<a href="https://www.dnspod.cn/" rel="external nofollow noopener noreferrer" target="_blank">DnsPod</a>进行解析的。如图：<br><img src="https://ooo.0o0.ooo/2016/10/31/581750320a6fc.png" alt="1B6E74B4-75D5-48DD-80B2-0A1851DB46E0.png"></p>
+<p>点击解析就会自动跳转到dnsPod：（如果你用的是mydns，点击解析就会直接跳转到mydns解析界面）<br><img src="https://ooo.0o0.ooo/2016/10/31/58175096b1453.png" alt="2525B04F-5782-4DB7-8C1C-6971B959BE96.png"></p>
+<p>然后按照我上面的配置添加即可。这里需要注意主机记录和记录类型，当你添加的时候就会有简单的介绍，这里就不再介绍了（关于如何使用dnsPod配置二级域名，大家可以自行百度谷歌）。这样第二步就搞定了。</p>
+<h6 id="成功访问"><a href="#成功访问" class="headerlink" title="成功访问"></a>成功访问</h6><p>这样配置完成之后，就可以访问了。如果访问无效，可以先清除浏览器历史记录试试。还有就是dns解析配置后可能暂时不能访问，一般都是10分钟或者很快就可以访问了，但是也有特殊的，不过最长应该12小时。</p>
+<p>原文地址：<a href="http://www.cnblogs.com/zhanggui/p/6017628.html" rel="external nofollow noopener noreferrer" target="_blank">http://www.cnblogs.com/zhanggui/p/6017628.html</a></p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/posts/1547320616/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    一键KMS服务脚本，搭建你自己的激活服务器
+                
+            </div>
+        </a>
+    
+    
+        <a href="/posts/1546975657/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Hexo 入门指南 - sitemap、rss 和部署</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Garvey &copy; 2019 
+            <a rel="external nofollow noopener noreferrer" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten" rel="external nofollow noopener noreferrer" target="_blank">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
