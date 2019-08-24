@@ -119,29 +119,6 @@ if (
   </entry>
   
   <entry>
-    <title>自定义wordpress登录页</title>
-    <link href="https://garveyw.com/posts/1566403200/"/>
-    <id>https://garveyw.com/posts/1566403200/</id>
-    <published>2019-08-21T16:00:00.000Z</published>
-    <updated>2019-08-24T07:49:34.844Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="方法概要"><a href="#方法概要" class="headerlink" title="方法概要"></a>方法概要</h3><p>通过WordPress内置的挂钩(Hook)，在主题的 functions.php 添加一些简单的代码，即可完成自定义修改，所有的操作都不需要修改WordPress核心文件，即使升级WordPress版本，也不会丢失效果。</p><p><img src="https://static.wpdaxue.com/img/2013/02/wpdaxue.com-201302344.png" alt="wpdaxue.com-201302344"></p><blockquote><p>注：下文提到的所有代码，都是添加到主题的 funshions.php 文件的最后一个 ?&gt; 的前面。</p></blockquote><h3 id="自定义Logo图片"><a href="#自定义Logo图片" class="headerlink" title="自定义Logo图片"></a>自定义Logo图片</h3><p>制作一个名为 login_logo.png 的图片，放在主题下的images文件夹里（也可以根据自己的实际修改，只要下面的代码引用的Logo地址正确即可）。</p><table><thead><tr><th><code>1 2 3 4 5 6 7 8 9 10 11 12 13</code></th><th><code>//自定义登录页面的LOGO图片 function my_custom_login_logo() {     echo &#39;&lt;style type=&quot;text/css&quot;&gt;         .login h1 a {             background-image:url(&quot;这里添加logo图片网址&quot;) !important;         height: 60px; //修改为图片的高度         width: 250px; //修改为图标的宽度         -webkit-background-size: 250px; //修改为图标的宽度         background-size: 250px; //修改为图标的宽度         }     &lt;/style&gt;&#39;; } add_action(&#39;login_head&#39;, &#39;my_custom_login_logo&#39;);</code></th></tr></thead><tbody><tr><td></td></tr></tbody></table><h3 id="自定义Logo链接"><a href="#自定义Logo链接" class="headerlink" title="自定义Logo链接"></a>自定义Logo链接</h3><p>将Logo的链接改为网站首页链接：</p><table><thead><tr><th><code>1 2</code></th><th><code>//自定义登录页面的LOGO链接为首页链接 add_filter(&#39;login_headerurl&#39;, create_function(false,&quot;return get_bloginfo(&#39;url&#39;);&quot;));</code></th></tr></thead><tbody><tr><td></td></tr></tbody></table><p>将Logo的链接改为任意链接：</p><table><thead><tr><th><code>1 2 3 4 5</code></th><th><code>//自定义登录界面LOGO链接为任意链接 function custom_loginlogo_url($url) {     return &#39;https://www.wpdaxue.com&#39;; //修改URL地址 } add_filter( &#39;login_headerurl&#39;, &#39;custom_loginlogo_url&#39; );</code></th></tr></thead><tbody><tr><td></td></tr></tbody></table><h3 id="自定义Logo提示信息-tltle"><a href="#自定义Logo提示信息-tltle" class="headerlink" title="自定义Logo提示信息(tltle)"></a>自定义Logo提示信息(tltle)</h3><p>自定义为网站名称：</p><table><thead><tr><th><code>1 2</code></th><th><code>//自定义登录页面的LOGO提示为网站名称 add_filter(&#39;login_headertitle&#39;, create_function(false,&quot;return get_bloginfo(&#39;name&#39;);&quot;));</code></th></tr></thead><tbody><tr><td></td></tr></tbody></table><p>自定义为其他任何文本：</p><table><thead><tr><th><code>1 2 3 4 5</code></th><th><code>//自定义登录页面LOGO提示为任意文本 function custom_loginlogo_desc($url) {     return &#39;WordPress大学&#39;; //修改文本信息 } add_filter( &#39;login_headertitle&#39;, &#39;custom_loginlogo_desc&#39; );</code></th></tr></thead><tbody><tr><td></td></tr></tbody></table><h3 id="自定义登录框内容"><a href="#自定义登录框内容" class="headerlink" title="自定义登录框内容"></a>自定义登录框内容</h3><table><thead><tr><th><code>1 2 3 4 5</code></th><th><code>//在登录框添加额外的信息 function custom_login_message() {     echo &#39;&lt;p&gt;欢迎来到&#39;.get_bloginfo(&#39;name&#39;).&#39;，请登录后下载本站资源&lt;/p&gt;&lt;br /&gt;&#39;; } add_action(&#39;login_form&#39;, &#39;custom_login_message&#39;);</code></th></tr></thead><tbody><tr><td></td></tr></tbody></table><h3 id="自定义底部内容"><a href="#自定义底部内容" class="headerlink" title="自定义底部内容"></a>自定义底部内容</h3><table><thead><tr><th><code>1 2 3 4 5</code></th><th><code>//自定义底部信息 function custom_html() {     echo &#39;&lt;p style=&quot;text-align:center&quot;&gt;© &#39; . get_bloginfo(url).&#39;&lt;/p&gt;&#39;; } add_action(&#39;login_footer&#39;, &#39;custom_html&#39;);</code></th></tr></thead><tbody><tr><td></td></tr></tbody></table><h3 id="自定义CSS"><a href="#自定义CSS" class="headerlink" title="自定义CSS"></a>自定义CSS</h3><p>要更加灵活地修改登录页面的显示样式，建议添加一个自定义的CSS文件，然后查看登录页面的源代码的html结构，撰写自己的CSS样式。你可以使用下面的代码引入自己的CSS，注意修改代码中的css地址，以下调用的是主题根目录下的login_style.css：</p><table><thead><tr><th><code>1 2 3 4 5</code></th><th><code>//添加自定义CSS function custom_login() {     echo &#39;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;&#39; . get_bloginfo(&#39;template_directory&#39;) . &#39;/login_style.css&quot; /&gt;&#39;; } add_action(&#39;login_head&#39;, &#39;custom_login&#39;);</code></th></tr></thead><tbody><tr><td></td></tr></tbody></table><h3 id="本文小结"><a href="#本文小结" class="headerlink" title="本文小结"></a>本文小结</h3><p>通过WordPress的挂钩(hook)，可以做很多自定义修改，不仅仅是登录页面哦。对于WordPress主题或插件开发者来说，掌握WordPress的各种挂钩，你就可以很自由地自定义WordPress啦！啦！</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;方法概要&quot;&gt;&lt;a href=&quot;#方法概要&quot; class=&quot;headerlink&quot; title=&quot;方法概要&quot;&gt;&lt;/a&gt;方法概要&lt;/h3&gt;&lt;p&gt;通过WordPress内置的挂钩(Hook)，在主题的 functions.php 添加一些简单的代码，即可完成自定义修改，
-      
-    
-    </summary>
-    
-      <category term="Wordpress" scheme="https://garveyw.com/categories/Wordpress/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>输入密码才能浏览网页内容的JS代码</title>
     <link href="https://garveyw.com/posts/1566403200/"/>
     <id>https://garveyw.com/posts/1566403200/</id>
@@ -160,6 +137,29 @@ if (
     </summary>
     
       <category term="其他" scheme="https://garveyw.com/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>自定义wordpress登录页</title>
+    <link href="https://garveyw.com/posts/1566403200/"/>
+    <id>https://garveyw.com/posts/1566403200/</id>
+    <published>2019-08-21T16:00:00.000Z</published>
+    <updated>2019-08-24T07:49:34.844Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="方法概要"><a href="#方法概要" class="headerlink" title="方法概要"></a>方法概要</h3><p>通过WordPress内置的挂钩(Hook)，在主题的 functions.php 添加一些简单的代码，即可完成自定义修改，所有的操作都不需要修改WordPress核心文件，即使升级WordPress版本，也不会丢失效果。</p><p><img src="https://static.wpdaxue.com/img/2013/02/wpdaxue.com-201302344.png" alt="wpdaxue.com-201302344"></p><blockquote><p>注：下文提到的所有代码，都是添加到主题的 funshions.php 文件的最后一个 ?&gt; 的前面。</p></blockquote><h3 id="自定义Logo图片"><a href="#自定义Logo图片" class="headerlink" title="自定义Logo图片"></a>自定义Logo图片</h3><p>制作一个名为 login_logo.png 的图片，放在主题下的images文件夹里（也可以根据自己的实际修改，只要下面的代码引用的Logo地址正确即可）。</p><table><thead><tr><th><code>1 2 3 4 5 6 7 8 9 10 11 12 13</code></th><th><code>//自定义登录页面的LOGO图片 function my_custom_login_logo() {     echo &#39;&lt;style type=&quot;text/css&quot;&gt;         .login h1 a {             background-image:url(&quot;这里添加logo图片网址&quot;) !important;         height: 60px; //修改为图片的高度         width: 250px; //修改为图标的宽度         -webkit-background-size: 250px; //修改为图标的宽度         background-size: 250px; //修改为图标的宽度         }     &lt;/style&gt;&#39;; } add_action(&#39;login_head&#39;, &#39;my_custom_login_logo&#39;);</code></th></tr></thead><tbody><tr><td></td></tr></tbody></table><h3 id="自定义Logo链接"><a href="#自定义Logo链接" class="headerlink" title="自定义Logo链接"></a>自定义Logo链接</h3><p>将Logo的链接改为网站首页链接：</p><table><thead><tr><th><code>1 2</code></th><th><code>//自定义登录页面的LOGO链接为首页链接 add_filter(&#39;login_headerurl&#39;, create_function(false,&quot;return get_bloginfo(&#39;url&#39;);&quot;));</code></th></tr></thead><tbody><tr><td></td></tr></tbody></table><p>将Logo的链接改为任意链接：</p><table><thead><tr><th><code>1 2 3 4 5</code></th><th><code>//自定义登录界面LOGO链接为任意链接 function custom_loginlogo_url($url) {     return &#39;https://www.wpdaxue.com&#39;; //修改URL地址 } add_filter( &#39;login_headerurl&#39;, &#39;custom_loginlogo_url&#39; );</code></th></tr></thead><tbody><tr><td></td></tr></tbody></table><h3 id="自定义Logo提示信息-tltle"><a href="#自定义Logo提示信息-tltle" class="headerlink" title="自定义Logo提示信息(tltle)"></a>自定义Logo提示信息(tltle)</h3><p>自定义为网站名称：</p><table><thead><tr><th><code>1 2</code></th><th><code>//自定义登录页面的LOGO提示为网站名称 add_filter(&#39;login_headertitle&#39;, create_function(false,&quot;return get_bloginfo(&#39;name&#39;);&quot;));</code></th></tr></thead><tbody><tr><td></td></tr></tbody></table><p>自定义为其他任何文本：</p><table><thead><tr><th><code>1 2 3 4 5</code></th><th><code>//自定义登录页面LOGO提示为任意文本 function custom_loginlogo_desc($url) {     return &#39;WordPress大学&#39;; //修改文本信息 } add_filter( &#39;login_headertitle&#39;, &#39;custom_loginlogo_desc&#39; );</code></th></tr></thead><tbody><tr><td></td></tr></tbody></table><h3 id="自定义登录框内容"><a href="#自定义登录框内容" class="headerlink" title="自定义登录框内容"></a>自定义登录框内容</h3><table><thead><tr><th><code>1 2 3 4 5</code></th><th><code>//在登录框添加额外的信息 function custom_login_message() {     echo &#39;&lt;p&gt;欢迎来到&#39;.get_bloginfo(&#39;name&#39;).&#39;，请登录后下载本站资源&lt;/p&gt;&lt;br /&gt;&#39;; } add_action(&#39;login_form&#39;, &#39;custom_login_message&#39;);</code></th></tr></thead><tbody><tr><td></td></tr></tbody></table><h3 id="自定义底部内容"><a href="#自定义底部内容" class="headerlink" title="自定义底部内容"></a>自定义底部内容</h3><table><thead><tr><th><code>1 2 3 4 5</code></th><th><code>//自定义底部信息 function custom_html() {     echo &#39;&lt;p style=&quot;text-align:center&quot;&gt;© &#39; . get_bloginfo(url).&#39;&lt;/p&gt;&#39;; } add_action(&#39;login_footer&#39;, &#39;custom_html&#39;);</code></th></tr></thead><tbody><tr><td></td></tr></tbody></table><h3 id="自定义CSS"><a href="#自定义CSS" class="headerlink" title="自定义CSS"></a>自定义CSS</h3><p>要更加灵活地修改登录页面的显示样式，建议添加一个自定义的CSS文件，然后查看登录页面的源代码的html结构，撰写自己的CSS样式。你可以使用下面的代码引入自己的CSS，注意修改代码中的css地址，以下调用的是主题根目录下的login_style.css：</p><table><thead><tr><th><code>1 2 3 4 5</code></th><th><code>//添加自定义CSS function custom_login() {     echo &#39;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;&#39; . get_bloginfo(&#39;template_directory&#39;) . &#39;/login_style.css&quot; /&gt;&#39;; } add_action(&#39;login_head&#39;, &#39;custom_login&#39;);</code></th></tr></thead><tbody><tr><td></td></tr></tbody></table><h3 id="本文小结"><a href="#本文小结" class="headerlink" title="本文小结"></a>本文小结</h3><p>通过WordPress的挂钩(hook)，可以做很多自定义修改，不仅仅是登录页面哦。对于WordPress主题或插件开发者来说，掌握WordPress的各种挂钩，你就可以很自由地自定义WordPress啦！啦！</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;方法概要&quot;&gt;&lt;a href=&quot;#方法概要&quot; class=&quot;headerlink&quot; title=&quot;方法概要&quot;&gt;&lt;/a&gt;方法概要&lt;/h3&gt;&lt;p&gt;通过WordPress内置的挂钩(Hook)，在主题的 functions.php 添加一些简单的代码，即可完成自定义修改，
+      
+    
+    </summary>
+    
+      <category term="Wordpress" scheme="https://garveyw.com/categories/Wordpress/"/>
     
     
   </entry>
