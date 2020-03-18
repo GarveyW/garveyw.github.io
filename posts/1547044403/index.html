@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>Github+hexo绑定域名 - Garvey&#39;s note</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content="生活,博客,前端,游戏">
+  
+    <meta name="description" content="笔记本。">
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="Garvey&#39;s note" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/style.css">
+</head></html>
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">Garvey&#39;s note</a>
+    <div class="subtitle">biji</div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/archives" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/archives" class="menu-item-link">Archives</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/about" class="menu-item-link">About</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">Github+hexo绑定域名</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2019-01-09</span>
+  </div>
+  <div class="post-content">
+    <p>如果图片无法加载，请访问：<a href="https://www.jianshu.com/p/0886c99f826a" rel="external nofollow noopener noreferrer" target="_blank">https://www.jianshu.com/p/0886c99f826a</a></p>
+<h5 id="Github绑定域名"><a href="#Github绑定域名" class="headerlink" title="Github绑定域名"></a>Github绑定域名</h5><p>近期在<a href="http://www.xinnet.com/" rel="external nofollow noopener noreferrer" target="_blank">新网</a>购买了一个属于自己的域名，因此想着把自己用hexo+github搭建的博客通过域名访问，但是找了n长时间来搞，都没有成功。心灰意冷之中再次通过google来搜索，终于有了头目，并且成功通过我的域名访问了<a href="http://supermokey.com/" rel="external nofollow noopener noreferrer" target="_blank">我的站点</a>。接下来就简单介绍一下实现。</p>
+<h5 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h5><ul>
+<li>创建CNMAE文件</li>
+<li>配置域名解析</li>
+<li>成功访问</li>
+</ul>
+<p><img src="https://ooo.0o0.ooo/2016/10/31/58171d58d7860.png" alt="12A6F385-367E-41DD-BF67-E25804F005C3.png"><br>现在开始介绍每一步。</p>
+<h6 id="创建CNAME文件"><a href="#创建CNAME文件" class="headerlink" title="创建CNAME文件"></a>创建CNAME文件</h6><p>首先我们在我们的站点文件夹下找到source文件夹，在里面创建CNAME文件如下：<br><img src="https://ooo.0o0.ooo/2016/10/31/58171adc24e3f.png" alt="5BD14313-9B02-4ADE-B677-0C3287664C2B.png"><br>创建完成之后执行如下命令行在站点目录文件夹里面：</p>
+<p><code>hexo g</code></p>
+<p><code>hexo d</code></p>
+<p>ok，此步骤完成。</p>
+<h6 id="配置域名解析"><a href="#配置域名解析" class="headerlink" title="配置域名解析"></a>配置域名解析</h6><p>我是在新网购买的域名，因为域名现在都需要实名认证，所以如果您想配置域名解析，首先要做的就是实名认证。这个是新网官网提供的提示：<br><code>.com/.net/.cn/.公司/.网络域名需及时提交实名制审核资料，实名制审核不通过将禁止解析。</code><br>这里实名认证就不再介绍了，直接开始配置解析吧。<br>首先打开域名管理：点击我的账户，然后打开域名管理:<br><img src="https://ooo.0o0.ooo/2016/10/31/58171d58d7860.png" alt="12A6F385-367E-41DD-BF67-E25804F005C3.png"><br>这里点击管理之后进入如下界面：<br><img src="https://ooo.0o0.ooo/2016/10/31/58171df7b8113.png" alt="9DE3DB35-E8D0-4A72-894B-6DF4C185F498.png"><br>这里点击域名管理：<br><img src="https://ooo.0o0.ooo/2016/10/31/58174c8118551.png" alt="2E7BEF93-944A-43E5-BFA3-6B624EA2211F.png"><br>然后点击修改域名DNS：<br><img src="https://ooo.0o0.ooo/2016/10/31/58174d08df76a.png" alt="629C33E9-AC99-47A0-B59A-86B8DF08C219.png"><br>这里可以看到我用的主域名服务器名字和辅助域名服务器名字是：<br><code>f1g1ns1.dnspod.net</code><br><code>f1g1ns2.dnspod.net</code><br>可以看出这里我使用的是<a href="http://baike.baidu.com/link?url=Pn4nqThDUBSR3dZeR1_Mk63xxxb1apiXmRVMNaFJTlGR3Rc2brpFdj4T4vgrkfCCzDpODUAKGADo3jvJX--Zaq" rel="external nofollow noopener noreferrer" target="_blank">DNSPod</a>，它是一个DNS解析服务提供商、域名托管商。我们可以使用DNSPod来进行域名解析和托管。<br>如果这里我设置主域名服务器名字和辅助域名服务器名字是：<br><code>ns11.xincache.com</code><br><code>ns12.xincache.com</code><br>那么我们使用的就是默认的使用–我公司域名服务器进行解析。这个是使用新网默认的dns解析服务：<a href="http://baike.baidu.com/link?url=nLtr8fcED8fL_V-U8K-z3wJ7HH5BEaCAbWe_Me1Lk02zq5xVlrkRNMz82wBeefeuqyXqz7YnVeTF5K0DWoUutK" rel="external nofollow noopener noreferrer" target="_blank">MyDNS</a>。<br>其实DNSPod和MyDNS我理解的都算是域名解析服务提供商，还有的就是<br><code>ns1.alidns.com</code><br><code>ns2.alidns.com</code><br>这个应该是<a href="http://www.alidns.com/" rel="external nofollow noopener noreferrer" target="_blank">阿里DNS</a>解析，其他的还有好多，读者可以自行选择自己喜欢的解析服务提供商。这里面我使用的是<a href="https://www.dnspod.cn/" rel="external nofollow noopener noreferrer" target="_blank">DnsPod</a>进行解析的。如图：<br><img src="https://ooo.0o0.ooo/2016/10/31/581750320a6fc.png" alt="1B6E74B4-75D5-48DD-80B2-0A1851DB46E0.png"></p>
+<p>点击解析就会自动跳转到dnsPod：（如果你用的是mydns，点击解析就会直接跳转到mydns解析界面）<br><img src="https://ooo.0o0.ooo/2016/10/31/58175096b1453.png" alt="2525B04F-5782-4DB7-8C1C-6971B959BE96.png"></p>
+<p>然后按照我上面的配置添加即可。这里需要注意主机记录和记录类型，当你添加的时候就会有简单的介绍，这里就不再介绍了（关于如何使用dnsPod配置二级域名，大家可以自行百度谷歌）。这样第二步就搞定了。</p>
+<h6 id="成功访问"><a href="#成功访问" class="headerlink" title="成功访问"></a>成功访问</h6><p>这样配置完成之后，就可以访问了。如果访问无效，可以先清除浏览器历史记录试试。还有就是dns解析配置后可能暂时不能访问，一般都是10分钟或者很快就可以访问了，但是也有特殊的，不过最长应该12小时。</p>
+<p>原文地址：<a href="http://www.cnblogs.com/zhanggui/p/6017628.html" rel="external nofollow noopener noreferrer" target="_blank">http://www.cnblogs.com/zhanggui/p/6017628.html</a></p>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2020
+  <span class="author">
+    Garvey
+  </span>
+</footer>
+    </div>
+  </body>
+</html>

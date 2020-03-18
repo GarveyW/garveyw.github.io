@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>Bing美图API源码 - Garvey&#39;s note</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content="生活,博客,前端,游戏">
+  
+    <meta name="description" content="笔记本。">
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="Garvey&#39;s note" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/style.css">
+</head></html>
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">Garvey&#39;s note</a>
+    <div class="subtitle">biji</div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/archives" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/archives" class="menu-item-link">Archives</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/about" class="menu-item-link">About</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">Bing美图API源码</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2019-01-23</span>
+  </div>
+  <div class="post-content">
+    <h1 id="一、Bing每日背景图片接口源码"><a href="#一、Bing每日背景图片接口源码" class="headerlink" title="一、Bing每日背景图片接口源码"></a>一、Bing每日背景图片接口源码</h1><h2 id="接口简介"><a href="#接口简介" class="headerlink" title="接口简介"></a>接口简介</h2><p>获取Bing每日一图接口源码 图片每天会自动更新 一天更新一张 浏览lanyou的新模版 MATA 无意中发现了每日获取Bing接口源码 分享给需要做网站背景的来使用 网站背景代码大部分都会 我这里也不打出来了 接口在线演示：<a href="https://api.tx7.co/by.php" rel="external nofollow noopener noreferrer" target="_blank">https://api.tx7.co/by.php</a></p>
+<h2 id="接口源码"><a href="#接口源码" class="headerlink" title="接口源码"></a>接口源码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">/**</span><br><span class="line">*Bing图片获取</span><br><span class="line">*/</span><br><span class="line">$str = file_get_contents(&apos;http://cn.bing.com/HPImageArchive.aspx?idx=0&amp;n=1&apos;); </span><br><span class="line">if(preg_match(&quot;/&lt;url&gt;(.+?)&lt;\/url&gt;/ies&quot;,$str,$matches))&#123;    $imgurl=&apos;http://cn.bing.com&apos;.$matches[1];</span><br><span class="line">&#125;else&#123;</span><br><span class="line">$imgurl=&apos;/content/templates/dudu/img/a.jpg&apos;; </span><br><span class="line">&#125;</span><br><span class="line">header(&quot;Location: $imgurl&quot;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>来自晓超云博客-原文地址：<a href="https://www.tx47.cn/xcbk-471.html" rel="external nofollow noopener noreferrer" target="_blank">https://www.tx47.cn/xcbk-471.html</a></p>
+<h1 id="二、Bing美图抓取API代码"><a href="#二、Bing美图抓取API代码" class="headerlink" title="二、Bing美图抓取API代码"></a>二、Bing美图抓取API代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"> function XCURL($url,$referer)&#123;</span><br><span class="line">        $ip = mt_rand(1,255).&quot;.&quot;.mt_rand(1,255).&quot;.&quot;.mt_rand(1,255).&quot;.&quot;.mt_rand(1,255).&quot;&quot;;</span><br><span class="line">        $ch = curl_init();</span><br><span class="line">        curl_setopt($ch, CURLOPT_URL, $url);</span><br><span class="line">        curl_setopt($ch, CURLOPT_HEADER, 0);</span><br><span class="line">        curl_setopt($ch,CURLOPT_HTTPHEADER,array(&quot;CLIENT-IP&quot;.$ip.&quot;&quot;, &quot;X_FORWARD_FOR:&quot;.$ip.&quot;&quot;)); </span><br><span class="line">        curl_setopt($ch, CURLOPT_USERAGENT, &quot;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36&quot;);</span><br><span class="line">        curl_setopt($ch, CURLOPT_RETURNTRANSFER,1); </span><br><span class="line">        curl_setopt($ch, CURLOPT_TIMEOUT,15);</span><br><span class="line">        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1); </span><br><span class="line">        curl_setopt($ch, CURLOPT_REFERER, $referer); </span><br><span class="line">        curl_setopt($ch, CURLOPT_HTTPHEADER, array(&apos;Accept-Encoding:gzip&apos;));</span><br><span class="line">        curl_setopt($ch, CURLOPT_ENCODING, &quot;gzip&quot;);</span><br><span class="line">        $result=curl_exec($ch);</span><br><span class="line">        curl_close($ch);</span><br><span class="line">        return $result;</span><br><span class="line">    &#125;</span><br><span class="line">if(isset($_REQUEST[&apos;rand&apos;])&amp;&amp;!empty($_REQUEST[&apos;rand&apos;])&amp;&amp;$_REQUEST[&apos;rand&apos;]==&apos;true&apos;)&#123;</span><br><span class="line">	$url=&apos;http://cn.bing.com/HPImageArchive.aspx?idx=&apos;.rand(0,6).&apos;&amp;n=1&apos;;</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		$url=&apos;http://cn.bing.com/HPImageArchive.aspx?idx=0&amp;n=1&apos;;</span><br><span class="line">	&#125;</span><br><span class="line">$referer=base64_decode(&apos;aHR0cHM6Ly93d3cueHNpY28uY24v&apos;);</span><br><span class="line">$str=XCURL($url,$referer);</span><br><span class="line">if(preg_match(&quot;/(.+?)&lt;\/url&gt;/ies&quot;,$str,$matches))&#123;</span><br><span class="line">	$imgurl=&apos;http://cn.bing.com&apos;.$matches[1];</span><br><span class="line">	&#125;</span><br><span class="line">if(isset($_REQUEST[&apos;size&apos;])&amp;&amp;!empty($_REQUEST[&apos;size&apos;]))&#123;</span><br><span class="line">	if($_REQUEST[&apos;size&apos;]==&apos;1920*1080&apos;)&#123;</span><br><span class="line">		$imgurl=str_replace(&quot;1366x768&quot;,&quot;1920x1080&quot;,$imgurl);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">if(isset($_REQUEST[&apos;type&apos;])&amp;&amp;!empty($_REQUEST[&apos;type&apos;]))&#123;</span><br><span class="line">	$type=$_REQUEST[&apos;type&apos;];</span><br><span class="line">&#125;else&#123;</span><br><span class="line">	$type=&apos;jpeg&apos;;</span><br><span class="line">&#125;</span><br><span class="line">if($imgurl)&#123;</span><br><span class="line">    header(&apos;Content-Type: image/&apos;.$type);</span><br><span class="line">	header(base64_decode(&apos;Q29weXJpZ2h0OiB3d3cueHNpY28uY24=&apos;));</span><br><span class="line">	@ob_end_clean();</span><br><span class="line">    @readfile($imgurl);</span><br><span class="line">    @flush(); @ob_flush();</span><br><span class="line">	exit();</span><br><span class="line">	    &#125;else&#123;</span><br><span class="line">		exit(&apos;error&apos;);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>原地址：<a href="https://www.xsico.cn/cache/bing-img-curl-api.html" rel="external nofollow noopener noreferrer" target="_blank">https://www.xsico.cn/cache/bing-img-curl-api.html</a></p>
+<h1 id="三、调用必应Bing每日图片做网站背景-api代码分享"><a href="#三、调用必应Bing每日图片做网站背景-api代码分享" class="headerlink" title="三、调用必应Bing每日图片做网站背景/api代码分享"></a>三、调用必应Bing每日图片做网站背景/api代码分享</h1><p>创建个PHP文件 api.php</p>
+<p>调用地址：<strong>http://域名/api.php</strong></p>
+<p>本站之前还分享过本地图片API可看下哦</p>
+<p>直通车：<a href="https://www.ly522.com/797.html" rel="external nofollow noopener noreferrer" target="_blank">https://www.ly522.com/797.html</a></p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> $str = file_get_contents(&apos;http://cn.bing.com/HPImageArchive.aspx?idx=0&amp;n=1&apos;); //从bing获取数据</span><br><span class="line">if(preg_match(&quot;/(.+?)&lt;\/url&gt;/ies&quot;,$str,$matches))&#123; //正则匹配抓取图片url</span><br><span class="line">$imgurl=&apos;http://cn.bing.com&apos;.$matches[1];</span><br><span class="line">&#125;else&#123; //如果由于某些原因，没抓取到图片地址</span><br><span class="line">$imgurl=&apos;修改为你自己的图片地址&apos;; //使用默认的图像</span><br><span class="line">&#125;</span><br><span class="line">header(&quot;Location: $imgurl&quot;); //header跳转</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>当成背景使用的话那么CSS应该这样写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">width:100%;</span><br><span class="line">height:100%;</span><br><span class="line">background: url(你的API地址) no-repeat;</span><br><span class="line">-moz-background-size: cover; /*背景图片拉伸以铺满全屏*/</span><br><span class="line">-ms-background-size: cover;</span><br><span class="line">-webkit-background-size: cover;</span><br><span class="line">background-size: cover;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>原地址：<a href="https://www.ly522.com/1314.html" rel="external nofollow noopener noreferrer" target="_blank">https://www.ly522.com/1314.html</a></p>
+<h1 id="四、获取Bing每日图片API接口"><a href="#四、获取Bing每日图片API接口" class="headerlink" title="四、获取Bing每日图片API接口"></a>四、获取Bing每日图片API接口</h1><p>bing图片每日更新，对于这一点感觉挺不错的，如果能够把bing每日图片作为博客背景是不是很不错呢？首先我们进入Bing首页，会发现自动转到中国版。不过这没关系，中国版更符合国情，速度也比国际版快一些。<br>下面分享bing图片接口api，通过抓包，可以发现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=1</span><br></pre></td></tr></table></figure>
+<p>这里可以获取到无水印的图片。</p>
+<p>抓包显示结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;images&quot;:[&#123;&quot;startdate&quot;:&quot;20160613&quot;,&quot;fullstartdate&quot;:&quot;201606131600&quot;,&quot;enddate&quot;:&quot;20160614&quot;,&quot;url&quot;:&quot;http://s.cn.bing.net/az/hprichbg/rb/BomboHeadland_ZH-CN9339065341_1920x1080.jpg&quot;,&quot;urlbase&quot;:&quot;/az/hprichbg/rb/BomboHeadland_ZH-CN9339065341&quot;,&quot;copyright&quot;:&quot;凯马Bombo Headland，新南威尔士州，澳大利亚 (© Attakorn Bk/Getty Images)&quot;,&quot;copyrightlink&quot;:&quot;http://www.bing.com/search?q=%E5%87%AF%E9%A9%AC&amp;form=hpcapt&amp;mkt=zh-cn&quot;,&quot;wp&quot;:true,&quot;hsh&quot;:&quot;8b50b348242b793c63102d33c2ca5eb7&quot;,&quot;drk&quot;:1,&quot;top&quot;:1,&quot;bot&quot;:1,&quot;hs&quot;:[],&quot;msg&quot;:[&#123;&quot;title&quot;:&quot;今日图片故事&quot;,&quot;link&quot;:&quot;http://www.bing.com/search?q=%E5%87%AF%E9%A9%AC&amp;FORM=pgbar1&amp;mkt=zh-cn&quot;,&quot;text&quot;:&quot;凯马&quot;&#125;]&#125;],&quot;tooltips&quot;:&#123;&quot;loading&quot;:&quot;正在加载...&quot;,&quot;previous&quot;:&quot;上一个图像&quot;,&quot;next&quot;:&quot;下一个图像&quot;,&quot;walle&quot;:&quot;此图片不能下载用作壁纸。&quot;,&quot;walls&quot;:&quot;下载今日美图。仅限用作桌面壁纸。&quot;&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>我们从中提取图片链接，url地址：<br><a href="http://s.cn.bing.net/az/hprichbg/rb/BomboHeadland_ZH-CN9339065341_1920x1080.jpg" rel="external nofollow noopener noreferrer" target="_blank">http://s.cn.bing.net/az/hprichbg/rb/BomboHeadland_ZH-CN9339065341_1920x1080.jpg</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">如果我们想浏览昨天，前天的图片呢？</span><br><span class="line"></span><br><span class="line">回到最初的网址上，http://cn.bing.com/HPImageArchive.aspx?idx=0&amp;n=1 在这里，更换 idx= 这个参数就可以了。</span><br><span class="line"></span><br><span class="line"> 如 http://cn.bing.com/HPImageArchive.aspx?idx=1&amp;n=1 将要得到昨天的图片</span><br><span class="line">http://cn.bing.com/HPImageArchive.aspx?idx=2&amp;n=1得到前天的图片</span><br></pre></td></tr></table></figure>
+<p>官网bing每日图片api知道教程如下，如果想了解更多内容点击进入——<a href="https://github.com/eary/bing" rel="external nofollow noopener noreferrer" target="_blank">bing图片api用法</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">1. 访问 https://api.ioliu.cn/bing/ , 返回bing每日最新背景图, 可选参数[w,h]</span><br><span class="line">2. 访问 https://api.ioliu.cn/bing/?d=n (n&gt;=0), 返回以当日为起点第n天前的壁纸, 可选参数[w,h]</span><br><span class="line">3. 访问 https://api.ioliu.cn/bing/json/ , 返回bing每日最新壁纸的相关(介绍、图片地址等)信息(json格式), 可选参数[callback].</span><br><span class="line">4. 访问 https://api.ioliu.cn/bing/rand/ , 返回随机图片, 可选参数[w,h]</span><br><span class="line">5. 访问 https://api.ioliu.cn/bing/blur/ , 返回高斯模糊图片, 可选参数[d,w,h]</span><br><span class="line">带[w,h]用法： https://api.ioliu.cn/bing/rand/?w=1920&amp;h=1200</span><br><span class="line"></span><br><span class="line">目前已知图片分辨率</span><br><span class="line">1920x1200   1920x1080    1366x768   1280x768    </span><br><span class="line">1024x768    800x600       800x480   768x1280  </span><br><span class="line">720x1280    640x480       480x800   400x240     </span><br><span class="line">320x240     240x320 </span><br><span class="line"></span><br><span class="line">原网址：http://www.eso360.cn/html/2408963950.html</span><br></pre></td></tr></table></figure>
+<h1 id="五、GitHub-源码"><a href="#五、GitHub-源码" class="headerlink" title="五、GitHub 源码"></a>五、GitHub 源码</h1><p>GitHub地址：<a href="https://github.com/xCss/bing" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/xCss/bing</a></p>
+<h1 id="六、php抓取"><a href="#六、php抓取" class="headerlink" title="六、php抓取"></a>六、php抓取</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    $str=file_get_contents(&apos;https://cn.bing.com/HPImageArchive.aspx?idx=0&amp;n=1&apos;);</span><br><span class="line">if (preg_match(&quot;/&lt;url&gt;(.+?)&lt;\/url&gt;/ies&quot;, $str, $matches)) &#123;</span><br><span class="line">    $imgurl=&apos;https://cn.bing.com&apos;.$matches[1];</span><br><span class="line">&#125;</span><br><span class="line">if ($imgurl) &#123;</span><br><span class="line">    header(&apos;Content-Type: image/JPEG&apos;);</span><br><span class="line">    @ob_end_clean();</span><br><span class="line">    @readfile($imgurl);</span><br><span class="line">    @flush();</span><br><span class="line">    @ob_flush();</span><br><span class="line">    exit();</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    exit(&apos;error&apos;);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2020
+  <span class="author">
+    Garvey
+  </span>
+</footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>Apache环境下几种http强制跳转https设置方法 - Garvey&#39;s note</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content="生活,博客,前端,游戏">
+  
+    <meta name="description" content="笔记本。">
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="Garvey&#39;s note" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/style.css">
+</head></html>
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">Garvey&#39;s note</a>
+    <div class="subtitle">biji</div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/archives" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/archives" class="menu-item-link">Archives</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/about" class="menu-item-link">About</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">Apache环境下几种http强制跳转https设置方法</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2019-01-19</span>
+  </div>
+  <div class="post-content">
+    <p>目前为站点安装SSL证书开启https加密访问已经是件很简单的事了，主要是<a href="https://www.wn789.com/tag/freessl" rel="external nofollow noopener noreferrer" target="_blank">免费SSL证书</a>的普及，为大家提供了很好的基础。<a href="https://www.wn789.com/" rel="external nofollow noopener noreferrer" target="_blank">蜗牛789</a>曾在<a href="https://www.wn789.com/4105.html" rel="external nofollow noopener noreferrer" target="_blank">Nginx环境下几种的强制http转https设置方法</a>文章中介绍了常用Nginx环境下如何设置http强制跳转https访问。在此文章中蜗牛将介绍Apache环境下如何http强制跳转https访问。Nginx环境下一般是通过修改“你的域名.conf”文件来实现的。而Apache环境下通过修改.htaccess 配置文件来设置。</p>
+<h2 id="设置方法"><a href="#设置方法" class="headerlink" title="设置方法"></a>设置方法</h2><p>下面规则中蜗牛使用的域名是<a href="http://www.wn789.com或wn789.com，使用时请根据自己需要更改为自己的域名。至于规则放置到什么位置，一般我们可以选择放到到apache的conf配置文件对应位置，或指定站点目录" rel="external nofollow noopener noreferrer" target="_blank">www.wn789.com或wn789.com，使用时请根据自己需要更改为自己的域名。至于规则放置到什么位置，一般我们可以选择放到到apache的conf配置文件对应位置，或指定站点目录</a> .htaccess 文件内容的头部。</p>
+<p>1、强制HTTPS方式访问，对WWW或顶级域名不做跳转。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RewriteEngine On</span><br><span class="line">RewriteCond %&#123;SERVER_PORT&#125; 80</span><br><span class="line">RewriteRule ^(.*)$ https://www.wn789.com/$1 [L,R=301]</span><br></pre></td></tr></table></figure>
+<p>2、强制HTTPS方式访问，并自动将顶级域名跳转到WWW。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">RewriteEngine On</span><br><span class="line">RewriteCond %&#123;HTTP_HOST&#125; !^www.wn789.com$ [NC]</span><br><span class="line">RewriteRule ^(.*)$ https://www.wn789.com/$1 [L,R=301]</span><br><span class="line">RewriteCond %&#123;SERVER_PORT&#125; 80</span><br><span class="line">RewriteRule ^(.*)$ https://www.wn789.com/$1 [L,R=301]</span><br></pre></td></tr></table></figure>
+<p>3、强制HTTPS方式访问，并自动将WWW跳转到顶级域名。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">RewriteEngine On</span><br><span class="line">RewriteCond %&#123;HTTP_HOST&#125; !^wn789.com$ [NC]</span><br><span class="line">RewriteRule ^(.*)$ https://wn789.com/$1 [L,R=301]</span><br><span class="line">RewriteCond %&#123;SERVER_PORT&#125; 80</span><br><span class="line">RewriteRule ^(.*)$ https://wn789.com/$1 [L,R=301]</span><br></pre></td></tr></table></figure>
+<p>原文地址：<a href="https://www.wn789.com/6917.html" rel="external nofollow noopener noreferrer" target="_blank">https://www.wn789.com/6917.html</a></p>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2020
+  <span class="author">
+    Garvey
+  </span>
+</footer>
+    </div>
+  </body>
+</html>

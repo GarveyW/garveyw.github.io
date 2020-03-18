@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>利用Robots.txt优化你的WordPress站点 - Garvey&#39;s note</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content="生活,博客,前端,游戏">
+  
+    <meta name="description" content="笔记本。">
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="Garvey&#39;s note" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/style.css">
+</head></html>
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">Garvey&#39;s note</a>
+    <div class="subtitle">biji</div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/archives" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/archives" class="menu-item-link">Archives</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/about" class="menu-item-link">About</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">利用Robots.txt优化你的WordPress站点</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2019-01-20</span>
+  </div>
+  <div class="post-content">
+    <p>很多建站新手对robots.txt文件的重要作用不是很清楚，利用这篇文章普及一下WordPress站点robots.txt文件编写知识。</p>
+<p>Robots协议（也称为爬虫协议、机器人协议等）的全称是“网络爬虫排除标准”（Robots Exclusion Protocol），网站通过Robots协议告诉搜索引擎哪些页面可以抓取，哪些页面不能抓取。</p>
+<p>搜索引擎机器人访问网站时，首先会寻找站点根目录有没有 robots.txt文件，如果有这个文件就根据文件的内容确定收录范围，如果没有就按默认访问以及收录所有页面。另外，当搜索蜘蛛发现不存在robots.txt文件时，会产生一个404错误日志在服务器上，从而增加服务器的负担，因此为站点添加一个robots.txt文件还是很重要的。</p>
+<p>知道Robots协议的作用后，下面具体说一下WordPress站点如何编写robots.txt文件。</p>
+<p>WordPress站点默认在浏览器中输入：http://你的域名/robots.txt，会显示如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">User-agent: *</span><br><span class="line">Disallow: /wp-admin/</span><br><span class="line">Disallow: /wp-includes/</span><br></pre></td></tr></table></figure>
+<p>这是由WordPress自动生成的，意思是告诉搜索引擎不要抓取后台程序文件。</p>
+<p>但这是远远不够的，比较完整的WordPress站点robots.txt文件内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">User-agent: *</span><br><span class="line">Disallow: /wp-admin/</span><br><span class="line">Disallow: /wp-content/</span><br><span class="line">Disallow: /wp-includes/</span><br><span class="line">Disallow: /*/comment-page-*</span><br><span class="line">Disallow: /*?replytocom=*</span><br><span class="line">Disallow: /category/*/page/</span><br><span class="line">Disallow: /tag/*/page/</span><br><span class="line">Disallow: /*/trackback</span><br><span class="line">Disallow: /feed</span><br><span class="line">Disallow: /*/feed</span><br><span class="line">Disallow: /comments/feed</span><br><span class="line">Disallow: /?s=*</span><br><span class="line">Disallow: /*/?s=*\</span><br><span class="line">Disallow: /attachment/</span><br></pre></td></tr></table></figure>
+<p>使用方法：新建一个名称为robots.txt文本文件，将上面的内容放进去，然后上传到网站根目录即可。</p>
+<p>下面分别解释一下各项的作用：</p>
+<p>1、Disallow: /wp-admin/、Disallow: /wp-content/和Disallow: /wp-includes/</p>
+<p>用于告诉搜索引擎不要抓取后台程序文件页面。</p>
+<p>2、Disallow: /<em>/comment-page-</em>和Disallow: /<em>?replytocom=</em></p>
+<p>禁止搜索引擎抓取评论分页等相关链接。</p>
+<p>3、Disallow: /category/<em>/page/和Disallow: /tag/</em>/page/</p>
+<p>禁止搜索引擎抓取收录分类和标签的分页。</p>
+<p>4、Disallow: /*/trackback</p>
+<p>禁止搜索引擎抓取收录trackback等垃圾信息</p>
+<p>5、Disallow: /feed、Disallow: /*/feed和Disallow: /comments/feed</p>
+<p>禁止搜索引擎抓取收录feed链接，feed只用于订阅本站，与搜索引擎无关。</p>
+<p>6、Disallow: /?s=<em>和Disallow: /</em>/?s=*\</p>
+<p>禁止搜索引擎抓取站内搜索结果</p>
+<p>7、Disallow: /attachment/</p>
+<p>禁止搜索引擎抓取附件页面，比如毫无意义的图片附件页面。</p>
+<p>上面只是些基本的写法，当然还有很多，不过够用了。</p>
+<p>忘记写出处了。出处:知更鸟</p>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2020
+  <span class="author">
+    Garvey
+  </span>
+</footer>
+    </div>
+  </body>
+</html>
