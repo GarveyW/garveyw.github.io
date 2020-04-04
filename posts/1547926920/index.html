@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>yourls配置 Configuration (in user/config.php) | Garvey&#39;s note</title>
+    
+    
+        <meta name="keywords" content="blog">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="MySQL settings YOURLS_DB_USERyour MySQL usernameExample: define( &amp;#39;YOURLS_DB_USER&amp;#39;, &amp;#39;joe&amp;#39; ); YOURLS_DB_PASSyour MySQL passwordExample: define( &amp;#39;YOURLS_DB_PASS&amp;#39;, &amp;#39;MySeCreTP">
+<meta name="keywords" content="blog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="yourls配置 Configuration (in user&#x2F;config.php)">
+<meta property="og:url" content="https://garveyw.com/posts/1547926920/index.html">
+<meta property="og:site_name" content="Garvey&#39;s note">
+<meta property="og:description" content="MySQL settings YOURLS_DB_USERyour MySQL usernameExample: define( &amp;#39;YOURLS_DB_USER&amp;#39;, &amp;#39;joe&amp;#39; ); YOURLS_DB_PASSyour MySQL passwordExample: define( &amp;#39;YOURLS_DB_PASS&amp;#39;, &amp;#39;MySeCreTP">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-03-18T12:24:30.770Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="yourls配置 Configuration (in user&#x2F;config.php)">
+<meta name="twitter:description" content="MySQL settings YOURLS_DB_USERyour MySQL usernameExample: define( &amp;#39;YOURLS_DB_USER&amp;#39;, &amp;#39;joe&amp;#39; ); YOURLS_DB_PASSyour MySQL passwordExample: define( &amp;#39;YOURLS_DB_PASS&amp;#39;, &amp;#39;MySeCreTP">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Garvey&#39;s note" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Garvey&#39;s note</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id="categories">
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id="allExpand" href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Hexo
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/1548242436/">hexo自动部署到git、ftp（虚拟主机等）、云服务器的方式</a></li>  <li class="file"><a href="/posts/1546975657/">Hexo 入门指南 - sitemap、rss 和部署</a></li>  <li class="file"><a href="/posts/1546970491/">hexo-theme-Wikitten</a></li>  <li class="file"><a href="/posts/1546626092/">模板</a></li>  <li class="file"><a href="/posts/1547320935/">hexo 文章、草稿</a></li>  <li class="file"><a href="/posts/1546969579/">用 Hexo 搭建博客</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            分享
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            视频
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/1539786985/">Kedi（2017）又名《爱猫之城》，《伊斯坦布尔的猫》</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            音乐
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/1534044869/">Carmen 卡门选曲 分享</a></li>  <li class="file"><a href="/posts/1534094717/">Decca Ultimate / DECCA极致系列  34CD下载地址</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            教程
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/1539663321/">使用 OneDrive 提供的 5T 存储自建 OneIndex 网盘（附免费 Office 365 教育版注册方法）</a></li>  <li class="file"><a href="/posts/1536315942/">KindleEar 搭建教程：推送 RSS 订阅到 Kindle</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/posts/1534084585/">Welcome Garvey's Wiki Site</a></li>  <li class="file"><a href="/posts/1584535403/">中国音乐史</a></li>  <li class="file"><a href="/posts/1547044403/">Github+hexo绑定域名</a></li>  <li class="file"><a href="/posts/1566712665/">VIM编辑器使用教程</a></li>  <li class="file"><a href="/posts/1550049567/">centos file</a></li>  <li class="file"><a href="/posts/1554299574/">typecho伪静态设置</a></li>  <li class="file"><a href="/posts/1566406860/">自定义wordpress登录页</a></li>  <li class="file"><a href="/posts/1552534222/">wordpress二级导航设置</a></li>  <li class="file"><a href="/posts/1548762745/">完美更换WordPress网站的域名</a></li>  <li class="file"><a href="/posts/1547983242/">利用Robots.txt优化你的WordPress站点</a></li>  <li class="file active"><a href="/posts/1547926920/">yourls配置 Configuration (in user/config.php)</a></li>  <li class="file"><a href="/posts/1547927037/">yourls 安装</a></li>  <li class="file"><a href="/posts/1539359262/">YOURLS - 建立属于你自己的短网址生成系统</a></li>  <li class="file"><a href="/posts/打谱/luogujingjiaocheng/">锣鼓经输入法</a></li>  <li class="file"><a href="/posts/1554020316/">谱谱风使用技巧</a></li>  <li class="file"><a href="/posts/1566553478/">谱谱风笔记</a></li>  <li class="file"><a href="/posts/1566553391/">Sibelius笔记</a></li>  <li class="file"><a href="/posts/1548251707/">Bing美图API源码</a></li>  <li class="file"><a href="/posts/1550484670/">FileZilla读取目录列表失败的解决办法</a></li>  <li class="file"><a href="/posts/1547982931/">Hitoko一言 搭建</a></li>  <li class="file"><a href="/posts/1548273667/">简单制作图片/视频API</a></li>  <li class="file"><a href="/posts/1547320616/">一键KMS服务脚本，搭建你自己的激活服务器</a></li>  <li class="file"><a href="/posts/1551283516/">RSSHUB安装</a></li>  <li class="file"><a href="/posts/1546974818/">Tiny File Manager</a></li>  <li class="file"><a href="/posts/1548242240/">Typora入门（中文版）</a></li>  <li class="file"><a href="/posts/1550141216/">bookmarks程序安装</a></li>  <li class="file"><a href="/posts/1551536221/">docker安装bitwarden</a></li>  <li class="file"><a href="/posts/1551418682/">Linux通过docker安装运行酷Q</a></li>  <li class="file"><a href="/posts/1566804888/">Google自定义搜索</a></li>  <li class="file"><a href="/posts/1551258055/">HTML代码笔记</a></li>  <li class="file"><a href="/posts/1547366636/">merlin搭建局域网内免配置KMS自动激活环境</a></li>  <li class="file"><a href="/posts/1548513249/">免费接码平台</a></li>  <li class="file"><a href="/posts/1551349973/">npm更新</a></li>  <li class="file"><a href="/posts/1548329052/">php简单匿名聊天室</a></li>  <li class="file"><a href="/posts/1547887746/">Vmoex，一款仿V2EX的开源二次元论坛程序附安装教程</a></li>  <li class="file"><a href="/posts/1566403200/">输入密码才能浏览网页内容的JS代码</a></li>  <li class="file"><a href="/posts/1548329226/">永久/匿名分享文件的网站</a></li>  <li class="file"><a href="/posts/1547896406/">Apache环境下几种http强制跳转https设置方法</a></li>  <li class="file"><a href="/posts/1548596072/">apache 实现图片防盗链</a></li>  <li class="file"><a href="/posts/1566713042/">使用.Htaccess文件实现301重定向常用的七种方法</a></li>  <li class="file"><a href="/posts/1551336947/">wordpress的RSS优化技巧</a></li>  <li class="file"><a href="/posts/1550028650/">使用 bitwarden_rs 搭建自托管的密码服务器</a></li>  <li class="file"><a href="/posts/1548692861/">QQ群管家指令</a></li>  <li class="file"><a href="/posts/1548320833/">绑定域名到你空间的子目录</a></li>  <li class="file"><a href="/posts/1550029462/">CentOS安装docker</a></li>  <li class="file"><a href="/posts/1546970116/">wordpress to hexo</a></li>  <li class="file"><a href="/posts/1566628113/">wordpress修改代码</a></li>  <li class="file"><a href="/posts/1566989231/">艺术概论相关资料</a></li>  <li class="file"><a href="/posts/1548058356/">中公考试资料</a></li>  <li class="file"><a href="/posts/1568012792/">《天鹅》曲式分析报告</a></li>  <li class="file"><a href="/posts/1568012793/">英语单词</a></li>  <li class="file"><a href="/posts/1546969267/">Linux常用命令大全</a></li>  <li class="file"><a href="/posts/1548243221/">最全Hexo博客搭建+主题优化+插件配置+常用操作+错误分析</a></li>  <li class="file"><a href="/posts/1554351874/">typecho 邮件模板</a></li>  <li class="file"><a href="/posts/1566410520/">谱谱风技巧</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-1547926920" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/posts/1547926920/">
+            <time datetime="2019-01-19T19:42:00.000Z" itemprop="datePublished">2019-01-20</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            yourls配置 Configuration (in user/config.php)
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL-settings"><span class="toc-number">1.</span> <span class="toc-text">MySQL settings</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Site-options"><span class="toc-number">2.</span> <span class="toc-text">Site options</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#URL-Shortening-settings"><span class="toc-number">3.</span> <span class="toc-text">URL Shortening settings</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Optional-settings"><span class="toc-number">4.</span> <span class="toc-text">Optional settings</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Advanced-settings"><span class="toc-number">5.</span> <span class="toc-text">Advanced settings</span></a></li></ol>
+                </div>
+            
+        
+        
+            <blockquote>
+<ul>
+<li><h3 id="MySQL-settings"><a href="#MySQL-settings" class="headerlink" title="MySQL settings"></a>MySQL settings</h3><ul>
+<li><code>YOURLS_DB_USER</code><br>your MySQL username<br><em>Example:</em> <code>define( &#39;YOURLS_DB_USER&#39;, &#39;joe&#39; );</code></li>
+<li><code>YOURLS_DB_PASS</code><br>your MySQL password<br><em>Example:</em> <code>define( &#39;YOURLS_DB_PASS&#39;, &#39;MySeCreTPaSsW0rd&#39; );</code></li>
+<li><code>YOURLS_DB_NAME</code>: The database name<br><em>Example:</em> <code>define( &#39;YOURLS_DB_NAME&#39;, &#39;yourls&#39; );</code></li>
+<li><code>YOURLS_DB_HOST</code><br>The database host<br><em>Example:</em> <code>define( &#39;YOURLS_DB_HOST&#39;, &#39;localhost&#39; );</code></li>
+<li><code>YOURLS_DB_PREFIX</code><br>The name prefix for all the tables YOURLS will need<br><em>Example:</em> <code>define( &#39;YOURLS_DB_PREFIX&#39;, &#39;yourls_&#39; );</code></li>
+</ul>
+<h3 id="Site-options"><a href="#Site-options" class="headerlink" title="Site options"></a>Site options</h3><ul>
+<li><code>YOURLS_SITE</code><br>Your (hopefully short) domain URL, no trailing slash, lowercase. If you pick the non-www version of your domain, don’t use the www version in your browser (and vice-versa)<br><em>Example:</em> <code>define( &#39;YOURLS_SITE&#39;, &#39;http://ozh.in&#39; );</code></li>
+<li><code>YOURLS_HOURS_OFFSET</code><br>Timezone GMT offset<br><em>Example:</em> <code>define( &#39;YOURLS_HOURS_OFFSET&#39;, &#39;-5&#39; );</code></li>
+<li><code>YOURLS_PRIVATE</code><br>Private means the admin area will be protected with login/pass as defined below. See <a href="https://yourls.org/privatepublic" rel="external nofollow noopener noreferrer" target="_blank">Private or Public</a> for more.<br><em>Example:</em> <code>define( &#39;YOURLS_PRIVATE&#39;, &#39;true&#39; );</code></li>
+<li><code>YOURLS_UNIQUE_URLS</code><br>Allow multiple short URLs for a same long URL<br>Set to <code>true</code> to allow only one pair of shortURL/longURL (default YOURLS behavior), or to <code>false</code> to allow creation of multiple short URLs pointing to the same long URL (as bit.ly does)<br><em>Example:</em> <code>define( &#39;YOURLS_UNIQUE_URLS&#39;, &#39;true&#39; );</code></li>
+<li><code>YOURLS_COOKIEKEY</code><br>A random secret hash used to encrypt cookies. You don’t have to remember it, make it long and complicated. Hint: generate a unique one at <a href="https://yourls.org/cookie" rel="external nofollow noopener noreferrer" target="_blank">https://yourls.org/cookie</a><br><em>Example:</em> <code>define( &#39;YOURLS_COOKIEKEY&#39;, &#39;qQ4KhL_pu|s@Zm7n#%:b^{A[vhm&#39; );</code></li>
+<li><code>yourls_user_passwords</code><br>A list of username(s) and password(s) allowed to access the site if private<br>Passwords can either be in plain text, or encrypted: see <a href="https://yourls.org/userpassword" rel="external nofollow noopener noreferrer" target="_blank">https://yourls.org/userpassword</a> for more information.<br><em>Example:</em> <code>&#39;joe&#39; =&gt; &#39;mypassword&#39;</code></li>
+</ul>
+<h3 id="URL-Shortening-settings"><a href="#URL-Shortening-settings" class="headerlink" title="URL Shortening settings"></a>URL Shortening settings</h3><ul>
+<li><code>YOURLS_URL_CONVERT</code><br>URL shortening method: base <code>36</code> or <code>62</code>. See <a href="https://yourls.org/#FAQ" rel="external nofollow noopener noreferrer" target="_blank">FAQ</a> for more explanations</li>
+<li><code>yourls_reserved_URL</code><br>A list of reserved keywords that won’t be used as short URLs. Define here negative, unwanted or potentially misleading keywords<br><em>Example:</em> <code>&#39;porn&#39;, &#39;faggot&#39;, &#39;sex&#39;, &#39;nigger&#39;, &#39;fuck&#39;, &#39;cunt&#39;, &#39;dick&#39;</code></li>
+</ul>
+<h3 id="Optional-settings"><a href="#Optional-settings" class="headerlink" title="Optional settings"></a>Optional settings</h3><ul>
+<li><code>YOURLS_PRIVATE_INFOS</code><br>If <code>YOURLS_PRIVATE</code> is set to <code>true</code>, you can still make stat pages public. To do so, define with:<br><code>define(&#39;YOURLS_PRIVATE_INFOS&#39;, false);</code></li>
+<li><code>YOURLS_PRIVATE_API</code><br>If <code>YOURLS_PRIVATE</code> is set to <code>true</code>, you can still make your API public. To do so, define with:<br><code>define(&#39;YOURLS_PRIVATE_API&#39;, false);</code></li>
+<li><code>YOURLS_NOSTATS</code><br>If <code>YOURLS_NOSTATS</code> is set to <code>true</code>, redirects won’t be logged and there will be not stats available.</li>
+</ul>
+<h3 id="Advanced-settings"><a href="#Advanced-settings" class="headerlink" title="Advanced settings"></a>Advanced settings</h3><ul>
+<li>YOURLS will look for the MySQL extension PDO, MySQLi or MySQL, in that order. If you want to force usage of one particular extension, add the following line to your <code>config.php</code>:<br><code>define( &#39;YOURLS_DB_DRIVER&#39;, &#39;mysqli&#39; );</code></li>
+<li>You can install YOURLS behind a firewall or a proxy: see <a href="https://yourls.org/proxy" rel="external nofollow noopener noreferrer" target="_blank">Proxy Support</a></li>
+<li>File <code>includes/load-yourls.php</code> contains a few more undocumented but self explanatory and commented settings. Add them to your own <code>config.php</code> if you know what you’re doing.</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>原地址：<a href="https://yourls.org/#Config" rel="external nofollow noopener noreferrer" target="_blank">https://yourls.org/#Config</a></p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/posts/1547927037/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    yourls 安装
+                
+            </div>
+        </a>
+    
+    
+        <a href="/posts/1547896406/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Apache环境下几种http强制跳转https设置方法</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Garvey &copy; 2020 
+            <a rel="external nofollow noopener noreferrer" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten" rel="external nofollow noopener noreferrer" target="_blank">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>

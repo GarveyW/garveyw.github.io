@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>简单制作图片/视频API | Garvey&#39;s note</title>
+    
+    
+        <meta name="keywords" content="blog">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="本篇文章主要讲的是简单制作图片/视频API的一个方法，做属于自己的API（大神绕道）适合新手，适合懒人， 外链版图片API首先需要外链图片（一行一个链接）缺点就是有时候图片会重复 演示：https://api.ly522.com/  制作方法 新建一个PHP文件（名字自己取）在创建一个images.txt文档文件，把外链图片地址放进去 上传服务器空间 然后访问域名/PHP文件名就可以啦 代码放在压">
+<meta name="keywords" content="blog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="简单制作图片&#x2F;视频API">
+<meta property="og:url" content="https://garveyw.com/posts/1548273667/index.html">
+<meta property="og:site_name" content="Garvey&#39;s note">
+<meta property="og:description" content="本篇文章主要讲的是简单制作图片/视频API的一个方法，做属于自己的API（大神绕道）适合新手，适合懒人， 外链版图片API首先需要外链图片（一行一个链接）缺点就是有时候图片会重复 演示：https://api.ly522.com/  制作方法 新建一个PHP文件（名字自己取）在创建一个images.txt文档文件，把外链图片地址放进去 上传服务器空间 然后访问域名/PHP文件名就可以啦 代码放在压">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://www.ly522.com/wp-content/uploads/2018/06/%E5%A4%96%E9%93%BE%E5%9B%BE%E7%89%87API.png">
+<meta property="og:image" content="data:image/png;base64,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">
+<meta property="og:updated_time" content="2020-03-18T12:24:30.771Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="简单制作图片&#x2F;视频API">
+<meta name="twitter:description" content="本篇文章主要讲的是简单制作图片/视频API的一个方法，做属于自己的API（大神绕道）适合新手，适合懒人， 外链版图片API首先需要外链图片（一行一个链接）缺点就是有时候图片会重复 演示：https://api.ly522.com/  制作方法 新建一个PHP文件（名字自己取）在创建一个images.txt文档文件，把外链图片地址放进去 上传服务器空间 然后访问域名/PHP文件名就可以啦 代码放在压">
+<meta name="twitter:image" content="https://www.ly522.com/wp-content/uploads/2018/06/%E5%A4%96%E9%93%BE%E5%9B%BE%E7%89%87API.png">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Garvey&#39;s note" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Garvey&#39;s note</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id="categories">
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id="allExpand" href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Hexo
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/1548242436/">hexo自动部署到git、ftp（虚拟主机等）、云服务器的方式</a></li>  <li class="file"><a href="/posts/1546975657/">Hexo 入门指南 - sitemap、rss 和部署</a></li>  <li class="file"><a href="/posts/1546970491/">hexo-theme-Wikitten</a></li>  <li class="file"><a href="/posts/1546626092/">模板</a></li>  <li class="file"><a href="/posts/1547320935/">hexo 文章、草稿</a></li>  <li class="file"><a href="/posts/1546969579/">用 Hexo 搭建博客</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            分享
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            视频
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/1539786985/">Kedi（2017）又名《爱猫之城》，《伊斯坦布尔的猫》</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            音乐
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/1534044869/">Carmen 卡门选曲 分享</a></li>  <li class="file"><a href="/posts/1534094717/">Decca Ultimate / DECCA极致系列  34CD下载地址</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            教程
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/posts/1539663321/">使用 OneDrive 提供的 5T 存储自建 OneIndex 网盘（附免费 Office 365 教育版注册方法）</a></li>  <li class="file"><a href="/posts/1536315942/">KindleEar 搭建教程：推送 RSS 订阅到 Kindle</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/posts/1534084585/">Welcome Garvey's Wiki Site</a></li>  <li class="file"><a href="/posts/1584535403/">中国音乐史</a></li>  <li class="file"><a href="/posts/1547044403/">Github+hexo绑定域名</a></li>  <li class="file"><a href="/posts/1566712665/">VIM编辑器使用教程</a></li>  <li class="file"><a href="/posts/1550049567/">centos file</a></li>  <li class="file"><a href="/posts/1554299574/">typecho伪静态设置</a></li>  <li class="file"><a href="/posts/1566406860/">自定义wordpress登录页</a></li>  <li class="file"><a href="/posts/1552534222/">wordpress二级导航设置</a></li>  <li class="file"><a href="/posts/1548762745/">完美更换WordPress网站的域名</a></li>  <li class="file"><a href="/posts/1547983242/">利用Robots.txt优化你的WordPress站点</a></li>  <li class="file"><a href="/posts/1547926920/">yourls配置 Configuration (in user/config.php)</a></li>  <li class="file"><a href="/posts/1547927037/">yourls 安装</a></li>  <li class="file"><a href="/posts/1539359262/">YOURLS - 建立属于你自己的短网址生成系统</a></li>  <li class="file"><a href="/posts/打谱/luogujingjiaocheng/">锣鼓经输入法</a></li>  <li class="file"><a href="/posts/1554020316/">谱谱风使用技巧</a></li>  <li class="file"><a href="/posts/1566553478/">谱谱风笔记</a></li>  <li class="file"><a href="/posts/1566553391/">Sibelius笔记</a></li>  <li class="file"><a href="/posts/1548251707/">Bing美图API源码</a></li>  <li class="file"><a href="/posts/1550484670/">FileZilla读取目录列表失败的解决办法</a></li>  <li class="file"><a href="/posts/1547982931/">Hitoko一言 搭建</a></li>  <li class="file active"><a href="/posts/1548273667/">简单制作图片/视频API</a></li>  <li class="file"><a href="/posts/1547320616/">一键KMS服务脚本，搭建你自己的激活服务器</a></li>  <li class="file"><a href="/posts/1551283516/">RSSHUB安装</a></li>  <li class="file"><a href="/posts/1546974818/">Tiny File Manager</a></li>  <li class="file"><a href="/posts/1548242240/">Typora入门（中文版）</a></li>  <li class="file"><a href="/posts/1550141216/">bookmarks程序安装</a></li>  <li class="file"><a href="/posts/1551536221/">docker安装bitwarden</a></li>  <li class="file"><a href="/posts/1551418682/">Linux通过docker安装运行酷Q</a></li>  <li class="file"><a href="/posts/1566804888/">Google自定义搜索</a></li>  <li class="file"><a href="/posts/1551258055/">HTML代码笔记</a></li>  <li class="file"><a href="/posts/1547366636/">merlin搭建局域网内免配置KMS自动激活环境</a></li>  <li class="file"><a href="/posts/1548513249/">免费接码平台</a></li>  <li class="file"><a href="/posts/1551349973/">npm更新</a></li>  <li class="file"><a href="/posts/1548329052/">php简单匿名聊天室</a></li>  <li class="file"><a href="/posts/1547887746/">Vmoex，一款仿V2EX的开源二次元论坛程序附安装教程</a></li>  <li class="file"><a href="/posts/1566403200/">输入密码才能浏览网页内容的JS代码</a></li>  <li class="file"><a href="/posts/1548329226/">永久/匿名分享文件的网站</a></li>  <li class="file"><a href="/posts/1547896406/">Apache环境下几种http强制跳转https设置方法</a></li>  <li class="file"><a href="/posts/1548596072/">apache 实现图片防盗链</a></li>  <li class="file"><a href="/posts/1566713042/">使用.Htaccess文件实现301重定向常用的七种方法</a></li>  <li class="file"><a href="/posts/1551336947/">wordpress的RSS优化技巧</a></li>  <li class="file"><a href="/posts/1550028650/">使用 bitwarden_rs 搭建自托管的密码服务器</a></li>  <li class="file"><a href="/posts/1548692861/">QQ群管家指令</a></li>  <li class="file"><a href="/posts/1548320833/">绑定域名到你空间的子目录</a></li>  <li class="file"><a href="/posts/1550029462/">CentOS安装docker</a></li>  <li class="file"><a href="/posts/1546970116/">wordpress to hexo</a></li>  <li class="file"><a href="/posts/1566628113/">wordpress修改代码</a></li>  <li class="file"><a href="/posts/1566989231/">艺术概论相关资料</a></li>  <li class="file"><a href="/posts/1548058356/">中公考试资料</a></li>  <li class="file"><a href="/posts/1568012792/">《天鹅》曲式分析报告</a></li>  <li class="file"><a href="/posts/1568012793/">英语单词</a></li>  <li class="file"><a href="/posts/1546969267/">Linux常用命令大全</a></li>  <li class="file"><a href="/posts/1548243221/">最全Hexo博客搭建+主题优化+插件配置+常用操作+错误分析</a></li>  <li class="file"><a href="/posts/1554351874/">typecho 邮件模板</a></li>  <li class="file"><a href="/posts/1566410520/">谱谱风技巧</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-1548273667" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/posts/1548273667/">
+            <time datetime="2019-01-23T20:01:07.000Z" itemprop="datePublished">2019-01-24</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            简单制作图片/视频API
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#外链版图片API"><span class="toc-number">1.</span> <span class="toc-text">外链版图片API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#本地化图片api"><span class="toc-number">2.</span> <span class="toc-text">本地化图片api</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#本地化视频api"><span class="toc-number">3.</span> <span class="toc-text">本地化视频api</span></a></li></ol>
+                </div>
+            
+        
+        
+            <p>本篇文章主要讲的是简单制作图片/视频API的一个方法，做属于自己的API（<del>大神绕道</del>）<br>适合新手，适合懒人，</p>
+<h2 id="外链版图片API"><a href="#外链版图片API" class="headerlink" title="外链版图片API"></a>外链版图片API</h2><p>首先需要外链图片（一行一个链接）<del>缺点就是有时候图片会重复</del></p>
+<p>演示：<a href="https://api.ly522.com/" rel="external nofollow noopener noreferrer" target="_blank">https://api.ly522.com/</a></p>
+<p><img src="https://www.ly522.com/wp-content/uploads/2018/06/%E5%A4%96%E9%93%BE%E5%9B%BE%E7%89%87API.png" alt="简单制作视频/图片API做属于自己的API（本地/外链API）"></p>
+<p>制作方法</p>
+<p>新建一个PHP文件（名字自己取）在创建一个images.txt文档文件，把外链图片地址放进去</p>
+<p>上传服务器空间 然后访问域名/PHP文件名就可以啦</p>
+<p>代码放在压缩文件了，下方有下载<del>（我把代码高亮给搞异常了所以就是这样）</del></p>
+<h2 id="本地化图片api"><a href="#本地化图片api" class="headerlink" title="本地化图片api"></a>本地化图片api</h2><p>制作方法</p>
+<p>新建一个PHP文件（名字自己取）在创建一个img文件夹，把图片放进去</p>
+<p>上传服务器空间 然后访问域名/PHP文件名就可以啦</p>
+<p>代码放在压缩文件了，下方有下载<del>（我把代码高亮给搞异常了所以就是这样）</del></p>
+<p>演示站：<a href="https://api.ly522.com/" rel="external nofollow noopener noreferrer" target="_blank">https://api.ly522.com/</a></p>
+<h2 id="本地化视频api"><a href="#本地化视频api" class="headerlink" title="本地化视频api"></a>本地化视频api</h2><p>制作方法</p>
+<p>新建一个PHP文件（名字自己取）在创建一个video文件夹，把视频放进去</p>
+<p>上传服务器空间 然后访问域名/PHP文件名就可以啦</p>
+<p>代码放在压缩文件了，下方有下载<del>（我把代码高亮给搞异常了所以就是这样）</del></p>
+<p>演示站：<a href="https://api.ly522.com/" rel="external nofollow noopener noreferrer" target="_blank">https://api.ly522.com/</a></p>
+<p><strong>注：演示站，随时失效，代码可用哈</strong></p>
+<p>下载地址</p>
+<p>百度云链接: <a href="https://pan.baidu.com/s/1ZO1iyXofIZKti4hbaPcMsw" rel="external nofollow noopener noreferrer" target="_blank"><img src="data:image/png;base64,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" alt="YPSuperKey Unlocked"><a href="https://pan.baidu.com/s/1ZO1iyXofIZKti4hbaPcMsw" rel="external nofollow noopener noreferrer" target="_blank">https://pan.baidu.com/s/1ZO1iyXofIZKti4hbaPcMsw</a></a> 密码: 357f</p>
+<p>原地址：<a href="https://www.ly522.com/797.html#comments" rel="external nofollow noopener noreferrer" target="_blank">https://www.ly522.com/797.html#comments</a></p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/posts/1548320833/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    绑定域名到你空间的子目录
+                
+            </div>
+        </a>
+    
+    
+        <a href="/posts/1548251707/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Bing美图API源码</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Garvey &copy; 2020 
+            <a rel="external nofollow noopener noreferrer" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten" rel="external nofollow noopener noreferrer" target="_blank">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
